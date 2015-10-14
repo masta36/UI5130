@@ -1,0 +1,55 @@
+<mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
+		<content>
+			<ObjectHeader id="objectHeader" number="{ path: 'Freight', formatter: '.formatter.currencyValue' }" title="{OrderID}"></ObjectHeader>
+			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
+				<items>
+					<IconTabFilter icon="sap-icon://hint" id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}"></IconTabFilter>
+					<IconTabFilter icon="sap-icon://attachment" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
+				</items>
+			</IconTabBar>
+			<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{Order_Details}"
+				noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
+				<headerToolbar>
+					<Toolbar id="lineItemsToolbar">
+						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+					</Column>
+					<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier text="{OrderID}" title="{OrderID}"/>
+							<ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar id="footerToolbar">
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://action" id="shareButton" press="onSharePress" tooltip="{i18n>shareTooltip}">
+					<dependents>
+						<ActionSheet id="shareSheet" placement="Top" showCancelButton="true">
+							<buttons>
+								<Button icon="sap-icon://email" id="shareEmail" press="onShareEmailPress" text="{i18n>shareSendEmail}"/>
+								<Button icon="sap-icon://jam" id="shareInJam" press="onShareInJamPress" text="{i18n>shareOnJamTitle}" visible="{FLP>/isShareInJamActive}"/>
+								<footerbar:AddBookmarkButton appData="{ path: 'detailView>/saveAsTileTitle', formatter: '.formatter.shareTileData' }" id="shareTile"/>
+							</buttons>
+						</ActionSheet>
+					</dependents>
+				</Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

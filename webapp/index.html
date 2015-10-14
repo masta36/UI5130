@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <title>Walkthrough</title>
+    <script
+            id="sap-ui-bootstrap"
+            src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-preload="async"
+            data-sap-ui-resourceroots='{
+            "com.pr36.app": "./"
+         }' >
+    </script>
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            sap.ui.require([
+                "com/pr36/app/localService/mockserver"
+            ], function (mockserver) {
+                // set up test service for local testing
+                mockserver.init();
+            });
+
+            new sap.ui.core.ComponentContainer({
+                name : "com.pr36.app"
+            }).placeAt("content");
+
+        });
+    </script>
+</head>
+<body class="sapUiBody" id="content">
+</body>
+</html>
