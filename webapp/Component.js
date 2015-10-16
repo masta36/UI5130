@@ -19,7 +19,7 @@ sap.ui.define([
             },
             "config": {
                 "i18nBundle": "com.pr36.app.i18n.i18n",
-                "serviceUrl": "http://services.odata.org/V4/Northwind/Northwind.svc/",
+                "serviceUrl": "http://services.odata.org/Northwind/Northwind.svc",
                 "icon": "",
                 "favIcon": "",
                 "phone": "",
@@ -44,7 +44,7 @@ sap.ui.define([
                     "name": "master",
                     "target": ["object", "master"]
                 }, {
-                    "pattern": "Orders/{objectId}",
+                    "pattern": "Products/{objectId}",
                     "name": "object",
                     "target": ["master", "object"]
                 }],

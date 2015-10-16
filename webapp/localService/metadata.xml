@@ -61,7 +61,7 @@
                             <PropertyRef Name="OrderID"/>
                             <PropertyRef Name="ProductID"/>
                         </Key>
-                        <Property Name="OrderID" Nullable="false" Type="Edm.String"/>
+                        <Property Name="OrderID" Nullable="false" Type="Edm.Int32"/>
                         <Property Name="ProductID" Nullable="false" Type="Edm.String"/>
                         <Property Name="UnitPrice" Nullable="false" Type="Edm.Decimal"/>
                         <Property Name="Quantity" Nullable="false" Type="Edm.Int32"/>
@@ -73,7 +73,7 @@
                         <Key>
                             <PropertyRef Name="OrderID"/>
                         </Key>
-                        <Property Name="OrderID" Nullable="false" Type="Edm.String"/>
+                        <Property Name="OrderID" Nullable="false" Type="Edm.Int32"/>
                         <Property MaxLength="40" Name="ShipName" Type="Edm.String"/>
                         <Property MaxLength="60" Name="ShipAddress" Type="Edm.String"/>
                         <Property MaxLength="15" Name="ShipCity" Type="Edm.String"/>

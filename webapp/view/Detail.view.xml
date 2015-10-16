@@ -3,7 +3,7 @@
 	<Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
 		showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
 		<content>
-			<ObjectHeader id="objectHeader" number="{ path: 'Freight', formatter: '.formatter.currencyValue' }" title="{OrderID}"></ObjectHeader>
+			<ObjectHeader id="objectHeader" number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }" title="{ProductName}"></ObjectHeader>
 			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
 				<items>
 					<IconTabFilter icon="sap-icon://hint" id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}"></IconTabFilter>

@@ -17,12 +17,6 @@
     </script>
     <script>
         sap.ui.getCore().attachInit(function () {
-            sap.ui.require([
-                "com/pr36/app/localService/mockserver"
-            ], function (mockserver) {
-                // set up test service for local testing
-                mockserver.init();
-            });
 
             new sap.ui.core.ComponentContainer({
                 name : "com.pr36.app"

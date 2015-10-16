@@ -12,7 +12,7 @@
 			<PullToRefresh id="pullToRefresh" refresh="onRefresh" visible="{device>/support/touch}"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
 			<List busyIndicatorDelay="{masterView>/delay}" growing="true" growingScrollToLoad="true" growingThreshold="10" id="list"
-				items="{ path: '/Orders', sorter: { path: 'OrderID', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+				items="{ path: '/Products', sorter: { path: 'ProductName', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
 				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" noDataText="{masterView>/noDataText}" selectionChange="onSelectionChange"
 				updateFinished="onUpdateFinished">
 				<infoToolbar>
@@ -21,7 +21,7 @@
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem number="{ path: 'Freight', formatter: '.formatter.currencyValue' }" press="onSelectionChange" title="{OrderID}"
+					<ObjectListItem number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }" press="onSelectionChange" title="{ProductName}"
 						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"></ObjectListItem>
 				</items>
 			</List>
@@ -30,15 +30,15 @@
 			<OverflowToolbar id="footerbar">
 				<ToolbarSpacer/>
 				<Select autoAdjustWidth="true" change="onSort" icon="sap-icon://sort" id="sort-select" selectedKey="{masterView>/sortBy}" type="IconOnly">
-					<core:Item id="masterSort1" key="OrderID" text="{i18n>masterSort1}"/>
-					<core:Item id="masterSort2" key="Freight" text="{i18n>masterSort2}"/>
+					<core:Item id="masterSort1" key="ProductName" text="{i18n>masterSort1}"/>
+					<core:Item id="masterSort2" key="UnitPrice" text="{i18n>masterSort2}"/>
 				</Select>
 				<OverflowToolbarButton icon="sap-icon://filter" id="filter-button" press="onOpenViewSettings"
 					text="{i18n>MasterListFilterButtonOverflowText}"/>
 				<Select autoAdjustWidth="true" change="onGroup" icon="sap-icon://group-2" id="group-select" selectedKey="{masterView>/groupBy}"
 					type="IconOnly">
 					<core:Item id="masterGroupNone" key="None" text="{i18n>masterGroupNone}"/>
-					<core:Item id="masterGroup1" key="Freight" text="{i18n>masterGroup1}"/>
+					<core:Item id="masterGroup1" key="UnitPrice" text="{i18n>masterGroup1}"/>
 				</Select>
 			</OverflowToolbar>
 		</footer>

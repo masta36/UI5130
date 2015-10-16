@@ -33,7 +33,7 @@ sap.ui.define([
 					delay: 0,
 					title: this.getResourceBundle().getText("masterTitleCount", [0]),
 					noDataText: this.getResourceBundle().getText("masterListNoDataText"),
-					sortBy: "OrderID",
+					sortBy: "ProductName",
 					groupBy: "None"
 				}),
 				// Put down master list's original value for busy indicator delay,
@@ -106,7 +106,7 @@ sap.ui.define([
 			var sQuery = oEvent.getParameter("query");
 
 			if (sQuery) {
-				this._oListFilterState.aSearch = [new Filter("OrderID", FilterOperator.Contains, sQuery)];
+				this._oListFilterState.aSearch = [new Filter("ProductName", FilterOperator.Contains, sQuery)];
 			} else {
 				this._oListFilterState.aSearch = [];
 			}
@@ -151,12 +151,12 @@ sap.ui.define([
 			var sKey = oEvent.getSource().getSelectedItem().getKey();
 			var aSorters = [];
 
-			if (sKey === "Freight") {
+			if (sKey === "UnitPrice") {
 				// Grouping means sorting so we set the select to the same Entity used for grouping
-				this.getModel("masterView").setProperty("/sortBy", "Freight");
+				this.getModel("masterView").setProperty("/sortBy", "UnitPrice");
 
 				aSorters.push(
-					new Sorter("Freight", false,
+					new Sorter("UnitPrice", false,
 						grouper[sKey].bind(oEvent.getSource()))
 				);
 			}
@@ -290,7 +290,7 @@ sap.ui.define([
 					if (mParams.list.getMode() === "None") {
 						return;
 					}
-					var sObjectId = mParams.firstListitem.getBindingContext().getProperty("OrderID");
+					var sObjectId = mParams.firstListitem.getBindingContext().getProperty("ProductID");
 					this.getRouter().navTo("object", {
 						objectId: sObjectId
 					}, true);
@@ -313,7 +313,7 @@ sap.ui.define([
 		_showDetail: function(oItem) {
 			var bReplace = !Device.system.phone;
 			this.getRouter().navTo("object", {
-				objectId: oItem.getBindingContext().getProperty("OrderID")
+				objectId: oItem.getBindingContext().getProperty("ProductID")
 			}, bReplace);
 		},
 
