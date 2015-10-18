@@ -20,11 +20,14 @@ sap.ui.define([
 			this._bMessageOpen = false;
 			this._sErrorText = this._oResourceBundle.getText("errorText");
 			this._sErrorTitle = this._oResourceBundle.getText("errorTitle");
+			/*
+			PP: Auskommentiert, da nicht mit JSON-Model verwendbar
 			this._oModel.attachMetadataFailed(function(oEvent) {
 				var oParams = oEvent.getParameters();
 
 				this._showMetadataError(oParams.response);
 			}, this);
+			*/
 
 			this._oModel.attachRequestFailed(function(oEvent) {
 				var oParams = oEvent.getParameters();

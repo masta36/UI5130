@@ -117,6 +117,13 @@ sap.ui.define([
 			return oModel;*/
 		},
 
+		createJSONModel: function(){
+			var oModel = new sap.ui.model.json.JSONModel();
+			// Load JSON in model
+			oModel.loadData("model/products.json");
+			return oModel;
+		},
+
 		createResourceModel: function(sBundleName) {
 			var oResourceModel = new ResourceModel({
 				"bundleName": sBundleName

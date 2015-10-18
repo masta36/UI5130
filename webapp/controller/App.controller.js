@@ -26,6 +26,10 @@ sap.ui.define([
             this.getOwnerComponent().oWhenMetadataIsLoaded.
                 then(fnSetAppNotBusy, fnSetAppNotBusy);
 
+            //PP: fix Busy indicator for JSON-molde / TODO: find a good way for JSON as well ;)
+            oViewModel.setProperty("/busy", false);
+            oViewModel.setProperty("/delay", iOriginalBusyDelay);
+
             // Makes sure that master view is hidden in split app
             // after a new list entry has been selected.
             oListSelector.attachListSelectionChange(function() {

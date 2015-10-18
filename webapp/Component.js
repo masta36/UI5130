@@ -93,6 +93,8 @@ sap.ui.define([
             // set the FLP model
             this.setModel(models.createFLPModel(), "FLP");
 
+            // REPLACE dafault OData-model by local JSON-model:
+            /*
             // create and set the ODataModel
             var oModel = models.createODataModel({
                 urlParametersForEveryRequest: [
@@ -107,6 +109,9 @@ sap.ui.define([
                     }
                 }
             });
+            */
+
+            var oModel = models.createJSONModel();
 
             this.setModel(oModel);
             this._createMetadataPromise(oModel);

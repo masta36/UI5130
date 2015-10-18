@@ -1,0 +1,21 @@
+{
+    "Products": [
+        {
+            "ProductID": "1",
+            "ProductName": "SAP HANA",
+            "UnitPrice": 300
+        },
+        {
+            "ProductID": "2",
+            "ProductName": "projektraum36 PIC",
+            "UnitPrice": 9999
+        }
+    ],
+    "Orders": [
+        {
+            "OrderID": "1",
+            "ProductName": "SAP HANA",
+            "UnitPrice": 300
+        }
+        ]
+}
