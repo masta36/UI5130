@@ -3,19 +3,58 @@
         {
             "ProductID": "1",
             "ProductName": "SAP HANA",
-            "UnitPrice": 300
+            "UnitPrice": 300,
+            "prod_desc": "Ich bin eine Beschreibung",
+            "Product_Details": [
+                {
+                    "ProductName": "TableName",
+                    "UnitPrice": 1234
+                }
+            ]
         },
         {
             "ProductID": "2",
             "ProductName": "projektraum36 PIC",
-            "UnitPrice": 9999
+            "UnitPrice": 9999,
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_image": "images/a5.jpg",
+            "prod_image2": "images/a5.jpg",
+            "prod_image3": "images/a5.jpg",
+            "prod_image4": "images/a5.jpg",
+            "Product_Details": [
+                {
+                    "ProductName": "Pr36 Option1",
+                    "UnitPrice": 5678
+                },
+                {
+                    "ProductName": "Pr36 Option2",
+                    "UnitPrice": 6666
+                },
+                {
+                    "ProductName": "Pr36 Option3",
+                    "UnitPrice": 53378
+                }
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                },
+                {
+                    "DocName": "Flyer",
+                    "Version": "1.2",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                },
+                {
+                    "DocName": "Supplement-Sheet",
+                    "Version": "0.2",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                }
+            ]
         }
-    ],
-    "Orders": [
-        {
-            "OrderID": "1",
-            "ProductName": "SAP HANA",
-            "UnitPrice": 300
-        }
-        ]
+    ]
 }

@@ -1,39 +1,100 @@
 <mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m">
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:cl="sap.ui.commons.layout" xmlns:c="sap.ui.commons" xmlns:ui="sap.ui.richtexteditor">
 	<Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
 		showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
 		<content>
-			<ObjectHeader id="objectHeader" number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }" title="{ProductName}"></ObjectHeader>
+			<ObjectHeader id="objectHeader" title="{ProductName}">
+			</ObjectHeader>
+			<l:Grid
+					class="sapUiSmallMarginTop"
+					hSpacing="2"
+					defaultSpan="L6 M6 S10">
+				<l:content>
+					<cl:MatrixLayout>
+						<cl:MatrixLayoutRow>
+							<cl:MatrixLayoutCell>
+								<c:FormattedTextView htmlText="{prod_desc}"></c:FormattedTextView>
+							</cl:MatrixLayoutCell>
+							<cl:MatrixLayoutCell>
+								<core:Icon src="sap-icon://document-text" size="20px"></core:Icon>
+							</cl:MatrixLayoutCell>
+						</cl:MatrixLayoutRow>
+					</cl:MatrixLayout>
+					<Carousel>
+						<Image src="{prod_image}" />
+						<Image src="{prod_image2}" />
+						<Image src="{prod_image3}" />
+						<Image src="{prod_image4}" />
+					</Carousel>
+				</l:content>
+			</l:Grid>
 			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
 				<items>
-					<IconTabFilter icon="sap-icon://hint" id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}"></IconTabFilter>
-					<IconTabFilter icon="sap-icon://attachment" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
+					<IconTabFilter icon="sap-icon://folder" id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}">
+						<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{Product_Details}"
+							   noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
+							<headerToolbar>
+								<Toolbar id="lineItemsToolbar">
+									<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>detailLineItemTableIDColumn}"/>
+								</Column>
+								<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+									<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier text="{ProductName}" title="{ProductName}"/>
+										<ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://documents" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}">
+
+						<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
+							   noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto">
+							<headerToolbar>
+								<Toolbar id="lineItemsToolbar2">
+									<Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
+								</Column>
+								<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+									<Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier text="{DocName}" title="{DocName}"/>
+										<ObjectIdentifier text="{Version}" title="{Version}"/>
+										<ObjectIdentifier text="{Owner}" title="{Owner}"/>
+										<ObjectNumber number="{ path: 'size', formatter: '.formatter.currencyValue' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+
+					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{Order_Details}"
-				noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
-				<headerToolbar>
-					<Toolbar id="lineItemsToolbar">
-						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
-					</Toolbar>
-				</headerToolbar>
-				<columns>
-					<Column>
-						<Text text="{i18n>detailLineItemTableIDColumn}"/>
-					</Column>
-					<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
-						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem>
-						<cells>
-							<ObjectIdentifier text="{OrderID}" title="{OrderID}"/>
-							<ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
+
 		</content>
 		<footer>
 			<OverflowToolbar id="footerToolbar">

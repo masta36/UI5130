@@ -21,7 +21,8 @@ sap.ui.define([
 			var oViewModel = new JSONModel({
 				busy: false,
 				delay: 0,
-				lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading")
+				lineItemListTitle: this.getResourceBundle().getText("detailLineItemTableHeading"),
+				documentItemTitle: this.getResourceBundle().getText("detailLineItemTableHeadingDocuments")
 			});
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
@@ -99,7 +100,40 @@ sap.ui.define([
 				}
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
+
+			if (this.byId("lineItemsList2").getBinding("items").isLengthFinal()) {
+				if (iTotalItems) {
+					sTitle = this.getResourceBundle().getText("detailLineItemTableHeadingCountDocuments", [iTotalItems]);
+				} else {
+					//Display 'Line Items' instead of 'Line items (0)'
+					sTitle = this.getResourceBundle().getText("detailLineItemTableHeadingDocuments");
+				}
+				oViewModel.setProperty("/DocumentItemTitle", sTitle);
+			}
 		},
+
+		/**
+		 * Updates the item count within the line item table's header
+		 * @param {object} oEvent an event containing the total number of items in the list
+		 * @private
+		 */
+		onListUpdateFinishedDocuments: function(oEvent) {
+			var sTitle,
+				iTotalItems = oEvent.getParameter("total"),
+				oViewModel = this.getModel("detailView");
+			alert(iTotalItems);
+			// only update the counter if the length is final
+			if (this.byId("lineItemsList2").getBinding("items").isLengthFinal()) {
+				if (iTotalItems) {
+					sTitle = this.getResourceBundle().getText("detailLineItemTableHeadingCountDocuments", [iTotalItems]);
+				} else {
+					//Display 'Line Items' instead of 'Line items (0)'
+					sTitle = this.getResourceBundle().getText("detailLineItemTableHeadingDocuments");
+				}
+				oViewModel.setProperty("/DocumentItemTitle", sTitle);
+			}
+		},
+
 
 		/* =========================================================== */
 		/* begin: internal methods                                     */
@@ -112,7 +146,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
-			var sObjectPath = "/Orders('" + oEvent.getParameter("arguments").objectId + "')";
+			var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
 			this._bindView(sObjectPath);
 		},
 
@@ -160,8 +194,8 @@ sap.ui.define([
 			var sPath = oElementBinding.getPath(),
 				oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getModel().getObject(sPath),
-				sObjectId = oObject.OrderID,
-				sObjectName = oObject.OrderID,
+				sObjectId = oObject.ProductID,
+				sObjectName = oObject.ProductName,
 				oViewModel = this.getModel("detailView");
 
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
