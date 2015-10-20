@@ -66,6 +66,9 @@ sap.ui.define([
 
 			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
+
+			//call initial detail.view:
+			this._initialDetail(0);
 		},
 
 		/* =========================================================== */
@@ -259,20 +262,20 @@ sap.ui.define([
 		 */
 		onNavBack: function() {
 			var oHistory = sap.ui.core.routing.History.getInstance(),
-				sPreviousHash = oHistory.getPreviousHash(),
-				oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+				sPreviousHash = oHistory.getPreviousHash();
+				//oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
 			if (sPreviousHash !== undefined) {
 				// The history contains a previous entry
 				history.go(-1);
-			} else {
+			} /*else {
 				// Navigate back to FLP home
 				oCrossAppNavigator.toExternal({
 					target: {
 						shellHash: "#"
 					}
 				});
-			}
+			}*/
 		},
 
 		/* =========================================================== */
@@ -313,9 +316,21 @@ sap.ui.define([
 		 */
 		_showDetail: function(oItem) {
 			var bReplace = !Device.system.phone;
+			var parts = oItem.getBindingContext().toString().split("/");
+			var id = parts[2];
+
 			this.getRouter().navTo("object", {
-				objectId: oItem.getBindingContext().getProperty("ProductID")
+				objectId: id//oItem.getBindingContext().getProperty("ProductID")
 			}, bReplace);
+		},
+
+		_initialDetail: function(id) {
+			var bReplace = !Device.system.phone;
+
+			/*this.getRouter().navTo("object", {
+				objectId: "0"
+			}, bReplace);
+			*/
 		},
 
 		/**

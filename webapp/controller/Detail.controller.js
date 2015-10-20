@@ -2,8 +2,9 @@
 sap.ui.define([
 	"com/pr36/app/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
-	"com/pr36/app/model/formatter"
-], function(BaseController, JSONModel, formatter) {
+	"com/pr36/app/model/formatter",
+	"sap/m/MessageToast"
+], function(BaseController, JSONModel, formatter, MessageToast) {
 	"use strict";
 
 	return BaseController.extend("com.pr36.app.controller.Detail", {
@@ -30,11 +31,16 @@ sap.ui.define([
 			this.setModel(oViewModel, "detailView");
 
 			this.getOwnerComponent().oWhenMetadataIsLoaded.then(this._onMetadataLoaded.bind(this));
+
 		},
 
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
+
+		toggleEdit: function(event){
+			alert("evet");
+		},
 
 		/**
 		 * Event handler when the share button has been clicked
@@ -45,6 +51,14 @@ sap.ui.define([
 			var oShareSheet = this.byId("shareSheet");
 			oShareSheet.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			oShareSheet.openBy(this.byId("shareButton"));
+		},
+
+		//simulate document download:
+		doDownload: function(evt){
+			var model = this.getModel();
+			var path = evt.getSource().getBindingContext().getPath();
+			var obj = model.getProperty(path);
+			MessageToast.show("Thanks for downloading document " + obj.DocName + " (" + obj.size + " kb) - the function is disabled in Demo-mode");
 		},
 
 		/**
@@ -121,7 +135,7 @@ sap.ui.define([
 			var sTitle,
 				iTotalItems = oEvent.getParameter("total"),
 				oViewModel = this.getModel("detailView");
-			alert(iTotalItems);
+
 			// only update the counter if the length is final
 			if (this.byId("lineItemsList2").getBinding("items").isLengthFinal()) {
 				if (iTotalItems) {
@@ -190,22 +204,26 @@ sap.ui.define([
 				this.getOwnerComponent().oListSelector.clearMasterListSelection();
 				return;
 			}
+			var p = oElementBinding.getPath();
+
+			var m = oView.getModel().getObject(p);
 
 			var sPath = oElementBinding.getPath(),
 				oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getModel().getObject(sPath),
-				sObjectId = oObject.ProductID,
-				sObjectName = oObject.ProductName,
+				//sObjectId = oObject.ProductID,
+				//sObjectName = oObject.ProductName,
 				oViewModel = this.getModel("detailView");
 
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 
-			oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
+			/*oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
 			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
 			oViewModel.setProperty("/shareSendEmailSubject",
 				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 			oViewModel.setProperty("/shareSendEmailMessage",
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+				*/
 		},
 
 		_onMetadataLoaded: function() {

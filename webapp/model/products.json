@@ -55,6 +55,18 @@
                     "size": 5678
                 }
             ]
+        },
+        {
+            "ProductID": "3",
+            "ProductName": "Very fast car",
+            "UnitPrice": 21890,
+            "prod_desc": "Ich bin ein schnelles Auto",
+            "Product_Details": [
+                {
+                    "ProductName": "Very Fast Car 2.5",
+                    "UnitPrice": 1234
+                }
+            ]
         }
     ]
 }

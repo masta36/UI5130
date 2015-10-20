@@ -1,0 +1,17 @@
+/*  InlineEditor */
+.compr36appcontrolPR_InlineEditor {
+    padding: 0.75rem;
+
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.compr36appcontrolPR_InlineEditor:Hover {
+
+    -webkit-opacity: 0.25;
+    -moz-opacity: 0.25;
+    opacity: 0.25;
+}

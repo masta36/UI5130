@@ -42,7 +42,7 @@ sap.ui.define([
                 "routes": [{
                     "pattern": "",
                     "name": "master",
-                    "target": ["object", "master"]
+                    "target": ["start", "master"]
                 }, {
                     "pattern": "Products/{objectId}",
                     "name": "object",
@@ -59,6 +59,11 @@ sap.ui.define([
                     "object": {
                         "viewName": "Detail",
                         "viewId": "detail",
+                        "viewLevel": 2
+                    },
+                    "start": {
+                        "viewName": "Start",
+                        "viewId": "start",
                         "viewLevel": 2
                     },
                     "detailObjectNotFound": {
