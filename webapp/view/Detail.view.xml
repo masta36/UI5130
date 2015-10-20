@@ -10,7 +10,7 @@
 					hSpacing="2"
 					defaultSpan="L6 M6 S10">
 				<l:content>
-					<pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://document-text" toggleEditor="toggleEdit" />
+					<pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
 					<Carousel>
 						<Image src="{prod_image}" />
 						<Image src="{prod_image2}" />

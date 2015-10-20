@@ -39,7 +39,7 @@ sap.ui.define([
 		/* =========================================================== */
 
 		toggleEdit: function(event){
-			alert("evet");
+			var fValue = event.getParameter("value");
 		},
 
 		/**
@@ -160,6 +160,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
+
 			var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
 			this._bindView(sObjectPath);
 		},

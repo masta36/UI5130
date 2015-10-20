@@ -51,6 +51,10 @@ sap.ui.define([
 
         _toggleEditor: function(oEvent){
             this.getAggregation("_rich").setVisible(!this.getAggregation("_rich").getVisible());
+            this.setValue(this.getAggregation("_rich").getValue());
+            this.fireEvent("toggleEditor", {
+                value: this.getValue()
+            });
         },
 
         setValue: function (iValue) {
@@ -68,10 +72,12 @@ sap.ui.define([
         renderer : function (oRM, oControl) {
             oRM.write("<div");
             oRM.writeControlData(oControl);
-            oRM.addClass("compr36appcontrolPR_InlineEditor");
+            oRM.addClass("compr36appcontrolPR_InlineEditorFade");
             oRM.writeClasses();
             oRM.write(">");
             oRM.renderControl(oControl.getAggregation("_icon"));
+            oRM.write("</div>");
+            oRM.write("<div>");
             oRM.write("<br>");
             oRM.renderControl(oControl.getAggregation("_formatted"));
 

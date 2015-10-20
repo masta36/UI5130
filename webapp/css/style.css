@@ -1,6 +1,10 @@
 /*  InlineEditor */
-.compr36appcontrolPR_InlineEditor {
+.compr36appcontrolPR_InlineEditorFade {
     padding: 0.75rem;
+
+    -webkit-opacity: 0.25;
+    -moz-opacity: 0.25;
+    opacity: 0.25;
 
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -9,9 +13,22 @@
     transition: all 1s ease;
 }
 
-.compr36appcontrolPR_InlineEditor:Hover {
+.compr36appcontrolPR_InlineEditorFade:Hover {
 
-    -webkit-opacity: 0.25;
-    -moz-opacity: 0.25;
-    opacity: 0.25;
+    -webkit-opacity: 1.0;
+    -moz-opacity: 1.0;
+    opacity: 1.0;
+}
+
+.Inline_slider {
+    overflow-y: hidden;
+    max-height: 500px; /* approximate max height */
+
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.Inline_slider.closed {
+    max-height: 0;
 }
