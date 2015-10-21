@@ -3,8 +3,11 @@ sap.ui.define([
 	"com/pr36/app/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"com/pr36/app/model/formatter",
-	"sap/m/MessageToast"
-], function(BaseController, JSONModel, formatter, MessageToast) {
+	"sap/m/MessageToast",
+	"sap/m/Dialog",
+	"sap/m/ProgressIndicator",
+	"sap/m/Button"
+], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button) {
 	"use strict";
 
 	return BaseController.extend("com.pr36.app.controller.Detail", {
@@ -34,6 +37,13 @@ sap.ui.define([
 
 		},
 
+		onAfterRendering: function() {
+			var count = 5;
+			var img;
+
+
+		},
+
 		/* =========================================================== */
 		/* event handlers                                              */
 		/* =========================================================== */
@@ -53,15 +63,61 @@ sap.ui.define([
 			oShareSheet.openBy(this.byId("shareButton"));
 		},
 
+		progressInd: function (al) {
+			prog.setPercentValue( parseInt(al) );
+			al+= 1;
+			prog.setDisplayValue( "downloading: "+al+"%" );
+			window.setTimeout(function(){this.progressInd(al);},1000);
+			if(al >= 100){
+				alert("end");
+				clearInterval(sim);
+			}else{ //this.progressInd(al);
+				//sim = setTimeout(  this.progressInd(al), 10000 );
+			}
+		},
+
 		//simulate document download:
 		doDownload: function(evt){
 			var model = this.getModel();
 			var path = evt.getSource().getBindingContext().getPath();
 			var obj = model.getProperty(path);
-			MessageToast.show("Thanks for downloading document " + obj.DocName + " (" + obj.size + " kb) - the function is disabled in Demo-mode");
+			//MessageToast.show("Thanks for downloading document " + obj.DocName + " (" + obj.size + " kb) - the function is disabled in Demo-mode");
+
+			// simulate download with timer:
+			var interval = 1000;
+			this.showProgress(obj.DocName, obj.size);
+			this.progressInd(1);
 		},
 
-		/**
+		showProgress: function(docname, docsize){
+			prog = new ProgressIndicator({
+				percentValue: 0,
+				displayValue: "0%",
+				showValue: true
+			});
+
+			var dialog = new Dialog({
+				title: 'Simulate Document Download: ' + docname + ' (' + docsize + ' kb)',
+				id: 'prog',
+				content: prog,
+				beginButton: new Button({
+					text: 'Close',
+					press: function () {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+
+			//to get access to the global model
+			this.getView().addDependent(dialog);
+			dialog.open();
+		},
+
+
+	/**
 		 * Event handler when the share by E-Mail button has been clicked
 		 * @public
 		 */
@@ -253,3 +309,7 @@ sap.ui.define([
 	});
 
 });
+
+var timer;
+var prog;
+var sim;

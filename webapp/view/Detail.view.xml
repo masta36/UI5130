@@ -1,5 +1,5 @@
 <mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:cl="sap.ui.commons.layout" xmlns:c="sap.ui.commons" xmlns:pr="com.pr36.app.control">
+	xmlns="sap.m" xmlns:suite="sap.suite.ui.commons" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:cl="sap.ui.commons.layout" xmlns:c="sap.ui.commons" xmlns:pr="com.pr36.app.control">
 	<Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
 		showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
 		<content>
@@ -11,12 +11,37 @@
 					defaultSpan="L6 M6 S10">
 				<l:content>
 					<pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+
 					<Carousel>
 						<Image src="{prod_image}" />
 						<Image src="{prod_image2}" />
 						<Image src="{prod_image3}" />
 						<Image src="{prod_image4}" />
 					</Carousel>
+					<suite:GenericTile
+							header="{ProductName}"
+							size="M"
+							frameType="TwoByOne">
+						<suite:tileContent>
+							<suite:TileContent>
+								<suite:content>
+
+								</suite:content>
+							</suite:TileContent>
+						</suite:tileContent>
+					</suite:GenericTile>
+					<suite:GenericTile
+							header="{ProductName}"
+							size="Auto"
+							frameType="OneByOne">
+						<suite:tileContent>
+							<suite:TileContent>
+								<suite:content>
+
+								</suite:content>
+							</suite:TileContent>
+						</suite:tileContent>
+					</suite:GenericTile>
 				</l:content>
 			</l:Grid>
 			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">

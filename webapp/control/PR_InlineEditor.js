@@ -70,19 +70,22 @@ sap.ui.define([
 
 
         renderer : function (oRM, oControl) {
-            oRM.write("<div");
+            oRM.write("<div>");
+
+            oRM.write("<div style='float:right'");
             oRM.writeControlData(oControl);
             oRM.addClass("compr36appcontrolPR_InlineEditorFade");
             oRM.writeClasses();
             oRM.write(">");
             oRM.renderControl(oControl.getAggregation("_icon"));
             oRM.write("</div>");
+            oRM.write("<div style='display:inline'");
+            oRM.renderControl(oControl.getAggregation("_formatted"));
+            oRM.write("</div>");
             oRM.write("<div>");
             oRM.write("<br>");
-            oRM.renderControl(oControl.getAggregation("_formatted"));
-
-            oRM.write("<br><br>");
             oRM.renderControl(oControl.getAggregation("_rich"));
+
             oRM.write("</div>");
         }
     });

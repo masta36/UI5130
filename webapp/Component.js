@@ -57,7 +57,7 @@ sap.ui.define([
                         "controlAggregation": "masterPages"
                     },
                     "object": {
-                        "viewName": "Detail",
+                        "viewName": "Detail1",
                         "viewId": "detail",
                         "viewLevel": 2
                     },

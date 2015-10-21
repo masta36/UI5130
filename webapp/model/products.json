@@ -16,7 +16,13 @@
             "ProductID": "2",
             "ProductName": "projektraum36 PIC",
             "UnitPrice": 9999,
-            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_short": "projektraum36 GmbH & Co. KG",
+            "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "prod_usage": "Handle with care",
+            "prod_info": "Please note that this is a prototype only",
+            "prod_images": [
+                "i1", "i2"
+            ],
             "prod_image": "images/a5.jpg",
             "prod_image2": "images/a5.jpg",
             "prod_image3": "images/a5.jpg",
