@@ -21,7 +21,7 @@
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }" press="onSelectionChange" title="{ProductName}"
+					<ObjectListItem press="onSelectionChange"  title="{ProductName}"
 						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"></ObjectListItem>
 				</items>
 			</List>

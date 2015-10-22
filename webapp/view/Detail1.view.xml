@@ -1,0 +1,154 @@
+<mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+    <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+          showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
+    <m:content>
+    <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
+    <headerTitle>
+        <ObjectPageHeader objectImageURI="images/a5.jpg"
+                          objectImageShape="Square"
+                          objectTitle="{ProductName}"
+                          id="ObjectPageLayoutHeaderTitle"
+                          isObjectIconAlwaysVisible="false"
+                          isObjectTitleAlwaysVisible="false"
+                          isObjectSubtitleAlwaysVisible="false"
+                          isActionAreaAlwaysVisible="true"
+                          showPlaceholder = "true">
+        </ObjectPageHeader>
+    </headerTitle>
+        <headerContent>
+            <layout:VerticalLayout>
+                <pr:PR_InlineEditor value="{prod_short}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+            </layout:VerticalLayout>
+        </headerContent>
+
+        <sections>
+                    <ObjectPageSection title="Product Pictures" icon="sap-icon://document">
+                        <subSections>
+                            <ObjectPageSubSection>
+                                <blocks>
+                                        <m:Carousel>
+                                            <m:Image src="{prod_image}" />
+                                            <m:Image src="{prod_image2}" />
+                                            <m:Image src="{prod_image3}" />
+                                            <m:Image src="{prod_image4}" />
+                                        </m:Carousel>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+            <ObjectPageSection title="Product Texts" icon="sap-icon://document">
+                <subSections>
+                    <ObjectPageSubSection title="Description">
+                        <blocks>
+                            <layout:VerticalLayout>
+                                <pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                            </layout:VerticalLayout>
+                        </blocks>
+                    </ObjectPageSubSection>
+                    <ObjectPageSubSection title="Usage">
+                        <blocks>
+                            <layout:VerticalLayout>
+                                <pr:PR_InlineEditor value="{prod_usage}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                            </layout:VerticalLayout>
+                        </blocks>
+                    </ObjectPageSubSection>
+                    <ObjectPageSubSection title="Additional Information">
+                        <blocks>
+                            <layout:VerticalLayout>
+                                <pr:PR_InlineEditor value="{prod_info}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                            </layout:VerticalLayout>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection title="Masterdata" icon="sap-icon://document">
+                <subSections>
+                    <ObjectPageSubSection>
+                        <blocks>
+                            <m:IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
+                                <m:items>
+                                    <m:IconTabFilter icon="sap-icon://folder" id="iconTabBarFilter1" tooltip="{i18n>detailIconTabBarInfo}">
+                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{Product_Details}"
+                                               noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
+                                            <m:headerToolbar>
+                                                <m:Toolbar id="lineItemsToolbar">
+                                                    <m:Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+                                                </m:Toolbar>
+                                            </m:headerToolbar>
+                                            <m:columns>
+                                                <m:Column>
+                                                    <m:Text text="{i18n>detailLineItemTableIDColumn}"/>
+                                                </m:Column>
+                                                <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+                                                    <m:Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+                                                </m:Column>
+                                            </m:columns>
+                                            <m:items>
+                                                <m:ColumnListItem>
+                                                    <m:cells>
+                                                        <m:ObjectIdentifier text="{ProductName}" />
+                                                        <m:ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
+                                                    </m:cells>
+                                                </m:ColumnListItem>
+                                            </m:items>
+                                        </m:Table>
+                                    </m:IconTabFilter>
+                                    <m:IconTabFilter icon="sap-icon://documents" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}">
+                                        <m:Button text="Open Document-Manager" icon="sap-icon://edit" press="onOpenDocMan"/>
+                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
+                                               noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto">
+                                            <m:headerToolbar>
+                                                <m:Toolbar id="lineItemsToolbar2">
+                                                    <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
+                                                </m:Toolbar>
+                                            </m:headerToolbar>
+                                            <m:columns>
+                                                <m:Column>
+                                                    <m:Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
+                                                </m:Column>
+                                                <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+                                                    <m:Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
+                                                </m:Column>
+                                                <m:Column hAlign="Right">
+                                                    <m:Text text="{i18n>detailLineItemTableIDColumnDownloadDocuments}"/>
+                                                </m:Column>
+                                            </m:columns>
+                                            <m:items>
+                                                <m:ColumnListItem>
+                                                    <m:cells>
+                                                        <m:ObjectIdentifier text="{DocName}" />
+                                                        <m:ObjectIdentifier text="{Version}" />
+                                                        <m:ObjectIdentifier text="{Owner}" />
+                                                        <m:ObjectNumber number="{ path: 'size', formatter: '.formatter.currencyValue' }"/>
+                                                        <m:Button icon="sap-icon://download" text="Download" press="doDownload"/>
+                                                    </m:cells>
+                                                </m:ColumnListItem>
+                                            </m:items>
+                                        </m:Table>
+
+                                    </m:IconTabFilter>
+                                </m:items>
+                            </m:IconTabBar>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+
+    </ObjectPageLayout>
+    </m:content>
+        <m:footer>
+            <m:OverflowToolbar id="footerToolbar">
+                <m:ToolbarSpacer/>
+
+            </m:OverflowToolbar>
+        </m:footer>
+
+    </m:Page>
+</mvc:View>

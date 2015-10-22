@@ -6,8 +6,9 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/m/Dialog",
 	"sap/m/ProgressIndicator",
-	"sap/m/Button"
-], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button) {
+	"sap/m/Button",
+	"sap/ui/Device"
+], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button, Device) {
 	"use strict";
 
 	return BaseController.extend("com.pr36.app.controller.Detail", {
@@ -63,17 +64,17 @@ sap.ui.define([
 			oShareSheet.openBy(this.byId("shareButton"));
 		},
 
-		progressInd: function (al) {
-			prog.setPercentValue( parseInt(al) );
-			al+= 1;
-			prog.setDisplayValue( "downloading: "+al+"%" );
-			window.setTimeout(function(){this.progressInd(al);},1000);
-			if(al >= 100){
-				alert("end");
-				clearInterval(sim);
-			}else{ //this.progressInd(al);
-				//sim = setTimeout(  this.progressInd(al), 10000 );
-			}
+		onOpenDocMan: function(evt){
+			var bReplace = !Device.system.phone;
+			var parts = evt.getSource().getBindingContext().toString().split("/");
+			var id = parts[2];
+
+			this.getRouter().navTo("doc", {
+				obj: "doc",
+				objectId: id //oItem.getBindingContext().getProperty("ProductID")
+			}, bReplace);
+
+			//this.getRouter().getTargets().display("doc");
 		},
 
 		//simulate document download:
@@ -86,7 +87,10 @@ sap.ui.define([
 			// simulate download with timer:
 			var interval = 1000;
 			this.showProgress(obj.DocName, obj.size);
-			this.progressInd(1);
+
+			this.al = 0;
+			this.progressInd();
+			//this.sim = setInterval( this.progressInd() , 3000 );
 		},
 
 		showProgress: function(docname, docsize){
@@ -114,6 +118,18 @@ sap.ui.define([
 			//to get access to the global model
 			this.getView().addDependent(dialog);
 			dialog.open();
+		},
+
+		progressInd: function () {
+			prog.setPercentValue( parseInt(this.al) );
+			this.al+= 1;
+			prog.setDisplayValue( "downloading: "+this.al+"%" );
+			this.sim = setTimeout( function(){this.progressInd(al);}, 3000 );
+			if(this.al >= 100){
+				alert("end");
+				this.al = 0;
+				clearTimeout(this.sim);
+			}
 		},
 
 
@@ -313,3 +329,4 @@ sap.ui.define([
 var timer;
 var prog;
 var sim;
+var al;

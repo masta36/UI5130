@@ -47,7 +47,12 @@ sap.ui.define([
                     "pattern": "Products/{objectId}",
                     "name": "object",
                     "target": ["master", "object"]
-                }],
+                },
+                    {
+                        "pattern": "Products/{obj}/{objectId}",
+                        "name": "doc",
+                        "target": ["master", "doc"]
+                    }],
 
                 "targets": {
                     "master": {
@@ -59,6 +64,11 @@ sap.ui.define([
                     "object": {
                         "viewName": "Detail1",
                         "viewId": "detail",
+                        "viewLevel": 2
+                    },
+                    "doc": {
+                        "viewName": "DocMan",
+                        "viewId": "docman",
                         "viewLevel": 2
                     },
                     "start": {

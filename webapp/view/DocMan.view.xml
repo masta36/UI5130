@@ -1,0 +1,113 @@
+<mvc:View controllerName="com.pr36.app.controller.DocMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+    <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+            showNavButton="true" title="{i18n>docTitle}">
+        <m:content>
+            <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
+                <headerTitle>
+                    <ObjectPageHeader
+
+                                      objectTitle="{ProductName}"
+                                      id="ObjectPageLayoutHeaderTitle"
+                                      isObjectIconAlwaysVisible="false"
+                                      isObjectTitleAlwaysVisible="false"
+                                      isObjectSubtitleAlwaysVisible="false"
+                                      isActionAreaAlwaysVisible="true"
+                                      showPlaceholder = "false">
+                    </ObjectPageHeader>
+                </headerTitle>
+                <headerContent>
+                    <m:Label text="Document Management Console" />
+                </headerContent>
+
+                <sections>
+                    <ObjectPageSection title="Documents" icon="sap-icon://document">
+                        <subSections>
+                            <ObjectPageSubSection>
+                                <blocks>
+                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
+                                                         noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto" mode="SingleSelectMaster" selectionChange="doSelect">
+                                        <m:headerToolbar>
+                                            <m:Toolbar id="lineItemsToolbar2">
+                                                <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
+                                            </m:Toolbar>
+                                        </m:headerToolbar>
+                                        <m:columns>
+                                            <m:Column>
+                                                <m:Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
+                                            </m:Column>
+                                            <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+                                                <m:Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
+                                            </m:Column>
+                                            <m:Column hAlign="Right">
+                                                <m:Text text="{i18n>detailLineItemTableIDColumnDownloadDocuments}"/>
+                                            </m:Column>
+                                        </m:columns>
+                                        <m:items>
+                                            <m:ColumnListItem mode="Active">
+                                                <m:cells>
+                                                    <m:ObjectIdentifier text="{DocName} "/>
+                                                    <m:ObjectIdentifier text="{Version}"/>
+                                                    <m:ObjectIdentifier text="{Owner}"/>
+                                                    <m:ObjectIdentifier text="{size}"/>
+                                                </m:cells>
+                                            </m:ColumnListItem>
+                                        </m:items>
+                                    </m:Table>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+
+                    <ObjectPageSection title="Metadata / Classification" icon="sap-icon://document">
+                        <subSections>
+                            <ObjectPageSubSection title="Document Metadata">
+                                <blocks>
+                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList5" items="{Product_Docs}"
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                        <m:columns>
+                                            <m:Column>
+                                                <m:Text text="Metadata"/>
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Value"/>
+                                            </m:Column>
+                                        </m:columns>
+                                        <m:items id="items">
+                                            <m:ColumnListItem>
+                                                <m:cells>
+                                                    <m:ObjectIdentifier text="Document Name"/>
+                                                    <m:ObjectIdentifier id="col_name" text="{DocName}" title=""/>
+                                                </m:cells>
+                                            </m:ColumnListItem>
+                                        </m:items>
+                                    </m:Table>
+                                </blocks>
+                            </ObjectPageSubSection>
+                            <ObjectPageSubSection title="Classification">
+                                <blocks>
+                                    <layout:VerticalLayout>
+                                        <pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                    </layout:VerticalLayout>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                </sections>
+
+            </ObjectPageLayout>
+        </m:content>
+        <m:footer>
+            <m:OverflowToolbar id="footerToolbar">
+                <m:ToolbarSpacer/>
+
+            </m:OverflowToolbar>
+        </m:footer>
+
+    </m:Page>
+</mvc:View>
