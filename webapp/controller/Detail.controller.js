@@ -7,8 +7,9 @@ sap.ui.define([
 	"sap/m/Dialog",
 	"sap/m/ProgressIndicator",
 	"sap/m/Button",
-	"sap/ui/Device"
-], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button, Device) {
+	"sap/ui/Device",
+	"sap/ui/core/IntervalTrigger"
+], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button, Device, IntervalTrigger) {
 	"use strict";
 
 	return BaseController.extend("com.pr36.app.controller.Detail", {
@@ -89,8 +90,13 @@ sap.ui.define([
 			this.showProgress(obj.DocName, obj.size);
 
 			this.al = 0;
-			this.progressInd();
-			//this.sim = setInterval( this.progressInd() , 3000 );
+			//this.progressInd();
+			var oViewModel = this.getModel("detailView");
+			oViewModel.setProperty("/timer", 11);
+
+			var trigger = new IntervalTrigger();
+			trigger.addListener(this.updateBar);
+			trigger.setInterval(1000);
 		},
 
 		showProgress: function(docname, docsize){
@@ -121,14 +127,33 @@ sap.ui.define([
 		},
 
 		progressInd: function () {
-			prog.setPercentValue( parseInt(this.al) );
-			this.al+= 1;
-			prog.setDisplayValue( "downloading: "+this.al+"%" );
-			this.sim = setTimeout( function(){this.progressInd(al);}, 3000 );
-			if(this.al >= 100){
+			var oViewModel = this.getModel("detailView");
+			al= oViewModel.getProperty("/al");
+			prog.setPercentValue( parseInt(al) );
+			al+= 1;
+			oViewModel.setProperty("/timer", al);
+			prog.setDisplayValue( "downloading: "+al+"%" );
+			if(al >= 10){
 				alert("end");
-				this.al = 0;
-				clearTimeout(this.sim);
+				al = 0;
+			}
+		},
+
+		/**
+		 * Event handler to update progress bar
+		 * @public
+		 */
+		updateBar: function() {
+			var oViewModel = this.getView().getModel("detailView");
+
+			al= oViewModel.getProperty("/al");
+			prog.setPercentValue( parseInt(al) );
+			al+= 1;
+			oViewModel.setProperty("/timer", al);
+			prog.setDisplayValue( "downloading: "+al+"%" );
+			if(al >= 10){
+				alert("end");
+				al = 0;
 			}
 		},
 
@@ -329,4 +354,4 @@ sap.ui.define([
 var timer;
 var prog;
 var sim;
-var al;
+var al = 0;
