@@ -60,6 +60,20 @@
                     "Owner": "J. Doe",
                     "size": 5678
                 }
+            ],
+            "Product_Class": [
+                {
+                    "char": "Country Release",
+                    "value": "DE, US"
+                },
+                {
+                    "char": "Production Status",
+                    "value": "Released"
+                },
+                {
+                    "char": "Sales Status",
+                    "value": "Saleable"
+                }
             ]
         },
         {

@@ -78,6 +78,19 @@ sap.ui.define([
 			//this.getRouter().getTargets().display("doc");
 		},
 
+		onOpenClassMan: function(evt){
+			var bReplace = !Device.system.phone;
+			var parts = evt.getSource().getBindingContext().toString().split("/");
+			var id = parts[2];
+
+			this.getRouter().navTo("class", {
+				obj: "class",
+				objectId: id //oItem.getBindingContext().getProperty("ProductID")
+			}, bReplace);
+
+			//this.getRouter().getTargets().display("doc");
+		},
+
 		//simulate document download:
 		doDownload: function(evt){
 			var model = this.getModel();
@@ -90,13 +103,10 @@ sap.ui.define([
 			this.showProgress(obj.DocName, obj.size);
 
 			this.al = 0;
-			//this.progressInd();
-			var oViewModel = this.getModel("detailView");
-			oViewModel.setProperty("/timer", 11);
-
-			var trigger = new IntervalTrigger();
-			trigger.addListener(this.updateBar);
-			trigger.setInterval(1000);
+			if(this.trigger != null && typeof this.trigger != 'undefined') this.trigger.destroy();
+			this.trigger = new IntervalTrigger();
+			this.trigger.addListener($.proxy(this.updateBar, this)); //WICHTIG: SCOPE FÜR FUNKTION AUF CONTROLLER SETZEN!!!!
+			this.trigger.setInterval(50);
 		},
 
 		showProgress: function(docname, docsize){
@@ -112,7 +122,8 @@ sap.ui.define([
 				content: prog,
 				beginButton: new Button({
 					text: 'Close',
-					press: function () {
+					press:
+					function () {
 						dialog.close();
 					}
 				}),
@@ -126,34 +137,17 @@ sap.ui.define([
 			dialog.open();
 		},
 
-		progressInd: function () {
-			var oViewModel = this.getModel("detailView");
-			al= oViewModel.getProperty("/al");
-			prog.setPercentValue( parseInt(al) );
-			al+= 1;
-			oViewModel.setProperty("/timer", al);
-			prog.setDisplayValue( "downloading: "+al+"%" );
-			if(al >= 10){
-				alert("end");
-				al = 0;
-			}
-		},
-
 		/**
 		 * Event handler to update progress bar
 		 * @public
 		 */
 		updateBar: function() {
-			var oViewModel = this.getView().getModel("detailView");
-
-			al= oViewModel.getProperty("/al");
-			prog.setPercentValue( parseInt(al) );
-			al+= 1;
-			oViewModel.setProperty("/timer", al);
-			prog.setDisplayValue( "downloading: "+al+"%" );
-			if(al >= 10){
-				alert("end");
-				al = 0;
+			prog.setPercentValue( parseInt(this.al) );
+			this.al+= 1;
+			prog.setDisplayValue( "downloading: "+this.al+"%" );
+			if(this.al >= 100){
+				this.al = 0;
+				this.trigger.setInterval(-1);
 			}
 		},
 
@@ -355,3 +349,4 @@ var timer;
 var prog;
 var sim;
 var al = 0;
+var trigger;

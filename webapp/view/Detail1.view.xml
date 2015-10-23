@@ -133,6 +133,35 @@
                                         </m:Table>
 
                                     </m:IconTabFilter>
+
+                                    <m:IconTabFilter icon="sap-icon://target-group" id="iconTabBarFilter3" tooltip="Classification">
+                                        <m:Button text="Open Classification Manager" icon="sap-icon://edit" press="onOpenClassMan"/>
+                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
+                                                 noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                            <m:headerToolbar>
+                                                <m:Toolbar id="lineItemsToolbar3">
+                                                    <m:Title id="lineItemsHeader3" text="Classification"/>
+                                                </m:Toolbar>
+                                            </m:headerToolbar>
+                                            <m:columns>
+                                                <m:Column>
+                                                    <m:Text text="Characteristic"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Value"/>
+                                                </m:Column>
+                                            </m:columns>
+                                            <m:items>
+                                                <m:ColumnListItem>
+                                                    <m:cells>
+                                                        <m:ObjectIdentifier text="{char}" />
+                                                        <m:ObjectIdentifier text="{value}" />
+                                                    </m:cells>
+                                                </m:ColumnListItem>
+                                            </m:items>
+                                        </m:Table>
+
+                                    </m:IconTabFilter>
                                 </m:items>
                             </m:IconTabBar>
                         </blocks>

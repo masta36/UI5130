@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.pr36.app.controller.DocMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.DocMan" xmlns:pr="com.pr36.app.control" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="true" title="{i18n>docTitle}">
         <m:content>
@@ -22,10 +22,73 @@
                 <sections>
                     <ObjectPageSection title="Documents" icon="sap-icon://document">
                         <subSections>
-                            <ObjectPageSubSection>
+                            <ObjectPageSubSection title="Upload">
+                                <blocks>
+                                    <l:VerticalLayout class="sapUiSmallMargin" width="50%">
+                                    <m:UploadCollection
+                                            id="UploadCollection"
+                                            maximumFilenameLength="55"
+                                            maximumFileSize="1"
+                                            multiple="true"
+                                            showSeparators="All"
+                                            change="onChange"
+                                            fileDeleted="onFileDeleted"
+                                            filenameLengthExceed="onFilenameLengthExceed"
+                                            fileRenamed="onFileRenamed"
+                                            fileSizeExceed="onFileSizeExceed"
+                                            typeMissmatch="onTypeMissmatch"
+                                            uploadComplete="onUploadComplete"
+                                            beforeUploadStarts="onBeforeUploadStarts"
+                                            uploadTerminated="onUploadTerminated"
+                                            items="{Product_Docs}"
+                                            templateShareable="true"
+                                            uploadUrl=""
+                                            instantUpload="false"
+                                            width="50%"
+                                            mode="SingleSelectMaster">
+                                        <m:items>
+                                            <m:UploadCollectionItem
+                                                    documentId="{documentId}"
+                                                    fileName="{DocName}"
+                                                    mimeType="{mimeType}"
+                                                    thumbnailUrl="{thumbnailUrl}"
+                                                    enableEdit="{enableEdit}"
+                                                    enableDelete="true"
+                                                    visibleDelete="{visibleDelete}"
+                                                    visibleEdit="{visibleEdit}"
+                                                    attributes="{attributes}"
+                                                    statuses="{statuses}">
+                                                <m:attributes>
+                                                    <m:ObjectAttribute
+                                                            title="{title}"
+                                                            text= "{text}"
+                                                            active="{active}"
+                                                            textDirection="{textDirection}"/>
+                                                </m:attributes>
+                                                <m:statuses>
+                                                    <m:ObjectStatus
+                                                            title="{title}"
+                                                            text="{text}"
+                                                            state="{state}"
+                                                            icon="{icon}"
+                                                            iconDensityAware="{iconDensityAware}"
+                                                            textDirection="{textDirection}"/>
+                                                </m:statuses>
+                                            </m:UploadCollectionItem>
+                                        </m:items>
+                                    </m:UploadCollection>
+                                    <m:Button
+                                            id="Button"
+                                            text="Upload Now"
+                                            press="onStartUpload">
+                                    </m:Button>
+                                    </l:VerticalLayout>
+                                </blocks>
+                            </ObjectPageSubSection>
+                            <ObjectPageSubSection title="Documents">
                                 <blocks>
                                     <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
-                                                         noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto" mode="SingleSelectMaster" selectionChange="doSelect">
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto" mode="SingleSelectMaster" selectionChange="doSelect">
                                         <m:headerToolbar>
                                             <m:Toolbar id="lineItemsToolbar2">
                                                 <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
@@ -92,7 +155,27 @@
                             <ObjectPageSubSection title="Classification">
                                 <blocks>
                                     <layout:VerticalLayout>
-                                        <pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
+                                                 noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                            <m:columns>
+                                                <m:Column>
+                                                    <m:Text text="Characteristic"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Value"/>
+                                                </m:Column>
+                                            </m:columns>
+                                            <m:items>
+                                                <m:ColumnListItem>
+                                                    <m:cells>
+                                                        <m:ObjectIdentifier text="{char}" />
+
+                                                        <m:Input value="{value}"/>
+
+                                                    </m:cells>
+                                                </m:ColumnListItem>
+                                            </m:items>
+                                        </m:Table>
                                     </layout:VerticalLayout>
                                 </blocks>
                             </ObjectPageSubSection>

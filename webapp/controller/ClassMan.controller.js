@@ -1,16 +1,11 @@
 sap.ui.define([
     "com/pr36/app/controller/BaseController",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/Device",
-    "sap/m/MessageToast",
-    "sap/m/ProgressIndicator",
-    "sap/ui/core/IntervalTrigger",
-    "sap/m/Dialog",
-    "sap/m/Button"
-], function(BaseController, JSONModel, Device, MessageToast, ProgressIndicator, IntervalTrigger, Dialog, Button) {
+    "sap/ui/Device"
+], function(BaseController, JSONModel, Device) {
     "use strict";
 
-    return BaseController.extend("com.pr36.app.controller.DocMan", {
+    return BaseController.extend("com.pr36.app.controller.ClassMan", {
 
         onInit: function() {
             var oViewModel,
@@ -21,7 +16,7 @@ sap.ui.define([
                 busy: true,
                 delay: 0
             });
-            this.setModel(oViewModel, "docView");
+            this.setModel(oViewModel, "classView");
 
             fnSetAppNotBusy = function() {
                 oViewModel.setProperty("/busy", false);
@@ -38,85 +33,8 @@ sap.ui.define([
             // apply content density mode to root view
             this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 
-            this.getRouter().getRoute("doc").attachPatternMatched(this._onObjectMatched, this);
-
-           var oModel = new sap.ui.model.json.JSONModel();
-            // Load JSON in model
-           /* oModel.loadData("model/docs.json");
-            oModel.setProperty("templateShareable", true);
-            this.getView().setModel(oModel);
-            */
+            this.getRouter().getRoute("class").attachPatternMatched(this._onObjectMatched, this);
         },
-
-        onBeforeUploadStarts: function(evt){
-            alert("OK");
-        },
-
-        onStartUpload : function(oEvent) {
-            var oUploadCollection = this.getView().byId("UploadCollection");
-            var cFiles = oUploadCollection.getItems().length;
-            var uploadInfo = "";
-
-            oUploadCollection.upload();
-
-            uploadInfo = cFiles + " file(s)";
-
-            if (cFiles > 0) {
-
-            this.showProgress("DocName", "hh");
-
-            this.al = 0;
-            if (this.trigger != null && typeof this.trigger != 'undefined') this.trigger.destroy();
-            this.trigger = new IntervalTrigger();
-            this.trigger.addListener($.proxy(this.updateBar, this)); //WICHTIG: SCOPE FÜR FUNKTION AUF CONTROLLER SETZEN!!!!
-            this.trigger.setInterval(50);
-            }else {
-                    MessageToast.show("No documents selected");
-                }
-        },
-
-        showProgress: function(docname, docsize){
-            prog = new ProgressIndicator({
-                percentValue: 0,
-                displayValue: "0%",
-                showValue: true
-            });
-
-            var dialog = new Dialog({
-                title: 'Simulate Document Upload',
-                id: 'prog',
-                content: prog,
-                beginButton: new Button({
-                    text: 'Close',
-                    press:
-                        function () {
-                            dialog.close();
-                        }
-                }),
-                afterClose: function() {
-                    dialog.destroy();
-                }
-            });
-
-            //to get access to the global model
-            this.getView().addDependent(dialog);
-            dialog.open();
-        },
-
-        /**
-         * Event handler to update progress bar
-         * @public
-         */
-        updateBar: function() {
-            prog.setPercentValue( parseInt(this.al) );
-            this.al+= 1;
-            prog.setDisplayValue( "downloading: "+this.al+"%" );
-            if(this.al >= 100){
-                this.al = 0;
-                this.trigger.setInterval(-1);
-            }
-        },
-
 
 
         /**
@@ -140,7 +58,7 @@ sap.ui.define([
          */
         _bindView: function(sObjectPath) {
             // Set busy indicator during view binding
-            var oViewModel = this.getModel("docView");
+            var oViewModel = this.getModel("classView");
 
             // If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
             oViewModel.setProperty("/busy", false);
@@ -178,7 +96,7 @@ sap.ui.define([
             var sPath = oElementBinding.getPath(),
                 oResourceBundle = this.getResourceBundle(),
                 oObject = oView.getModel().getObject(sPath),
-                oViewModel = this.getModel("docView");
+                oViewModel = this.getModel("classView");
 
         },
 
@@ -265,7 +183,3 @@ sap.ui.define([
     });
 
 });
-
-var trigger;
-var al;
-var prog;

@@ -1,0 +1,69 @@
+<mvc:View controllerName="com.pr36.app.controller.ClassMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+    <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+            showNavButton="true" title="{i18n>classTitle}" xmlns:t="sap.ui.table">
+        <m:content>
+            <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
+                <headerTitle>
+                    <ObjectPageHeader
+
+                                      objectTitle="{ProductName}"
+                                      id="ObjectPageLayoutHeaderTitle"
+                                      isObjectIconAlwaysVisible="false"
+                                      isObjectTitleAlwaysVisible="false"
+                                      isObjectSubtitleAlwaysVisible="false"
+                                      isActionAreaAlwaysVisible="true"
+                                      showPlaceholder = "false">
+                    </ObjectPageHeader>
+                </headerTitle>
+                <headerContent>
+                    <m:Label text="Classification Management Console" />
+                </headerContent>
+
+                <sections>
+                    <ObjectPageSection title="Classification" icon="sap-icon://document">
+                        <subSections>
+                            <ObjectPageSubSection>
+                                <blocks>
+                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                        <m:headerToolbar>
+                                            <m:Toolbar id="lineItemsToolbar3">
+                                                <m:Title id="lineItemsHeader3" text="Classification"/>
+                                            </m:Toolbar>
+                                        </m:headerToolbar>
+                                        <m:columns>
+                                            <m:Column>
+                                                <m:Text text="Characteristic"/>
+                                            </m:Column>
+                                            <m:Column>
+                                                <m:Text text="Value"/>
+                                            </m:Column>
+                                        </m:columns>
+                                        <m:items>
+                                            <m:ColumnListItem>
+                                                <m:cells>
+                                                    <m:ObjectIdentifier text="{char}" />
+
+                                                        <m:Input value="{value}"/>
+
+                                                </m:cells>
+                                            </m:ColumnListItem>
+                                        </m:items>
+                                    </m:Table>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                </sections>
+
+            </ObjectPageLayout>
+        </m:content>
+        <m:footer>
+            <m:OverflowToolbar id="footerToolbar">
+                <m:ToolbarSpacer/>
+
+            </m:OverflowToolbar>
+        </m:footer>
+
+    </m:Page>
+</mvc:View>
