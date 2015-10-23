@@ -49,7 +49,10 @@ sap.ui.define([
         },
 
         onBeforeUploadStarts: function(evt){
-            alert("OK");
+            var fName = evt.getParameter("fileName");
+            //create new document in Model:
+
+            alert(fName);
         },
 
         onStartUpload : function(oEvent) {
@@ -110,7 +113,7 @@ sap.ui.define([
         updateBar: function() {
             prog.setPercentValue( parseInt(this.al) );
             this.al+= 1;
-            prog.setDisplayValue( "downloading: "+this.al+"%" );
+            prog.setDisplayValue( "uploading: "+this.al+"%" );
             if(this.al >= 100){
                 this.al = 0;
                 this.trigger.setInterval(-1);

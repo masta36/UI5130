@@ -21,12 +21,8 @@
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "i1", "i2"
+                "images/a5.jpg", "images/products.png", "images/a5.jpg", "images/a5.jpg"
             ],
-            "prod_image": "images/a5.jpg",
-            "prod_image2": "images/a5.jpg",
-            "prod_image3": "images/a5.jpg",
-            "prod_image4": "images/a5.jpg",
             "Product_Details": [
                 {
                     "ProductName": "Pr36 Option1",

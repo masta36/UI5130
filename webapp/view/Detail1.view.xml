@@ -4,7 +4,7 @@
     <m:content>
     <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
     <headerTitle>
-        <ObjectPageHeader objectImageURI="images/a5.jpg"
+        <ObjectPageHeader objectImageURI="{prod_images/0/}"
                           objectImageShape="Square"
                           objectTitle="{ProductName}"
                           id="ObjectPageLayoutHeaderTitle"
@@ -26,11 +26,8 @@
                         <subSections>
                             <ObjectPageSubSection>
                                 <blocks>
-                                        <m:Carousel>
-                                            <m:Image src="{prod_image}" />
-                                            <m:Image src="{prod_image2}" />
-                                            <m:Image src="{prod_image3}" />
-                                            <m:Image src="{prod_image4}" />
+                                        <m:Carousel id="carousel">
+
                                         </m:Carousel>
                                 </blocks>
                             </ObjectPageSubSection>
@@ -96,7 +93,7 @@
                                     <m:IconTabFilter icon="sap-icon://documents" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}">
                                         <m:Button text="Open Document-Manager" icon="sap-icon://edit" press="onOpenDocMan"/>
                                         <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
-                                               noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto">
+                                               noDataText="{i18n>detailLineItemTableNoDataText}" width="auto">
                                             <m:headerToolbar>
                                                 <m:Toolbar id="lineItemsToolbar2">
                                                     <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
@@ -137,7 +134,7 @@
                                     <m:IconTabFilter icon="sap-icon://target-group" id="iconTabBarFilter3" tooltip="Classification">
                                         <m:Button text="Open Classification Manager" icon="sap-icon://edit" press="onOpenClassMan"/>
                                         <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
-                                                 noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                                 noDataText="{i18n>detailLineItemTableNoDataText}" width="50%">
                                             <m:headerToolbar>
                                                 <m:Toolbar id="lineItemsToolbar3">
                                                     <m:Title id="lineItemsHeader3" text="Classification"/>

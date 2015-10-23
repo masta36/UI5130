@@ -40,9 +40,6 @@ sap.ui.define([
 		},
 
 		onAfterRendering: function() {
-			var count = 5;
-			var img;
-
 
 		},
 
@@ -195,6 +192,32 @@ sap.ui.define([
 				iTotalItems = oEvent.getParameter("total"),
 				oViewModel = this.getModel("detailView");
 
+			var oElementBinding = this.getView().getElementBinding();
+			var sPath = oElementBinding.getPath()
+			var oModel = this.getView().getModel();
+			var oObject = oModel.getProperty(sPath + "/prod_images");
+			var c = this.getView().byId("carousel");
+			c.removeAllPages();
+			if(typeof oObject != "undefined" && oObject != null) {
+				var index = 0;
+				var found = false;
+
+				for (index = 0; index < oObject.length; index++) {
+					var img = new sap.m.Image({src: oObject[index]});
+					c.addPage(img);
+					found = true;
+				}
+
+				if(index == 0){
+					var img = new sap.m.Image({src: "images/not-available.png"});
+					c.addPage(img);
+					found = true;
+				}
+			}else{
+				var img = new sap.m.Image({src: "images/not-available.png"});
+				c.addPage(img);
+			}
+
 			// only update the counter if the length is final
 			if (this.byId("lineItemsList").getBinding("items").isLengthFinal()) {
 				if (iTotalItems) {
@@ -308,6 +331,31 @@ sap.ui.define([
 				oViewModel = this.getModel("detailView");
 
 			this.getOwnerComponent().oListSelector.selectAListItem(sPath);
+
+			//dynamically build image carousel:
+			var oModel = oView.getModel();
+			var oData = oModel.getProperty(sPath + "/prod_images");
+			/*var c = oView.byId("carousel");
+			c.removeAllPages();
+			if(typeof oObject != "undefined" && oObject != null && oObject.prod_images != null && typeof oObject.prod_images != "undefined") {
+				var index = 0;
+				var found = false;
+
+				for (index = 0; index < oObject.prod_images.length; index++) {
+					var img = new sap.m.Image({src: oObject.prod_images[index]});
+					c.addPage(img);
+					found = true;
+				}
+
+				if(index == 0){
+					var img = new sap.m.Image({src: "images/not-available.png"});
+					c.addPage(img);
+					found = true;
+				}
+			}else{
+				var img = new sap.m.Image({src: "images/not-available.png"});
+				c.addPage(img);
+			}*/
 
 			/*oViewModel.setProperty("/saveAsTileTitle", oResourceBundle.getText("shareSaveTileAppTitle", [sObjectName]));
 			oViewModel.setProperty("/shareOnJamTitle", sObjectName);
