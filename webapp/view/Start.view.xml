@@ -2,49 +2,26 @@
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="{device>/system/phone}" title="Product Information Cockpit">
         <m:content>
-            <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
-                <headerTitle>
-                    <ObjectPageHeader
+            <m:ObjectHeader
+                    icon="images/products.png"
+                    iconDensityAware="false"
+                    title="Product Information Cockpit">
+            </m:ObjectHeader>
 
-                            objectTitle="projektraum36"
-                            objectImageURI="images/products.png"
-                            id="ObjectPageLayoutHeaderTitle"
-                            isObjectIconAlwaysVisible="false"
-                            isObjectTitleAlwaysVisible="false"
-                            isObjectSubtitleAlwaysVisible="false"
-                            isActionAreaAlwaysVisible="true"
-                            showPlaceholder = "true">
-                    </ObjectPageHeader>
-                </headerTitle>
-                <headerContent>
-                    <m:Label text="Product Management Cockpit" />
-                </headerContent>
+                <m:Label design="Bold" text="Demonstrator for displaying / editing of all product relevant data within one App" />
+                <m:TileContainer
+                        id="container"
+                        tiles="{/TileCollection}">
+                    <m:StandardTile
+                            icon="sap-icon://thing-type"
+                            type="{type}"
+                            number="{number}"
+                            numberUnit="{numberUnit}"
+                            title="{title}"
+                            info="{info}"
+                            infoState="{infoState}" />
+                </m:TileContainer>
 
-                <sections>
-                    <ObjectPageSection title="">
-                        <subSections>
-                            <ObjectPageSubSection>
-                                <blocks>
-                                    <m:TileContainer
-                                            id="container"
-                                            tiles="{/TileCollection}">
-                                        <m:StandardTile
-                                                type="{type}"
-                                                number="{number}"
-                                                numberUnit="{numberUnit}"
-                                                title="{title}"
-                                                info="{info}"
-                                                infoState="{infoState}" />
-                                    </m:TileContainer>
-                                </blocks>
-                            </ObjectPageSubSection>
-                        </subSections>
-                    </ObjectPageSection>
-
-
-                </sections>
-
-            </ObjectPageLayout>
         </m:content>
         <m:footer>
             <m:OverflowToolbar id="footerToolbar">

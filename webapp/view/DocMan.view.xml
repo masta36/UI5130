@@ -26,9 +26,9 @@
                                 <blocks>
                                     <l:VerticalLayout class="sapUiSmallMargin" width="50%">
                                     <m:UploadCollection
-                                            id="UploadCollection"
+                                            id="upload"
                                             maximumFilenameLength="55"
-                                            maximumFileSize="1"
+                                            maximumFileSize="10"
                                             multiple="true"
                                             showSeparators="All"
                                             change="onChange"
@@ -45,7 +45,7 @@
                                             uploadUrl=""
                                             instantUpload="false"
                                             width="50%"
-                                            mode="SingleSelectMaster">
+                                            >
                                         <m:items>
                                             <m:UploadCollectionItem
                                                     documentId="{documentId}"

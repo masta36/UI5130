@@ -3,34 +3,26 @@
     {
       "icon": "sap-icon://hint",
       "type": "Monitor",
-      "title": "Tiles: a modern UI design pattern for overview & navigation."
+      "title": "All Product relevant data at a glace"
     },
     {
       "icon": "sap-icon://inbox",
-      "number": "89",
-      "title": "Approve Leave Requests",
-      "info": "Overdue",
-      "infoState": "Error"
+      "type": "Monitor",
+      "title": "Inline editing of product texts"
     },
     {
-      "type": "Create",
-      "title": "Create Leave Requests",
-      "info": "28 Days Left",
-      "infoState": "Success"
+      "type": "Monitor",
+      "title": "Inline document management"
     },
     {
       "icon": "sap-icon://travel-expense-report",
-      "number": "281",
-      "numberUnit": "euro",
-      "title": "Travel Reimbursement",
-      "info": "1 day ago"
+      "type": "Monitor",
+      "title": "Inline Metadata / Classification maintenance"
     },
     {
       "icon": "sap-icon://loan",
-      "number": "2380",
-      "numberUnit": "euro",
-      "title": "My Salary",
-      "info": "8 days ago"
+      "type": "Monitor",
+      "title": "Another feature"
     }
   ]
 }

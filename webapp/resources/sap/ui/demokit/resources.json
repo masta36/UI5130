@@ -1,0 +1,795 @@
+{
+	"resources":[
+		{
+			"name": ".library"
+		},
+		{
+			"name": ".theming"
+		},
+		{
+			"name": "CodeSampleContainer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "CodeSampleContainer.control"
+		},
+		{
+			"name": "CodeSampleContainer.js"
+		},
+		{
+			"name": "CodeSampleContainerRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "CodeSampleContainerRenderer.js"
+		},
+		{
+			"name": "CodeViewer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "CodeViewer.control"
+		},
+		{
+			"name": "CodeViewer.js"
+		},
+		{
+			"name": "CodeViewerRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "CodeViewerRenderer.js"
+		},
+		{
+			"name": "DemokitApp-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "DemokitApp.js"
+		},
+		{
+			"name": "EntityInfo-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "EntityInfo.js"
+		},
+		{
+			"name": "FileUploadIntrospector-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "FileUploadIntrospector.control"
+		},
+		{
+			"name": "FileUploadIntrospector.js"
+		},
+		{
+			"name": "FileUploadIntrospectorRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "FileUploadIntrospectorRenderer.js"
+		},
+		{
+			"name": "HexagonButton-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HexagonButton.control"
+		},
+		{
+			"name": "HexagonButton.js"
+		},
+		{
+			"name": "HexagonButtonGroup-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HexagonButtonGroup.control"
+		},
+		{
+			"name": "HexagonButtonGroup.js"
+		},
+		{
+			"name": "HexagonButtonGroupRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HexagonButtonGroupRenderer.js"
+		},
+		{
+			"name": "HexagonButtonRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "HexagonButtonRenderer.js"
+		},
+		{
+			"name": "IndexLayout-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "IndexLayout.control"
+		},
+		{
+			"name": "IndexLayout.js"
+		},
+		{
+			"name": "IndexLayoutPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "IndexLayoutPage.js"
+		},
+		{
+			"name": "IndexLayoutRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "IndexLayoutRenderer.js"
+		},
+		{
+			"name": "IndexPage-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "IndexPage.js"
+		},
+		{
+			"name": "Tag-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "Tag.control"
+		},
+		{
+			"name": "Tag.js"
+		},
+		{
+			"name": "TagCloud-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "TagCloud.control"
+		},
+		{
+			"name": "TagCloud.js"
+		},
+		{
+			"name": "TagCloudRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "TagCloudRenderer.js"
+		},
+		{
+			"name": "UI5EntityCueCard-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "UI5EntityCueCard.control"
+		},
+		{
+			"name": "UI5EntityCueCard.js"
+		},
+		{
+			"name": "UI5EntityCueCardRenderer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "UI5EntityCueCardRenderer.js"
+		},
+		{
+			"name": "UI5EntityCueCardStyle.type"
+		},
+		{
+			"name": "UIAreaSubstitute-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "UIAreaSubstitute.control"
+		},
+		{
+			"name": "UIAreaSubstitute.js"
+		},
+		{
+			"name": "explored/Bootstrap-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/Bootstrap.js"
+		},
+		{
+			"name": "explored/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/Component.js"
+		},
+		{
+			"name": "explored/css/stars.png"
+		},
+		{
+			"name": "explored/css/style.css"
+		},
+		{
+			"name": "explored/css/titles.css"
+		},
+		{
+			"name": "explored/i18n/messageBundle.properties"
+		},
+		{
+			"name": "explored/img/114_iPhone-Retina_Web_Clip.png"
+		},
+		{
+			"name": "explored/img/144_iPad_Retina_Web_Clip.png"
+		},
+		{
+			"name": "explored/img/57_iPhone_Desktop_Launch.png"
+		},
+		{
+			"name": "explored/img/72_iPad_Desktop_Launch.png"
+		},
+		{
+			"name": "explored/img/favicon.ico"
+		},
+		{
+			"name": "explored/tmpl/index.html.tmpl"
+		},
+		{
+			"name": "explored/util/MyRouter-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/util/MyRouter.js"
+		},
+		{
+			"name": "explored/util/ObjectSearch-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/util/ObjectSearch.js"
+		},
+		{
+			"name": "explored/util/ToggleFullScreenHandler-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/util/ToggleFullScreenHandler.js"
+		},
+		{
+			"name": "explored/view/app-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/app-dbg.view.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/app.controller.js"
+		},
+		{
+			"name": "explored/view/app.view.js"
+		},
+		{
+			"name": "explored/view/appSettingsDialog.fragment.xml"
+		},
+		{
+			"name": "explored/view/code-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/code.controller.js"
+		},
+		{
+			"name": "explored/view/code.view.xml"
+		},
+		{
+			"name": "explored/view/entity-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/entity.controller.js"
+		},
+		{
+			"name": "explored/view/entity.view.xml"
+		},
+		{
+			"name": "explored/view/master-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/master.controller.js"
+		},
+		{
+			"name": "explored/view/master.view.xml"
+		},
+		{
+			"name": "explored/view/notFound-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/notFound.controller.js"
+		},
+		{
+			"name": "explored/view/notFound.view.xml"
+		},
+		{
+			"name": "explored/view/sample-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "explored/view/sample.controller.js"
+		},
+		{
+			"name": "explored/view/sample.view.xml"
+		},
+		{
+			"name": "explored/view/titles.view.html"
+		},
+		{
+			"name": "explored/view/viewSettingsDialog.fragment.xml"
+		},
+		{
+			"name": "explored/view/welcome.view.xml"
+		},
+		{
+			"name": "icex/Component-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/Component.js"
+		},
+		{
+			"name": "icex/css/style.css"
+		},
+		{
+			"name": "icex/img/114_iPhone-Retina_Web_Clip.png"
+		},
+		{
+			"name": "icex/img/144_iPad_Retina_Web_Clip.png"
+		},
+		{
+			"name": "icex/img/57_iPhone_Desktop_Launch.png"
+		},
+		{
+			"name": "icex/img/72_iPad_Desktop_Launch.png"
+		},
+		{
+			"name": "icex/img/SAPUI5Icon.png"
+		},
+		{
+			"name": "icex/img/favicon.ico"
+		},
+		{
+			"name": "icex/model/Config-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/model/Config.js"
+		},
+		{
+			"name": "icex/model/FavoriteModel-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/model/FavoriteModel.js"
+		},
+		{
+			"name": "icex/model/groups.json"
+		},
+		{
+			"name": "icex/model/img.json"
+		},
+		{
+			"name": "icex/util/Sorter-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/util/Sorter.js"
+		},
+		{
+			"name": "icex/view/App-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/App-dbg.view.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/App.controller.js"
+		},
+		{
+			"name": "icex/view/App.view.js"
+		},
+		{
+			"name": "icex/view/Detail-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/Detail.controller.js"
+		},
+		{
+			"name": "icex/view/Detail.view.xml"
+		},
+		{
+			"name": "icex/view/Favorite-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/Favorite.controller.js"
+		},
+		{
+			"name": "icex/view/Favorite.view.xml"
+		},
+		{
+			"name": "icex/view/Group-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/Group.controller.js"
+		},
+		{
+			"name": "icex/view/Group.view.xml"
+		},
+		{
+			"name": "icex/view/Master-dbg.controller.js",
+			"isDebug":true
+		},
+		{
+			"name": "icex/view/Master.controller.js"
+		},
+		{
+			"name": "icex/view/Master.view.xml"
+		},
+		{
+			"name": "icex/view/Welcome.view.xml"
+		},
+		{
+			"name": "js/esprima-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/esprima.js"
+		},
+		{
+			"name": "js/google-code-prettify/lang-css-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/google-code-prettify/lang-css.js"
+		},
+		{
+			"name": "js/google-code-prettify/prettify-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/google-code-prettify/prettify.css"
+		},
+		{
+			"name": "js/google-code-prettify/prettify.js"
+		},
+		{
+			"name": "js/google-code-prettify/run_prettify-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/google-code-prettify/run_prettify.js"
+		},
+		{
+			"name": "js/highlight-query-terms-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "js/highlight-query-terms.js"
+		},
+		{
+			"name": "js/licenses/esprima-BSD-LICENSE.txt"
+		},
+		{
+			"name": "js/licenses/google-code-prettify-Apache-LICENSE.txt"
+		},
+		{
+			"name": "library-all-dbg.js",
+			"isDebug":true,
+			"merged":true
+		},
+		{
+			"name": "library-all.js",
+			"merged":true
+		},
+		{
+			"name": "library-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "library-preload.json",
+			"merged":true
+		},
+		{
+			"name": "library.dependencies.json"
+		},
+		{
+			"name": "library.dependencies.xml"
+		},
+		{
+			"name": "library.js"
+		},
+		{
+			"name": "library.templates.xml"
+		},
+		{
+			"name": "manifest.json"
+		},
+		{
+			"name": "themes/base/.theming",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/CodeSampleContainer.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/CodeViewer.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/DemokitApp.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/DemokitPage.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/FileUploadIntrospector.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/HexagonButton.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/HexagonButtonGroup.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/IndexLayout.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/Link.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/TagCloud.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/UI5EntityCueCard.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/highlight-query-terms.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/bg_white_transparent.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/file.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-blue.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-gray.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-green.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-pink.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-red.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon-yellow.gif",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon.svg",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon_blue_small.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/hexagon_grey_small.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/images/logo-SAPUI5-blue-446x140.png",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-RTL.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-dbg.css",
+			"isDebug":true,
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library-parameters.json",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.css",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/library.source.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/base/shared.less",
+			"theme":"base"
+		},
+		{
+			"name": "themes/sap_bluecrystal/.theming",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-RTL.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library-parameters.json",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.css",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/library.source.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_bluecrystal/shared.less",
+			"theme":"sap_bluecrystal"
+		},
+		{
+			"name": "themes/sap_goldreflection/.theming",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-RTL.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library-parameters.json",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.css",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/library.source.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_goldreflection/shared.less",
+			"theme":"sap_goldreflection"
+		},
+		{
+			"name": "themes/sap_hcb/.theming",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-RTL.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-dbg.css",
+			"isDebug":true,
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library-parameters.json",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.css",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/library.source.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "themes/sap_hcb/shared.less",
+			"theme":"sap_hcb"
+		},
+		{
+			"name": "util/jsanalyzer/ASTUtils-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/jsanalyzer/ASTUtils.js"
+		},
+		{
+			"name": "util/jsanalyzer/Doclet-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/jsanalyzer/Doclet.js"
+		},
+		{
+			"name": "util/jsanalyzer/ModuleAnalyzer-dbg.js",
+			"isDebug":true
+		},
+		{
+			"name": "util/jsanalyzer/ModuleAnalyzer.js"
+		}
+	]
+}

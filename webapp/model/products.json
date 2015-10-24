@@ -10,6 +10,14 @@
                     "ProductName": "TableName",
                     "UnitPrice": 1234
                 }
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                }
             ]
         },
         {
@@ -81,6 +89,14 @@
                 {
                     "ProductName": "Very Fast Car 2.5",
                     "UnitPrice": 1234
+                }
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678
                 }
             ]
         }

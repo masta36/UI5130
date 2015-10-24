@@ -51,21 +51,59 @@ sap.ui.define([
         onBeforeUploadStarts: function(evt){
             var fName = evt.getParameter("fileName");
             //create new document in Model:
+            var model = this.getView().getModel();
+            var path = this.getView().getBindingContext().getPath();
+            var parts = path.split("/");
+            var data = model.getData();
+            var prod = data[parts[1]][parts[2]];
+            var docs = prod['Product_Docs'];
+            var new_doc = new Array();
+            new_doc['DocName'] = fName;
+            new_doc['Version'] = '1.0';
+            new_doc['Owner'] = 'Anonymous';
+            new_doc['size'] = 999;
+            docs.push(new_doc);
+            model.setData(data);
 
-            alert(fName);
+            var x = 2;
+
         },
 
         onStartUpload : function(oEvent) {
-            var oUploadCollection = this.getView().byId("UploadCollection");
+            var oUploadCollection = this.getView().byId("upload");
             var cFiles = oUploadCollection.getItems().length;
             var uploadInfo = "";
 
             oUploadCollection.upload();
 
             uploadInfo = cFiles + " file(s)";
+            /*var oPage = this.getView().byId("page");
+            // destroy old UploadCollection instance and create a new one
+
+            oPage.removeContent(oUploadCollection);
+            oUploadCollection.destroy();
+
+            oUploadCollection = new sap.m.UploadCollection( {
+                id: this.getView().createId("upload"),
+                maximumFilenameLength: 55,
+                maximumFileSize: 10,
+                multiple: true,
+                sameFilenameAllowed: true,
+                instantUpload: false,
+                showSeparators: "All",
+                change: [this.getView().getController().onChange, this],
+                fileDeleted: [this.getView().getController().onFileDeleted, this],
+                filenameLengthExceed: [this.getView().getController().onFilenameLengthExceed, this],
+                fileSizeExceed: [this.getView().getController().onFileSizeExceed, this],
+                typeMissmatch: [this.getView().getController().onTypeMissmatch, this],
+                uploadComplete: [this.getView().getController().onUploadComplete, this],
+                beforeUploadStarts: [this.getView().getController().onBeforeUploadStarts, this]
+            });
+
+            oPage.insertContent(oUploadCollection, 3);
+            */
 
             if (cFiles > 0) {
-
             this.showProgress("DocName", "hh");
 
             this.al = 0;

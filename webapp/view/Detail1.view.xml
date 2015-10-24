@@ -33,9 +33,9 @@
                             </ObjectPageSubSection>
                         </subSections>
                     </ObjectPageSection>
-            <ObjectPageSection title="Product Texts" icon="sap-icon://document">
+            <ObjectPageSection id="sec_txt" title="Product Texts" icon="sap-icon://document">
                 <subSections>
-                    <ObjectPageSubSection title="Description">
+                    <ObjectPageSubSection title="Description" id="sub_desc">
                         <blocks>
                             <layout:VerticalLayout>
                                 <pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
