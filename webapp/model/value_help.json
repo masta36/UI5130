@@ -1,0 +1,12 @@
+{
+"combo_country": [
+  {
+    "ID": "DE",
+    "name": "Germany"
+  },
+  {
+    "ID": "US",
+    "name": "United States"
+  }
+  ]
+}

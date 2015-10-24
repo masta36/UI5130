@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.pr36.app.controller.ClassMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.ClassMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:c="sap.ui.core"  xmlns:com="sap.ui.commons" xmlns:layout="sap.ui.layout">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="true" title="{i18n>classTitle}" xmlns:t="sap.ui.table">
         <m:content>
@@ -25,7 +25,7 @@
                             <ObjectPageSubSection>
                                 <blocks>
                                     <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
-                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="70%">
                                         <m:headerToolbar>
                                             <m:Toolbar id="lineItemsToolbar3">
                                                 <m:Title id="lineItemsHeader3" text="Classification"/>
@@ -38,14 +38,22 @@
                                             <m:Column>
                                                 <m:Text text="Value"/>
                                             </m:Column>
+                                            <m:Column>
+                                            <m:Text text="Combo"/>
+                                        </m:Column>
+                                            <m:Column>
+                                                <m:Text text="F4"/>
+                                            </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem>
                                                 <m:cells>
                                                     <m:ObjectIdentifier text="{char}" />
-
-                                                        <m:Input value="{value}"/>
-
+                                                    <m:Input value="{value}"/>
+                                                    <m:ComboBox id="combo" value="{char}"  items="{/combo_country}">
+                                                        <c:Item text="{name}"/>
+                                                    </m:ComboBox>
+                                                    <com:ValueHelpField value="HALLO" valueHelpRequest="getF4" />
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>

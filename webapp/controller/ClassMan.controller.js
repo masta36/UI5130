@@ -1,8 +1,10 @@
 sap.ui.define([
     "com/pr36/app/controller/BaseController",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/Device"
-], function(BaseController, JSONModel, Device) {
+    "sap/ui/Device",
+    'sap/ui/model/Filter',
+    'sap/m/MessageToast',
+], function(BaseController, JSONModel, Device, Filter, MessageToast) {
     "use strict";
 
     return BaseController.extend("com.pr36.app.controller.ClassMan", {
@@ -34,10 +36,61 @@ sap.ui.define([
             this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 
             this.getRouter().getRoute("class").attachPatternMatched(this._onObjectMatched, this);
+
+            var combo_model = new sap.ui.model.json.JSONModel();
+            // Load JSON in model
+            combo_model.loadData("model/value_help.json");
+            this.getView().byId("combo").setModel(combo_model);
+        },
+
+        getF4: function(evt){
+          this.handleTableSelectDialogPress(evt);
+        },
+
+        handleTableSelectDialogPress: function(oEvent) {
+            if (! this._oDialog) {
+                this._oDialog = sap.ui.xmlfragment("com.pr36.app.view.Dialog", this);
+                var combo_model = new sap.ui.model.json.JSONModel();
+                // Load JSON in model
+                combo_model.loadData("model/value_help.json");
+                this._oDialog.setModel(combo_model);
+            }
+
+            // Multi-select if required
+            var bMultiSelect = !!oEvent.getSource().data("multi");
+            this._oDialog.setMultiSelect(bMultiSelect);
+
+            // Remember selections if required
+            var bRemember = !!oEvent.getSource().data("remember");
+            this._oDialog.setRememberSelections(bRemember);
+
+            this.getView().addDependent(this._oDialog);
+
+            // toggle compact style
+            jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
+            this._oDialog.open();
+        },
+
+        handleSearch: function(oEvent) {
+            var sValue = oEvent.getParameter("value");
+            var oFilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sValue);
+            var oBinding = oEvent.getSource().getBinding("items");
+            oBinding.filter([oFilter]);
+        },
+
+        handleClose: function(oEvent) {
+            var aContexts = oEvent.getParameter("selectedContexts");
+            if (aContexts.length) {
+                MessageToast.show("You have chosen " + aContexts.map(function(oContext) {
+                        return oContext.getObject().name;
+                    }).join(", "));
+            }
+            oEvent.getSource().getBinding("items").filter([]);
         },
 
 
-        /**
+
+    /**
          * Binds the view to the object path and expands the aggregated line items.
          * @function
          * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
