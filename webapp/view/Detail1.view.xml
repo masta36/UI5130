@@ -74,7 +74,13 @@
                                             </m:headerToolbar>
                                             <m:columns>
                                                 <m:Column>
-                                                    <m:Text text="{i18n>detailLineItemTableIDColumn}"/>
+                                                    <m:Text text="Article Name"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Article No"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Article Detail"/>
                                                 </m:Column>
                                                 <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
                                                     <m:Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
@@ -84,6 +90,8 @@
                                                 <m:ColumnListItem>
                                                     <m:cells>
                                                         <m:ObjectIdentifier text="{ProductName}" />
+                                                        <m:ObjectIdentifier text="{ArtNo}" />
+                                                        <m:ObjectIdentifier text="{ArtDetails}" />
                                                         <m:ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
                                                     </m:cells>
                                                 </m:ColumnListItem>

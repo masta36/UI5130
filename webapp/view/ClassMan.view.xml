@@ -53,7 +53,7 @@
                                                     <m:ComboBox id="combo" value="{char}"  items="{/combo_country}">
                                                         <c:Item text="{name}"/>
                                                     </m:ComboBox>
-                                                    <com:ValueHelpField value="HALLO" valueHelpRequest="getF4" />
+                                                    <com:ValueHelpField value="fg" id="val" valueHelpRequest="getF4" />
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>

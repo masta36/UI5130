@@ -81,9 +81,18 @@ sap.ui.define([
         handleClose: function(oEvent) {
             var aContexts = oEvent.getParameter("selectedContexts");
             if (aContexts.length) {
-                MessageToast.show("You have chosen " + aContexts.map(function(oContext) {
+             /*   MessageToast.show("You have chosen " + aContexts.map(function (oContext) {
                         return oContext.getObject().name;
                     }).join(", "));
+*/
+                var value = aContexts.map(function (oContext) {
+                    return oContext.getObject().name;
+                });
+
+                var input = this.getView().byId("val");
+                var con = input.getBindingContext();
+                alert(con);
+                input.setValue("TEST");
             }
             oEvent.getSource().getBinding("items").filter([]);
         },

@@ -7,7 +7,9 @@
             "prod_desc": "Ich bin eine Beschreibung",
             "Product_Details": [
                 {
-                    "ProductName": "TableName",
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
                     "UnitPrice": 1234
                 }
             ],
@@ -22,14 +24,80 @@
         },
         {
             "ProductID": "2",
-            "ProductName": "projektraum36 PIC",
+            "ProductName": "Quite Fast Car",
             "UnitPrice": 9999,
-            "prod_short": "projektraum36 GmbH & Co. KG",
+            "prod_short": "Nice",
             "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "images/a5.jpg", "images/products.png", "images/a5.jpg", "images/a5.jpg"
+                "images/a5.jpg"
+            ],
+            "Product_Details": [
+                {
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 35675
+                },
+                {
+                    "ProductName": "1.8 TFSI",
+                    "ArtNo": 23456,
+                    "ArtDetails": "Eco-Version, V4 1.8 TFSI",
+                    "UnitPrice": 32654
+                },
+                {
+                    "ProductName": "3.0 TDI 4x4",
+                    "ArtNo": 34567,
+                    "ArtDetails": "Power-Version, V6 3.0 TDI",
+                    "UnitPrice": 52345
+                }
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                },
+                {
+                    "DocName": "Flyer",
+                    "Version": "1.2",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                },
+                {
+                    "DocName": "Supplement-Sheet",
+                    "Version": "0.2",
+                    "Owner": "J. Doe",
+                    "size": 5678
+                }
+            ],
+            "Product_Class": [
+                {
+                    "char": "Country Release",
+                    "value": "DE, US"
+                },
+                {
+                    "char": "Production Status",
+                    "value": "Released"
+                },
+                {
+                    "char": "Sales Status",
+                    "value": "Saleable"
+                }
+            ]
+        },
+        {
+            "ProductID": "4",
+            "ProductName": "Herby",
+            "UnitPrice": 9999,
+            "prod_short": "The older the better",
+            "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+            "prod_usage": "Handle with care",
+            "prod_info": "Please note that this is a prototype only",
+            "prod_images": [
+                "images/kaefer1.jpg", "images/kaefer3.jpg"
             ],
             "Product_Details": [
                 {
@@ -84,10 +152,16 @@
             "ProductID": "3",
             "ProductName": "Very fast car",
             "UnitPrice": 21890,
-            "prod_desc": "Ich bin ein schnelles Auto",
+            "prod_short": "I believe I can fly",
+            "prod_desc": "I believe I can fly",
+            "prod_usage": "Handle with care",
+            "prod_info": "Please note that this is a prototype only",
+            "prod_images": [
+                "images/ferr1.jpg", "images/ferr2.jpg"
+            ],
             "Product_Details": [
                 {
-                    "ProductName": "Very Fast Car 2.5",
+                    "ProductName": "Very Fast Car",
                     "UnitPrice": 1234
                 }
             ],
@@ -97,6 +171,20 @@
                     "Version": "1.0",
                     "Owner": "J. Doe",
                     "size": 5678
+                }
+            ],
+            "Product_Class": [
+                {
+                    "char": "Country Release",
+                    "value": "DE, US"
+                },
+                {
+                    "char": "Production Status",
+                    "value": "Released"
+                },
+                {
+                    "char": "Sales Status",
+                    "value": "Saleable"
                 }
             ]
         }

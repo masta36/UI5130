@@ -1,27 +1,136 @@
-<mvc:View controllerName="com.pr36.app.controller.Start" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.Start" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.suite.ui.commons" xmlns:ux="sap.uxap" xmlns:m="sap.m" xmlns:l="sap.ui.layout">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="{device>/system/phone}" title="Product Information Cockpit">
-        <m:content>
-            <m:ObjectHeader
-                    icon="images/products.png"
-                    iconDensityAware="false"
-                    title="Product Information Cockpit">
-            </m:ObjectHeader>
+    <m:content>
 
-                <m:Label design="Bold" text="Demonstrator for displaying / editing of all product relevant data within one App" />
-                <m:TileContainer
-                        id="container"
-                        tiles="{/TileCollection}">
-                    <m:StandardTile
-                            icon="sap-icon://thing-type"
-                            type="{type}"
-                            number="{number}"
-                            numberUnit="{numberUnit}"
-                            title="{title}"
-                            info="{info}"
-                            infoState="{infoState}" />
-                </m:TileContainer>
-
+        <ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" showAnchorBar="false">
+        <ux:headerTitle>
+            <ux:ObjectPageHeader objectImageURI=""
+                              objectImageShape="Square"
+                              objectTitle="Product Information Cockpit"
+                              id="ObjectPageLayoutHeaderTitle"
+                              isObjectIconAlwaysVisible="false"
+                              isObjectTitleAlwaysVisible="false"
+                              isObjectSubtitleAlwaysVisible="false"
+                              isActionAreaAlwaysVisible="true"
+                              showPlaceholder = "false">
+            </ux:ObjectPageHeader>
+        </ux:headerTitle>
+        <ux:headerContent>
+            <l:VerticalLayout>
+               <m:Label text="projektraum36 GmbH &amp; Co. KG" />
+            </l:VerticalLayout>
+        </ux:headerContent>
+            <ux:sections>
+            <ux:ObjectPageSection title="" >
+            <ux:subSections>
+            <ux:ObjectPageSubSection title="Welcome">
+            <ux:blocks>
+                <l:VerticalLayout>
+                    <m:Label design="Bold" text="Welcome" />
+                    <m:Text text="This is a demonstrator for visualization and editing of all kind of Product-relevant information.\r\nFeel free to play around with the features. We are happy to hear your feedback.\r\n\r\nPlease start by selecting a product on the right side.\r\n\r\nEnjoy" />
+                </l:VerticalLayout>
+        <DynamicContainer class="marginTopLeft">
+            <tiles>
+            <GenericTile header="Features"
+                         size="M"
+                         frameType="TwoByOne"
+                         press="press"
+                         backgroundImage="images/products_trans.png">
+                <tileContent>
+                    <TileContent footer="">
+                        <content>
+                            <NewsContent
+                                    contentText="All Product-relevant information at a glance"
+                                    >
+                            </NewsContent>
+                        </content>
+                    </TileContent>
+                </tileContent>
+            </GenericTile>
+            <GenericTile header="Features"
+                         size="M"
+                         frameType="TwoByOne"
+                         press="press"
+                         backgroundImage="images/products_trans.png">
+                <tileContent>
+                    <TileContent>
+                        <content>
+                            <NewsContent
+                                    contentText="Inline Text-Editor for formatted Product-texts"
+                                    >
+                            </NewsContent>
+                        </content>
+                    </TileContent>
+                </tileContent>
+            </GenericTile>
+                <GenericTile header="Features"
+                             size="M"
+                             frameType="TwoByOne"
+                             press="press"
+                             backgroundImage="images/products_trans.png">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <NewsContent
+                                        contentText="Inline Document-Management"
+                                        >
+                                </NewsContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                <GenericTile header="Features"
+                             size="M"
+                             frameType="TwoByOne"
+                             press="press"
+                             backgroundImage="images/products_trans.png">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <NewsContent
+                                        contentText="Inline Classification-Management"
+                                        >
+                                </NewsContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+            </tiles>
+        </DynamicContainer>
+            </ux:blocks>
+            </ux:ObjectPageSubSection>
+            </ux:subSections>
+                </ux:ObjectPageSection>
+                <ux:ObjectPageSection title="" >
+                <ux:subSections>
+                <ux:ObjectPageSubSection title="Information">
+                <ux:blocks>
+                <GenericTile
+                        header="Get in contact"
+                        size="L"
+                        frameType="TwoByOne"
+                        press="press"
+                        headerImage="sap-icon://email">
+                    <tileContent>
+                        <TileContent footer="(c) 2015 / projektraum36 GmbH &amp; Co. KG" size="M">
+                            <content>
+                                <JamContent
+                                        size="M"
+                                        contentText="Interested in getting in touch with our products?\r\nWe are happy to provide you with information about our portfolio. Just write an e-mail to: info@projektraum36.de"
+                                        subheader=""
+                                        value="">
+                                </JamContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                </ux:blocks>
+                </ux:ObjectPageSubSection>
+                </ux:subSections>
+                </ux:ObjectPageSection>
+                </ux:sections>
+        </ux:ObjectPageLayout>
         </m:content>
         <m:footer>
             <m:OverflowToolbar id="footerToolbar">
@@ -29,6 +138,5 @@
 
             </m:OverflowToolbar>
         </m:footer>
-
     </m:Page>
 </mvc:View>
