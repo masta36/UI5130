@@ -60,7 +60,7 @@ sap.ui.define([
             var new_doc = new Array();
             new_doc['DocName'] = fName;
             new_doc['Version'] = '1.0';
-            new_doc['Owner'] = 'Anonymous';
+            new_doc['Owner'] = 'User1';
             new_doc['size'] = 999;
             docs.push(new_doc);
             model.setData(data);
@@ -77,31 +77,6 @@ sap.ui.define([
             oUploadCollection.upload();
 
             uploadInfo = cFiles + " file(s)";
-            /*var oPage = this.getView().byId("page");
-            // destroy old UploadCollection instance and create a new one
-
-            oPage.removeContent(oUploadCollection);
-            oUploadCollection.destroy();
-
-            oUploadCollection = new sap.m.UploadCollection( {
-                id: this.getView().createId("upload"),
-                maximumFilenameLength: 55,
-                maximumFileSize: 10,
-                multiple: true,
-                sameFilenameAllowed: true,
-                instantUpload: false,
-                showSeparators: "All",
-                change: [this.getView().getController().onChange, this],
-                fileDeleted: [this.getView().getController().onFileDeleted, this],
-                filenameLengthExceed: [this.getView().getController().onFilenameLengthExceed, this],
-                fileSizeExceed: [this.getView().getController().onFileSizeExceed, this],
-                typeMissmatch: [this.getView().getController().onTypeMissmatch, this],
-                uploadComplete: [this.getView().getController().onUploadComplete, this],
-                beforeUploadStarts: [this.getView().getController().onBeforeUploadStarts, this]
-            });
-
-            oPage.insertContent(oUploadCollection, 3);
-            */
 
             if (cFiles > 0) {
             this.showProgress("DocName", "hh");
@@ -114,6 +89,19 @@ sap.ui.define([
             }else {
                     MessageToast.show("No documents selected");
                 }
+
+            /*var oPage = this.getView().byId("container");
+            // destroy old UploadCollection instance and create a new one
+
+            var upl = oUploadCollection.clone();
+
+            var sid = oUploadCollection.sId;
+            oPage.removeContent(oUploadCollection);
+            upl.sId = sid;
+            oUploadCollection.destroy();
+
+            oPage.insertContent(upl, 3);
+            */
         },
 
         showProgress: function(docname, docsize){
@@ -221,6 +209,34 @@ sap.ui.define([
                 oObject = oView.getModel().getObject(sPath),
                 oViewModel = this.getModel("docView");
 
+            var tab = this.getView().byId("lineItemsList5");
+            var oTemplate = new sap.m.ColumnListItem({
+                cells : [
+                    new sap.m.Text({
+                        text : "xxx",
+                        wrapping : false
+                    }),
+                    new sap.m.Text({
+                        text : "yyy",
+                        wrapping : false
+                    }),
+                    ,
+                    new sap.m.Text({
+                        text : "yyy",
+                        wrapping : false
+                    }),
+                    ,
+                    new sap.m.Text({
+                        text : "yyy",
+                        wrapping : false
+                    })
+                ]
+            });
+
+           // var path = sPath + "/meta"; alert(path);
+           // tab.bindItems(path, oTemplate);
+
+
         },
 
         /**
@@ -244,63 +260,21 @@ sap.ui.define([
             var tab = this.getView().byId("lineItemsList5");
             var bind = tab.getBindingInfo("items");
 
-          // tab.bindItems({path: path, template: tab.getBindingInfo("items").template});
-
-            var aColumnData = [{
-                columnId: "Metadata"
-            }, {
-                columnId: "Value"
-            }];
-
-
-            var aData = [{
-                Firstname: "Rajesh",
-                Lastname: "Kumar"
-            },
-                {
-                    Firstname: "Harish",
-                    Lastname: "Kumar"
-                }];
-            var oModel = new sap.ui.model.json.JSONModel();
-
-            oModel.setData({
-                columns: aColumnData,
-                rows: aData
+            var oTemplate = new sap.m.ColumnListItem({
+                cells : [
+                    new sap.m.Text({
+                        text : "{char}",
+                        wrapping : false
+                    }),
+                    new sap.m.Text({
+                        text : "{value}",
+                        wrapping : false
+                    })
+                ]
             });
 
-            var oTable = this.getView().byId("lineItemsList5");
-            //oModel = this.getView().getModel();
-            oTable.setModel(oModel);
-
-           oTable.bindAggregation("columns", "/columns", function(index, context) {
-                return new sap.m.Column({
-                    header: new sap.m.Label({text: context.getObject().columnId}),
-                });
-            });
-
-
-            oTable.bindItems("/rows", function(index, context) {
-                var obj = context.getObject();
-                var row = new sap.m.ColumnListItem();
-
-                row.addCell(new sap.m.Text({text : "Document Name"}));
-                row.addCell(new sap.m.Text({text : obj["DocName"]}));
-
-                var row = new sap.m.ColumnListItem();
-                row.addCell(new sap.m.Text({text : "Document Version"}));
-                row.addCell(new sap.m.Text({text : obj["Version"]}));
-
-                var row = new sap.m.ColumnListItem();
-                row.addCell(new sap.m.Text({text : "Document Owner"}));
-                row.addCell(new sap.m.Text({text : obj["Owner"]}));
-
-                var row = new sap.m.ColumnListItem();
-                row.addCell(new sap.m.Text({text : "Document Size"}));
-                row.addCell(new sap.m.Text({text : obj["size"]}));
-
-                return row;
-            });
-
+            path = path + "/meta";
+            tab.bindItems(path, oTemplate);
         }
 
     });

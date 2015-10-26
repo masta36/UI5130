@@ -29,15 +29,7 @@
 		<footer>
 			<OverflowToolbar id="footerbar">
 				<ToolbarSpacer/>
-				<Select autoAdjustWidth="true" change="onSort" icon="sap-icon://sort" id="sort-select" selectedKey="{masterView>/sortBy}" type="IconOnly">
-					<core:Item id="masterSort1" key="ProductName" text="{i18n>masterSort1}"/>
-					<core:Item id="masterSort2" key="UnitPrice" text="{i18n>masterSort2}"/>
-				</Select>
-				<Select autoAdjustWidth="true" change="onGroup" icon="sap-icon://group-2" id="group-select" selectedKey="{masterView>/groupBy}"
-					type="IconOnly">
-					<core:Item id="masterGroupNone" key="None" text="{i18n>masterGroupNone}"/>
-					<core:Item id="masterGroup1" key="UnitPrice" text="{i18n>masterGroup1}"/>
-				</Select>
+
 			</OverflowToolbar>
 		</footer>
 	</Page>

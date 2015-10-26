@@ -2,9 +2,12 @@
     "Products": [
         {
             "ProductID": "1",
-            "ProductName": "SAP HANA",
+            "ProductName": "New Car",
             "UnitPrice": 300,
+            "prod_short": "Enter Short description",
             "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
             "Product_Details": [
                 {
                     "ProductName": "2.0 TDI",
@@ -18,9 +21,50 @@
                     "DocName": "User Manual",
                     "Version": "1.0",
                     "Owner": "J. Doe",
-                    "size": 5678
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+
+                    ]
                 }
-            ]
+            ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
         },
         {
             "ProductID": "2",
@@ -31,7 +75,7 @@
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "images/a5.jpg"
+                "images/a53.jpg", "images/a52.jpg", "images/a54.jpg"
             ],
             "Product_Details": [
                 {
@@ -57,8 +101,27 @@
                 {
                     "DocName": "User Manual",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678
+                    "Owner": "J. Average",
+                    "size": 123456789,
+                    "meta": [
+                    {
+                        "char": "Filesize",
+                        "value": 123456789
+                    },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Average"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+
+                    ]
                 },
                 {
                     "DocName": "Flyer",
@@ -73,20 +136,28 @@
                     "size": 5678
                 }
             ],
-            "Product_Class": [
-                {
-                    "char": "Country Release",
-                    "value": "DE, US"
-                },
-                {
-                    "char": "Production Status",
-                    "value": "Released"
-                },
-                {
-                    "char": "Sales Status",
-                    "value": "Saleable"
-                }
-            ]
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "DE, US"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Released"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "Saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print, Extranet, Internet, Intranet"
+                    }
+                ]
+            }
         },
         {
             "ProductID": "4",
@@ -97,20 +168,14 @@
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "images/kaefer1.jpg", "images/kaefer3.jpg"
+                "images/kaefer.jpg", "images/kaefer2.jpg"
             ],
             "Product_Details": [
                 {
-                    "ProductName": "Pr36 Option1",
-                    "UnitPrice": 5678
-                },
-                {
-                    "ProductName": "Pr36 Option2",
-                    "UnitPrice": 6666
-                },
-                {
-                    "ProductName": "Pr36 Option3",
-                    "UnitPrice": 53378
+                    "ProductName": "New Beetle",
+                    "ArtNo": 34567,
+                    "ArtDetails": "Facelift 2015",
+                    "UnitPrice": 28453
                 }
             ],
             "Product_Docs": [
@@ -118,35 +183,50 @@
                     "DocName": "User Manual",
                     "Version": "1.0",
                     "Owner": "J. Doe",
-                    "size": 5678
-                },
-                {
-                    "DocName": "Flyer",
-                    "Version": "1.2",
-                    "Owner": "J. Doe",
-                    "size": 5678
-                },
-                {
-                    "DocName": "Supplement-Sheet",
-                    "Version": "0.2",
-                    "Owner": "J. Doe",
-                    "size": 5678
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+
+                    ]
                 }
             ],
-            "Product_Class": [
-                {
-                    "char": "Country Release",
-                    "value": "DE, US"
-                },
-                {
-                    "char": "Production Status",
-                    "value": "Released"
-                },
-                {
-                    "char": "Sales Status",
-                    "value": "Saleable"
-                }
-            ]
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
         },
         {
             "ProductID": "3",
@@ -157,12 +237,14 @@
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "images/ferr1.jpg", "images/ferr2.jpg"
+                "images/ferrari.jpg", "images/ferrari2.jpg", "images/ferrari3.jpg"
             ],
             "Product_Details": [
                 {
-                    "ProductName": "Very Fast Car",
-                    "UnitPrice": 1234
+                    "ProductName": "Very, very fast car",
+                    "ArtNo": 666666,
+                    "ArtDetails": "V8 BiTurbo, 614PS",
+                    "UnitPrice": 112654
                 }
             ],
             "Product_Docs": [
@@ -170,23 +252,50 @@
                     "DocName": "User Manual",
                     "Version": "1.0",
                     "Owner": "J. Doe",
-                    "size": 5678
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+
+                    ]
                 }
             ],
-            "Product_Class": [
-                {
-                    "char": "Country Release",
-                    "value": "DE, US"
-                },
-                {
-                    "char": "Production Status",
-                    "value": "Released"
-                },
-                {
-                    "char": "Sales Status",
-                    "value": "Saleable"
-                }
-            ]
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
         }
     ]
 }

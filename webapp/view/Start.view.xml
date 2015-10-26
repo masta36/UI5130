@@ -30,7 +30,7 @@
                     <m:Label design="Bold" text="Welcome" />
                     <m:Text text="This is a demonstrator for visualization and editing of all kind of Product-relevant information.\r\nFeel free to play around with the features. We are happy to hear your feedback.\r\n\r\nPlease start by selecting a product on the right side.\r\n\r\nEnjoy" />
                 </l:VerticalLayout>
-        <DynamicContainer class="marginTopLeft">
+        <DynamicContainer class="marginTopLeft" displayTime="2000">
             <tiles>
             <GenericTile header="Features"
                          size="M"
@@ -96,6 +96,38 @@
                         </TileContent>
                     </tileContent>
                 </GenericTile>
+                <GenericTile header="Features"
+                             size="M"
+                             frameType="TwoByOne"
+                             press="press"
+                             backgroundImage="images/products_trans.png">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <NewsContent
+                                        contentText="Responsive.\r\n Supports Desktop, Smartphone and Tablet"
+                                        >
+                                </NewsContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+                <GenericTile header="Features"
+                             size="M"
+                             frameType="TwoByOne"
+                             press="press"
+                             backgroundImage="images/products_trans.png">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <NewsContent
+                                        contentText="Fiori Launchpad Integration\r\nor Standalone-Application"
+                                        >
+                                </NewsContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
             </tiles>
         </DynamicContainer>
             </ux:blocks>
@@ -125,6 +157,7 @@
                         </TileContent>
                     </tileContent>
                 </GenericTile>
+
                 </ux:blocks>
                 </ux:ObjectPageSubSection>
                 </ux:subSections>

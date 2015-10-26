@@ -25,58 +25,60 @@
                             <ObjectPageSubSection title="Upload">
                                 <blocks>
                                     <l:VerticalLayout class="sapUiSmallMargin" width="50%">
-                                    <m:UploadCollection
-                                            id="upload"
-                                            maximumFilenameLength="55"
-                                            maximumFileSize="10"
-                                            multiple="true"
-                                            showSeparators="All"
-                                            change="onChange"
-                                            fileDeleted="onFileDeleted"
-                                            filenameLengthExceed="onFilenameLengthExceed"
-                                            fileRenamed="onFileRenamed"
-                                            fileSizeExceed="onFileSizeExceed"
-                                            typeMissmatch="onTypeMissmatch"
-                                            uploadComplete="onUploadComplete"
-                                            beforeUploadStarts="onBeforeUploadStarts"
-                                            uploadTerminated="onUploadTerminated"
-                                            items="{Product_Docs}"
-                                            templateShareable="true"
-                                            uploadUrl=""
-                                            instantUpload="false"
-                                            width="50%"
-                                            >
-                                        <m:items>
-                                            <m:UploadCollectionItem
-                                                    documentId="{documentId}"
-                                                    fileName="{DocName}"
-                                                    mimeType="{mimeType}"
-                                                    thumbnailUrl="{thumbnailUrl}"
-                                                    enableEdit="{enableEdit}"
-                                                    enableDelete="true"
-                                                    visibleDelete="{visibleDelete}"
-                                                    visibleEdit="{visibleEdit}"
-                                                    attributes="{attributes}"
-                                                    statuses="{statuses}">
-                                                <m:attributes>
-                                                    <m:ObjectAttribute
-                                                            title="{title}"
-                                                            text= "{text}"
-                                                            active="{active}"
-                                                            textDirection="{textDirection}"/>
-                                                </m:attributes>
-                                                <m:statuses>
-                                                    <m:ObjectStatus
-                                                            title="{title}"
-                                                            text="{text}"
-                                                            state="{state}"
-                                                            icon="{icon}"
-                                                            iconDensityAware="{iconDensityAware}"
-                                                            textDirection="{textDirection}"/>
-                                                </m:statuses>
-                                            </m:UploadCollectionItem>
-                                        </m:items>
-                                    </m:UploadCollection>
+                                        <l:VerticalLayout id="container" >
+                                            <m:UploadCollection
+                                                    id="upload"
+                                                    maximumFilenameLength="55"
+                                                    maximumFileSize="10"
+                                                    multiple="true"
+                                                    showSeparators="All"
+                                                    change="onChange"
+                                                    fileDeleted="onFileDeleted"
+                                                    filenameLengthExceed="onFilenameLengthExceed"
+                                                    fileRenamed="onFileRenamed"
+                                                    fileSizeExceed="onFileSizeExceed"
+                                                    typeMissmatch="onTypeMissmatch"
+                                                    uploadComplete="onUploadComplete"
+                                                    beforeUploadStarts="onBeforeUploadStarts"
+                                                    uploadTerminated="onUploadTerminated"
+                                                    items="{Product_Docs}"
+                                                    templateShareable="true"
+                                                    uploadUrl=""
+                                                    instantUpload="false"
+                                                    width="50%"
+                                                    >
+                                                <m:items>
+                                                    <m:UploadCollectionItem
+                                                            documentId="{documentId}"
+                                                            fileName="{DocName}"
+                                                            mimeType="{mimeType}"
+                                                            thumbnailUrl="{thumbnailUrl}"
+                                                            enableEdit="{enableEdit}"
+                                                            enableDelete="true"
+                                                            visibleDelete="{visibleDelete}"
+                                                            visibleEdit="{visibleEdit}"
+                                                            attributes="{attributes}"
+                                                            statuses="{statuses}">
+                                                        <m:attributes>
+                                                            <m:ObjectAttribute
+                                                                    title="{title}"
+                                                                    text= "{text}"
+                                                                    active="{active}"
+                                                                    textDirection="{textDirection}"/>
+                                                        </m:attributes>
+                                                        <m:statuses>
+                                                            <m:ObjectStatus
+                                                                    title="{title}"
+                                                                    text="{text}"
+                                                                    state="{state}"
+                                                                    icon="{icon}"
+                                                                    iconDensityAware="{iconDensityAware}"
+                                                                    textDirection="{textDirection}"/>
+                                                        </m:statuses>
+                                                    </m:UploadCollectionItem>
+                                                </m:items>
+                                            </m:UploadCollection>
+                                    </l:VerticalLayout>
                                     <m:Button
                                             id="Button"
                                             text="Upload Now"
@@ -88,7 +90,7 @@
                             <ObjectPageSubSection title="Documents">
                                 <blocks>
                                     <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
-                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="auto" mode="SingleSelectMaster" selectionChange="doSelect">
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="60%" mode="SingleSelectMaster" selectionChange="doSelect">
                                         <m:headerToolbar>
                                             <m:Toolbar id="lineItemsToolbar2">
                                                 <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
@@ -104,12 +106,6 @@
                                             <m:Column>
                                                 <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
                                             </m:Column>
-                                            <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
-                                                <m:Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
-                                            </m:Column>
-                                            <m:Column hAlign="Right">
-                                                <m:Text text="{i18n>detailLineItemTableIDColumnDownloadDocuments}"/>
-                                            </m:Column>
                                         </m:columns>
                                         <m:items>
                                             <m:ColumnListItem mode="Active">
@@ -117,7 +113,6 @@
                                                     <m:ObjectIdentifier text="{DocName} "/>
                                                     <m:ObjectIdentifier text="{Version}"/>
                                                     <m:ObjectIdentifier text="{Owner}"/>
-                                                    <m:ObjectIdentifier text="{size}"/>
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -131,8 +126,8 @@
                         <subSections>
                             <ObjectPageSubSection title="Document Metadata">
                                 <blocks>
-                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList5" items="{Product_Docs}"
-                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList5" items="{fake}"
+                                             noDataText="no Document Details" updateFinished="onListUpdateFinishedDocuments" width="50%">
                                         <m:columns>
                                             <m:Column>
                                                 <m:Text text="Metadata"/>
@@ -144,8 +139,8 @@
                                         <m:items id="items">
                                             <m:ColumnListItem>
                                                 <m:cells>
-                                                    <m:ObjectIdentifier text="Document Name"/>
-                                                    <m:ObjectIdentifier id="col_name" text="{DocName}" title=""/>
+                                                    <m:ObjectIdentifier text="{faker}"/>
+
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -155,7 +150,7 @@
                             <ObjectPageSubSection title="Classification">
                                 <blocks>
                                     <layout:VerticalLayout>
-                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class}"
+                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
                                                  noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
                                             <m:columns>
                                                 <m:Column>
@@ -170,7 +165,7 @@
                                                     <m:cells>
                                                         <m:ObjectIdentifier text="{char}" />
 
-                                                        <m:Input value="{value}"/>
+                                                        <m:Label text="{value}"/>
 
                                                     </m:cells>
                                                 </m:ColumnListItem>

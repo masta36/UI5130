@@ -261,14 +261,20 @@ sap.ui.define([
 		 * @public
 		 */
 		onNavBack: function() {
-			var oHistory = sap.ui.core.routing.History.getInstance(),
+			/*var oHistory = sap.ui.core.routing.History.getInstance(),
 				sPreviousHash = oHistory.getPreviousHash();
 				//oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
 			if (sPreviousHash !== undefined) {
 				// The history contains a previous entry
 				history.go(-1);
-			} /*else {
+			} */
+			this.getOwnerComponent().oListSelector.clearMasterListSelection();
+
+			this.getRouter().navTo("start", {
+			}, true);
+
+			/*else {
 				// Navigate back to FLP home
 				oCrossAppNavigator.toExternal({
 					target: {

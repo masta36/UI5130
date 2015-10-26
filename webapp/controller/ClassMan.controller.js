@@ -40,7 +40,7 @@ sap.ui.define([
             var combo_model = new sap.ui.model.json.JSONModel();
             // Load JSON in model
             combo_model.loadData("model/value_help.json");
-            this.getView().byId("combo").setModel(combo_model);
+
         },
 
         getF4: function(evt){
@@ -90,8 +90,6 @@ sap.ui.define([
                 });
 
                 var input = this.getView().byId("val");
-                var con = input.getBindingContext();
-                alert(con);
                 input.setValue("TEST");
             }
             oEvent.getSource().getBinding("items").filter([]);

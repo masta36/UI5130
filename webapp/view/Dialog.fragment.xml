@@ -20,18 +20,6 @@
                 <ObjectIdentifier
                         title="{ID}"
                         text="{name}" />
-                <Text text="{SupplierName}" />
-                <Text text="{Width} x {Depth} x {Height} {DimUnit}" />
-                <ObjectNumber
-                        number="{WeightMeasure}"
-                        unit="{WeightUnit}"
-                        state="{
-						path: 'WeightMeasure',
-						formatter: 'sap.m.sample.TableSelectDialog.Formatter.weightState'
-					}" />
-                <ObjectNumber
-                        number="{Price}"
-                        unit="{CurrencyCode}" />
             </cells>
         </ColumnListItem>
         <columns>
@@ -40,34 +28,7 @@
                     <Text text="Product" />
                 </header>
             </Column>
-            <Column
-                    minScreenWidth="Tablet"
-                    demandPopin="true" >
-                <header>
-                    <Text text="Supplier" />
-                </header>
-            </Column>
-            <Column
-                    minScreenWidth="Tablet"
-                    demandPopin="true"
-                    hAlign="Right">
-                <header>
-                    <Text text="Dimensions" />
-                </header>
-            </Column>
-            <Column
-                    minScreenWidth="Tablet"
-                    demandPopin="true"
-                    hAlign="Center">
-                <header>
-                    <Text text="Weight" />
-                </header>
-            </Column>
-            <Column hAlign="Right">
-                <header>
-                    <Text text="Product" />
-                </header>
-            </Column>
+
         </columns>
     </TableSelectDialog>
 </core:FragmentDefinition>
