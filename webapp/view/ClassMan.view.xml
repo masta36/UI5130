@@ -19,70 +19,12 @@
                 <headerContent>
                     <m:Label text="Classification Management Console" />
                 </headerContent>
-
                 <sections>
                     <ObjectPageSection title="" icon="sap-icon://document">
                         <subSections>
                             <ObjectPageSubSection>
                                 <blocks>
-                                    <m:IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
-                                    <m:items>
-                                    <m:IconTabFilter icon="sap-icon://database" id="iconTabBarFilter1" tooltip="Basic">
-                                      <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
-                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
-                                        <m:headerToolbar>
-                                            <m:Toolbar id="lineItemsToolbar3">
-                                                <m:Title id="lineItemsHeader3" text="Basic"/>
-                                            </m:Toolbar>
-                                        </m:headerToolbar>
-                                        <m:columns>
-                                            <m:Column>
-                                                <m:Text text="Characteristic"/>
-                                            </m:Column>
-                                            <m:Column>
-                                                <m:Text text="Value"/>
-                                            </m:Column>
-                                        </m:columns>
-                                        <m:items>
-                                            <m:ColumnListItem>
-                                                <m:cells>
-                                                    <m:ObjectIdentifier text="{char}" id="char" />
-                                                    <m:Input value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
-                                                </m:cells>
-                                            </m:ColumnListItem>
-                                        </m:items>
-                                    </m:Table>
-                                    </m:IconTabFilter>
-
-                                        <m:IconTabFilter icon="sap-icon://bus-public-transport" id="iconTabBarFilter2" tooltip="Publication">
-
-                                            <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList4" items="{Product_Class/Publication}"
-                                                     noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
-                                                <m:headerToolbar>
-                                                    <m:Toolbar id="lineItemsToolbar4">
-                                                        <m:Title id="lineItemsHeader4" text="Publication"/>
-                                                    </m:Toolbar>
-                                                </m:headerToolbar>
-                                                <m:columns>
-                                                    <m:Column>
-                                                        <m:Text text="Characteristic"/>
-                                                    </m:Column>
-                                                    <m:Column>
-                                                        <m:Text text="Value"/>
-                                                    </m:Column>
-                                                </m:columns>
-                                                <m:items>
-                                                    <m:ColumnListItem>
-                                                        <m:cells>
-                                                            <m:ObjectIdentifier text="{char}" />
-                                                            <m:Input value="{value}" id="publ1" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
-                                                        </m:cells>
-                                                    </m:ColumnListItem>
-                                                </m:items>
-                                            </m:Table>
-                                        </m:IconTabFilter>
-                                    </m:items>
-                                    </m:IconTabBar>
+                                    <c:Fragment fragmentName="com.pr36.app.view.ClassMan" type="XML"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
