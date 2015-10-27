@@ -139,20 +139,28 @@
             "Product_Class": {
                 "Basic": [
                     {
+                        "type": "COUNTRY",
+                        "multi": true,
                         "char": "Country Release",
                         "value": "DE, US"
                     },
                     {
+                        "type": "PRODSTATUS",
+                        "multi": false,
                         "char": "Production Status",
                         "value": "Released"
                     },
                     {
+                        "type": "SALESSTATUS",
+                        "multi": false,
                         "char": "Sales Status",
                         "value": "Saleable"
                     }
                 ],
                 "Publication": [
                     {
+                        "type": "PUBL",
+                        "multi": true,
                         "char": "Publication Channels",
                         "value": "Print, Extranet, Internet, Intranet"
                     }
@@ -291,6 +299,7 @@
                 ],
                 "Publication": [
                     {
+                        "id": "publ1",
                         "char": "Publication Channels",
                         "value": "Print"
                     }

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "ID": "REL",
+      "name": "Released"
+    },
+    {
+      "ID": "EOL",
+      "name": "END of Life"
+    }
+  ]
+}

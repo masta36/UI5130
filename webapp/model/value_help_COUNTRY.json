@@ -1,5 +1,5 @@
 {
-"combo_country": [
+"values": [
   {
     "ID": "DE",
     "name": "Germany"
@@ -7,6 +7,10 @@
   {
     "ID": "US",
     "name": "United States"
+  },
+  {
+    "ID": "FR",
+    "name": "France"
   }
   ]
 }

@@ -22,7 +22,7 @@
         </headerContent>
 
         <sections>
-                    <ObjectPageSection title="Product Pictures" icon="sap-icon://document">
+                    <ObjectPageSection title="Product Pictures" id="sec_pic" icon="sap-icon://document">
                         <subSections>
                             <ObjectPageSubSection>
                                 <blocks>

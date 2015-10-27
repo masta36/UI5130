@@ -8,8 +8,9 @@ sap.ui.define([
 	"sap/m/ProgressIndicator",
 	"sap/m/Button",
 	"sap/ui/Device",
-	"sap/ui/core/IntervalTrigger"
-], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button, Device, IntervalTrigger) {
+	"sap/ui/core/IntervalTrigger",
+	"sap/ui/core/Icon"
+], function(BaseController, JSONModel, formatter, MessageToast, Dialog, ProgressIndicator, Button, Device, IntervalTrigger, Icon) {
 	"use strict";
 
 	return BaseController.extend("com.pr36.app.controller.Detail", {
@@ -39,8 +40,14 @@ sap.ui.define([
 
 		},
 
-		onAfterRendering: function() {
-
+		onBeforeRendering: function() {
+			//set custom button for object-section:
+			/*var sec = this.getView().byId("sec_pic");
+			var icon = new Icon({src: "sap-icon://picture"});
+			icon.setSize("128px");
+			var btn = new Button({icon: icon.getSrc(), text:"Product Pictures"});
+			sec.setCustomAnchorBarButton(btn);
+			*/
 		},
 
 		/* =========================================================== */

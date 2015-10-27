@@ -1,0 +1,19 @@
+{
+  "values": [
+    {
+      "ID": "PRINT",
+      "name": "Print"
+    },
+    {
+      "ID": "INERNET",
+      "name": "Public Homepage"
+    },
+    {
+      "ID": "INTRANET",
+      "name": "local Intranet"
+    },{
+      "ID": "EXTRANET",
+      "name": "global Extranet"
+    }
+  ]
+}

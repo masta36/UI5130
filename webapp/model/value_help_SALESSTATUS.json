@@ -1,0 +1,19 @@
+{
+  "values": [
+    {
+      "ID": "V1",
+      "name": "Opened"
+    },
+    {
+      "ID": "V2",
+      "name": "Under Development"
+    },
+    {
+      "ID": "V3",
+      "name": "Saleable"
+    },{
+      "ID": "V4",
+      "name": "Discontinued"
+    }
+  ]
+}

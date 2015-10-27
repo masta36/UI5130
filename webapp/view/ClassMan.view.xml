@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.pr36.app.controller.ClassMan" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:c="sap.ui.core"  xmlns:com="sap.ui.commons" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.ClassMan" xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:c="sap.ui.core"  xmlns:com="sap.ui.commons" xmlns:layout="sap.ui.layout">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="true" title="{i18n>classTitle}" xmlns:t="sap.ui.table">
         <m:content>
@@ -28,8 +28,7 @@
                                     <m:IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
                                     <m:items>
                                     <m:IconTabFilter icon="sap-icon://database" id="iconTabBarFilter1" tooltip="Basic">
-
-                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
+                                      <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
                                              noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
                                         <m:headerToolbar>
                                             <m:Toolbar id="lineItemsToolbar3">
@@ -47,8 +46,8 @@
                                         <m:items>
                                             <m:ColumnListItem>
                                                 <m:cells>
-                                                    <m:ObjectIdentifier text="{char}" />
-                                                    <m:Input value="{value}" id="val" showValueHelp="true" valueHelpRequest="getF4"/>
+                                                    <m:ObjectIdentifier text="{char}" id="char" />
+                                                    <m:Input value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
                                                 </m:cells>
                                             </m:ColumnListItem>
                                         </m:items>
@@ -76,7 +75,7 @@
                                                     <m:ColumnListItem>
                                                         <m:cells>
                                                             <m:ObjectIdentifier text="{char}" />
-                                                            <m:Input value="{value}" id="val2" showValueHelp="true" valueHelpRequest="getF4"/>
+                                                            <m:Input value="{value}" id="publ1" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
                                                         </m:cells>
                                                     </m:ColumnListItem>
                                                 </m:items>

@@ -3,13 +3,14 @@
         xmlns:core="sap.ui.core">
     <TableSelectDialog
             id="select_country"
-            noDataText="No Products Found"
-            title="Select Product"
+            noDataText="No values Found"
+            title="Select Values"
             search="handleSearch"
             confirm="handleClose"
             close="handleClose"
+            multiSelect="true"
             items="{
-			path : '/combo_country',
+			path : '/values',
 			sorter : {
 				path : 'name',
 				descending : false

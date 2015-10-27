@@ -4,7 +4,8 @@ sap.ui.define([
     "sap/ui/Device",
     'sap/ui/model/Filter',
     'sap/m/MessageToast',
-], function(BaseController, JSONModel, Device, Filter, MessageToast) {
+    "sap/ui/model/Sorter"
+], function(BaseController, JSONModel, Device, Filter, MessageToast, Sorter) {
     "use strict";
 
     return BaseController.extend("com.pr36.app.controller.ClassMan", {
@@ -37,10 +38,6 @@ sap.ui.define([
 
             this.getRouter().getRoute("class").attachPatternMatched(this._onObjectMatched, this);
 
-            var combo_model = new sap.ui.model.json.JSONModel();
-            // Load JSON in model
-            combo_model.loadData("model/value_help.json");
-
         },
 
         getF4: function(evt){
@@ -48,19 +45,36 @@ sap.ui.define([
         },
 
         handleTableSelectDialogPress: function(oEvent) {
-            if (! this._oDialog) {
-                this._oDialog = sap.ui.xmlfragment("com.pr36.app.view.Dialog", this);
-                var combo_model = new sap.ui.model.json.JSONModel();
-                // Load JSON in model
-                combo_model.loadData("model/value_help.json");
-                this._oDialog.setModel(combo_model);
+
+            //which value help is needed (which model to load)
+            var m = oEvent.getSource().data("value_model");
+            var combo_model  = "model/value_help_" + m + ".json";
+
+            if (this._oDialog) {
+                this._oDialog.destroy();
             }
+                this._oDialog = sap.ui.xmlfragment("com.pr36.app.view.Dialog", this);
+                var value_model = new sap.ui.model.json.JSONModel();
+                // Load JSON in model
+                value_model.loadData(combo_model);
+                this._oDialog.setModel(value_model);
+
+
+
 
             // Multi-select if required
-            var bMultiSelect = !!oEvent.getSource().data("multi");
+            var bMultiSelect = oEvent.getSource().data("multi");
             this._oDialog.setMultiSelect(bMultiSelect);
+            /*if(bMultiSelect == "true") {
+                this._oDialog.setMultiSelect(true);
+            }else{
+                this._oDialog.setMultiSelect(false);
+            }*/
 
             // Remember selections if required
+            var s = oEvent.getSource();
+            this.inputID = oEvent.getSource().getId();
+            var val = oEvent.getSource().getValue();
             var bRemember = !!oEvent.getSource().data("remember");
             this._oDialog.setRememberSelections(bRemember);
 
@@ -81,18 +95,19 @@ sap.ui.define([
         handleClose: function(oEvent) {
             var aContexts = oEvent.getParameter("selectedContexts");
             if (aContexts.length) {
-             /*   MessageToast.show("You have chosen " + aContexts.map(function (oContext) {
-                        return oContext.getObject().name;
-                    }).join(", "));
-*/
+
                 var value = aContexts.map(function (oContext) {
-                    return oContext.getObject().name;
+                    return oContext.getObject().name + " (" + oContext.getObject().ID + ")";
                 });
 
-                var input = this.getView().byId("val");
-                input.setValue("TEST");
+
+                this.getView().byId(this.inputID).setValue(value);
+
             }
             oEvent.getSource().getBinding("items").filter([]);
+            if(this._oDialog){
+                this._oDialog.unbindItems();
+            }
         },
 
 
@@ -243,3 +258,5 @@ sap.ui.define([
     });
 
 });
+
+var inputID;
