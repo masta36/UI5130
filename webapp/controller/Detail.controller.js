@@ -38,6 +38,13 @@ sap.ui.define([
 
 			this.getOwnerComponent().oWhenMetadataIsLoaded.then(this._onMetadataLoaded.bind(this));
 
+			//Model for Classification Fragment --> not editable
+			var classModel = new JSONModel({
+				editable: false
+			});
+
+			this.setModel(classModel, "classView");
+
 		},
 
 		onBeforeRendering: function() {

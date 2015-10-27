@@ -33,10 +33,16 @@ sap.ui.define([
             oViewModel.setProperty("/busy", false);
             oViewModel.setProperty("/delay", iOriginalBusyDelay);
 
+            oViewModel.setProperty("/editable", true); // for classification fragment
+
             // apply content density mode to root view
             this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
 
             this.getRouter().getRoute("class").attachPatternMatched(this._onObjectMatched, this);
+
+        },
+
+        onAfterRendering: function(){
 
         },
 

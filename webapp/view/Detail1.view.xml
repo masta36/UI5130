@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.Detail" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:c="sap.ui.core">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
           showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
     <m:content>
@@ -142,65 +142,7 @@
                                     <m:IconTabFilter icon="sap-icon://target-group" id="iconTabBarFilter3" tooltip="Classification">
                                         <m:Button text="Open Classification Manager" icon="sap-icon://edit" press="onOpenClassMan"/>
 
-                                        <m:IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar3">
-                                            <m:items>
-                                                <m:IconTabFilter text="Basic" id="iconTabBarFilter11" tooltip="Basic">
-
-                                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList33" items="{Product_Class/Basic}"
-                                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
-                                                        <m:headerToolbar>
-                                                            <m:Toolbar id="lineItemsToolbar32">
-                                                                <m:Title id="lineItemsHeader31" text="Basic"/>
-                                                            </m:Toolbar>
-                                                        </m:headerToolbar>
-                                                        <m:columns>
-                                                            <m:Column>
-                                                                <m:Text text="Characteristic"/>
-                                                            </m:Column>
-                                                            <m:Column>
-                                                                <m:Text text="Value"/>
-                                                            </m:Column>
-                                                        </m:columns>
-                                                        <m:items>
-                                                            <m:ColumnListItem>
-                                                                <m:cells>
-                                                                    <m:ObjectIdentifier text="{char}" />
-                                                                    <m:Label text="{value}" id="val" />
-                                                                </m:cells>
-                                                            </m:ColumnListItem>
-                                                        </m:items>
-                                                    </m:Table>
-                                                </m:IconTabFilter>
-
-                                                <m:IconTabFilter text="Publication" id="iconTabBarFilter21" tooltip="Publication">
-
-                                                    <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList42" items="{Product_Class/Publication}"
-                                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
-                                                        <m:headerToolbar>
-                                                            <m:Toolbar id="lineItemsToolbar41">
-                                                                <m:Title id="lineItemsHeader41" text="Publication"/>
-                                                            </m:Toolbar>
-                                                        </m:headerToolbar>
-                                                        <m:columns>
-                                                            <m:Column>
-                                                                <m:Text text="Characteristic"/>
-                                                            </m:Column>
-                                                            <m:Column>
-                                                                <m:Text text="Value"/>
-                                                            </m:Column>
-                                                        </m:columns>
-                                                        <m:items>
-                                                            <m:ColumnListItem>
-                                                                <m:cells>
-                                                                    <m:ObjectIdentifier text="{char}" />
-                                                                    <m:Label text="{value}" id="val2"/>
-                                                                </m:cells>
-                                                            </m:ColumnListItem>
-                                                        </m:items>
-                                                    </m:Table>
-                                                </m:IconTabFilter>
-                                            </m:items>
-                                        </m:IconTabBar>
+                                        <c:Fragment id="class_fragment" fragmentName="com.pr36.app.view.ClassMan" type="XML"/>
 
                                     </m:IconTabFilter>
                                 </m:items>

@@ -24,7 +24,7 @@
                         <subSections>
                             <ObjectPageSubSection>
                                 <blocks>
-                                    <c:Fragment fragmentName="com.pr36.app.view.ClassMan" type="XML"/>
+                                    <c:Fragment id="class_fragment" fragmentName="com.pr36.app.view.ClassMan" type="XML"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
