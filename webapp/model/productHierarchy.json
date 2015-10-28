@@ -1,0 +1,115 @@
+{
+  "ProductHierarchy": {
+    "Catalog": [
+      {
+        "Name": "Main Products",
+        "Price": 1884.49,
+        "Categories": [
+          {
+            "Name": "Category 1",
+            "Price": 856.49,
+            "Products":[
+              {
+                "ProductID": "1",
+                "Name": "New Car",
+                "UnitPrice": 300,
+                "prod_short": "Enter Short description"
+              },{
+                "ProductID": "2",
+                "Name": "Quite Fast Car",
+                "prod_short": "Nice"
+              }
+            ],
+            "CurrencyCode": "EUR"
+          },
+          {
+            "Name": "Category 2",
+            "Price": 939,
+            "Products": [
+                  {
+                    "ProductID": "4",
+                    "Name": "Herby",
+                    "UnitPrice": 300,
+                    "prod_short": "The older the better"
+                  }
+            ],
+            "CurrencyCode": "EUR"
+          }
+        ]
+      },
+      {
+        "Name": "Spare Parts",
+        "Price": 154.19,
+        "Categories": [
+          {
+            "Name": "Graphics Card",
+            "Price": 81.7,
+            "Products": [
+              {
+                "ProductId": "2212-121-828",
+                "Name": "Gladiator MX",
+                "Category": "Graphics Card",
+                "SupplierName": "Technocom",
+                "Description": "Gladiator MX: DDR2 RoHS 128MB Supporting 512MB Clock rate: 350 MHz Memory Clock: 533 MHz, Bus Type: PCI-Express, Memory Type: DDR2 Memory Bus: 32-bit Highlighted Features: DVI Out, TV Out , HDTV",
+                "WeightMeasure": 321,
+                "WeightUnit": "g",
+                "Price": 81.7,
+                "CurrencyCode": "EUR",
+                "Quantity": 10,
+                "UoM": "PC",
+                "Width": 34,
+                "Depth": 14,
+                "Height": 2,
+                "DimUnit": "cm"
+              }
+            ],
+            "CurrencyCode": "EUR"
+          },
+          {
+            "Name": "Accessory",
+            "Price": 72.49,
+            "Products": [
+              {
+                "ProductId": "22134T",
+                "Name": "Webcam",
+                "Category": "Accessory",
+                "SupplierName": "Technocom",
+                "Description": "Web camera, color, High-Speed USB",
+                "WeightMeasure": 700,
+                "WeightUnit": "g",
+                "Price": 59,
+                "CurrencyCode": "EUR",
+                "Quantity": 22,
+                "UoM": "PC",
+                "Width": 18,
+                "Depth": 19,
+                "Height": 21,
+                "DimUnit": "cm"
+              },
+              {
+                "ProductId": "P1239823",
+                "Name": "Monitor Locking Cable",
+                "Category": "Accessory",
+                "SupplierName": "Technocom",
+                "Description": "Lock for Monitor",
+                "WeightMeasure": 40,
+                "WeightUnit": "g",
+                "Price": 13.49,
+                "CurrencyCode": "EUR",
+                "Quantity": 30,
+                "UoM": "PC",
+                "Width": 11,
+                "Depth": 11,
+                "Height": 3,
+                "DimUnit": "cm"
+              }
+            ],
+            "CurrencyCode": "EUR"
+          }
+        ],
+        "CurrencyCode": "EUR"
+      }
+    ]
+  }
+}
+

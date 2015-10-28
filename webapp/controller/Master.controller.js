@@ -1,44 +1,51 @@
-/*global history */
 sap.ui.define([
 	"com/pr36/app/controller/BaseController",
-	"sap/ui/model/json/JSONModel",
-	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator",
-	"sap/ui/model/Sorter",
-	"sap/m/GroupHeaderListItem",
+	'jquery.sap.global',
+	'sap/m/Label',
+	'sap/m/Link',
+	'sap/m/MessageToast',
+	'sap/m/Text',
+	'./Formatter',
+	'sap/ui/core/Fragment',
+	'sap/ui/core/mvc/Controller',
+	'sap/ui/model/json/JSONModel',
 	"sap/ui/Device",
-	"com/pr36/app/model/formatter",
-	"com/pr36/app/model/grouper"
-], function(BaseController, JSONModel, Filter, FilterOperator, Sorter, GroupHeaderListItem, Device, formatter, grouper) {
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
+], function(BaseController, jQuery, Label, Link, MessageToast, Text, Formatter, Fragment, Controller, JSONModel, Device, FilterOperator, Filter) {
 	"use strict";
 
-	return BaseController.extend("com.pr36.app.controller.Master", {
+	var PageController = BaseController.extend("com.pr36.app.controller.Master", {
 
-		formatter: formatter,
+		// Setup crumb info, the collection root
+		// and an initial product selection / order state
+		sCollection: "/ProductHierarchy",
+		aCrumbs: ["Catalog", "Categories", "Products"],
+		mInitialOrderState: {
+			products: {},
+			count: 0,
+			hasCounts: false
+		},
 
-		/* =========================================================== */
-		/* lifecycle methods                                           */
-		/* =========================================================== */
+		// Pull in the table row template fragment, grab
+		// a reference to the table, work out the initial crumb path
+		// and create the order model, setting it on the view
+		onInit: function (oEvent) {
 
-		/**
-		 * Called when the master list controller is instantiated. It sets up the event handling for the master/detail communication and other lifecycle tasks.
-		 * @public
-		 */
-		onInit: function() {
 			// Control state model
-			var oList = this.byId("list"),
+			var oList = this.byId("idProductsTable"),
 				oViewModel = new JSONModel({
 					isFilterBarVisible: false,
 					filterBarLabel: "",
 					delay: 0,
 					title: this.getResourceBundle().getText("masterTitleCount", [0]),
 					noDataText: this.getResourceBundle().getText("masterListNoDataText"),
-					sortBy: "ProductName",
+					sortBy: "Name",
 					groupBy: "None"
 				}),
-				// Put down master list's original value for busy indicator delay,
-				// so it can be restored later on. Busy handling on the master list is
-				// taken care of by the master list itself.
+			// Put down master list's original value for busy indicator delay,
+			// so it can be restored later on. Busy handling on the master list is
+			// taken care of by the master list itself.
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
 			this._oList = oList;
@@ -49,244 +56,157 @@ sap.ui.define([
 			};
 
 			this.setModel(oViewModel, "masterView");
-			// Make sure, busy indication is showing immediately so there is no
-			// break after the busy indication for loading the view's meta data is
-			// ended (see promise 'oWhenMetadataIsLoaded' in AppController)
 
-			oList.attachEventOnce("updateFinished", function() {
-				// Restore original busy indicator delay for the list
-				oViewModel.setProperty("/delay", iOriginalBusyDelay);
-			});
+			// set demo model on this sample
+			var sPath = "model/productHierarchy.json";//jQuery.sap.getModulePath("/model", "/productHierarchy.json");
+			var oModel = new JSONModel(sPath);
+			this.getView().setModel(oModel);
+			this.getView().setModel(new JSONModel(this.mInitialOrderState), "Order");
 
-			this.getView().addEventDelegate({
-				onBeforeFirstShow: function() {
-					this.getOwnerComponent().oListSelector.setBoundMasterList(oList);
-				}.bind(this)
-			});
+			if (! this.oTemplate) {
+				this.oTemplate = sap.ui.xmlfragment("com.pr36.app.view.Row");
+			}
+			this._oTable = this.byId("idProductsTable");
 
+			var sPath = this._getInitialPath();
+			this._setAggregation(sPath);
+
+			//Routing:
 			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
 
-			//call initial detail.view:
-			this._initialDetail(0);
-		},
+			this._oListFilterState = {
+				aFilter: [],
+				aSearch: []
+			};
 
-		/* =========================================================== */
-		/* event handlers                                              */
-		/* =========================================================== */
-
-		/**
-		 * After list data is available, this handler method updates the
-		 * master list counter and hides the pull to refresh control, if
-		 * necessary.
-		 * @param {sap.ui.base.Event} oEvent the update finished event
-		 * @public
-		 */
-		onUpdateFinished: function(oEvent) {
-			// update the master list object counter after new data is loaded
-			this._updateListItemCount(oEvent.getParameter("total"));
-			// hide pull to refresh if necessary
-			this.byId("pullToRefresh").hide();
 		},
 
 		/**
-		 * Event handler for the master search field. Applies current
-		 * filter value and triggers a new search. If the search field's
-		 * 'refresh' button has been pressed, no new search is triggered
-		 * and the list binding is refresh instead.
-		 * @param {sap.ui.base.Event} oEvent the search event
-		 * @public
+		 * Internal helper method to apply both filter and search state together on the list binding
+		 * @private
 		 */
-		onSearch: function(oEvent) {
-			if (oEvent.getParameters().refreshButtonPressed) {
-				// Search field's 'refresh' button has been pressed.
-				// This is visible if you select any master list item.
-				// In this case no new search is triggered, we only
-				// refresh the list binding.
-				this.onRefresh();
-				return;
+		_applyFilterSearch: function() {
+			var aFilters = this._oListFilterState.aSearch.concat(this._oListFilterState.aFilter),
+				oViewModel = this.getModel("masterView");
+
+			this._oList.getBinding("items").filter(aFilters, "Application");
+			// changes the noDataText of the list in case there are no filter results
+			if (aFilters.length !== 0) {
+				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataWithFilterOrSearchText"));
+			} else if (this._oListFilterState.aSearch.length > 0) {
+				// only reset the no data text to default when no new search was triggered
+				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataText"));
 			}
-
-			var sQuery = oEvent.getParameter("query");
-
-			if (sQuery) {
-				this._oListFilterState.aSearch = [new Filter("ProductName", FilterOperator.Contains, sQuery)];
-			} else {
-				this._oListFilterState.aSearch = [];
-			}
-			this._applyFilterSearch();
-
 		},
 
-		/**
-		 * Event handler for refresh event. Keeps filter, sort
-		 * and group settings and refreshes the list binding.
-		 * @public
-		 */
-		onRefresh: function() {
-			this._oList.getBinding("items").refresh();
+
+		// Initial path is the first crumb appended to the collection root
+		_getInitialPath: function () {
+			return [this.sCollection, this.aCrumbs[0]].join("/");
 		},
 
-		/**
-		 * Event handler for the sorter selection.
-		 * @param {sap.ui.base.Event} oEvent the select event
-		 * @public
-		 */
-		onSort: function(oEvent) {
-			var sKey = oEvent.getSource().getSelectedItem().getKey(),
-				oViewModel = this.getModel("masterView"),
-				sGroupKey = oViewModel.getProperty("/groupBy");
 
-			if (sGroupKey !== "None" && sKey !== sGroupKey) {
-				// If the list is grouped by something different than the new sorting, remove the grouping
-				// Grouping only works if the list is primary sorted by the grouping
-				oViewModel.setProperty("/groupBy", "None");
-			}
-
-			this._applyGroupSort([new Sorter(sKey, false)]);
-		},
-
-		/**
-		 * Event handler for the grouper selection.
-		 * @param {sap.ui.base.Event} oEvent the search field event
-		 * @public
-		 */
-		onGroup: function(oEvent) {
-			var sKey = oEvent.getSource().getSelectedItem().getKey();
-			var aSorters = [];
-
-			if (sKey === "UnitPrice") {
-				// Grouping means sorting so we set the select to the same Entity used for grouping
-				this.getModel("masterView").setProperty("/sortBy", "UnitPrice");
-
-				aSorters.push(
-					new Sorter("UnitPrice", false,
-						grouper[sKey].bind(oEvent.getSource()))
-				);
-			}
-
-			this._applyGroupSort(aSorters);
-		},
-
-		/**
-		 * Event handler for the filter button to open the ViewSettingsDialog.
-		 * which is used to add or remove filters to the master list. This
-		 * handler method is also called when the filter bar is pressed,
-		 * which is added to the beginning of the master list when a filter is applied.
-		 * @public
-		 */
-		onOpenViewSettings: function() {
-			if (!this._oViewSettingsDialog) {
-				this._oViewSettingsDialog = sap.ui.xmlfragment("com.pr36.app.view.ViewSettingsDialog", this);
-				this.getView().addDependent(this._oViewSettingsDialog);
-				// forward compact/cozy style into Dialog
-				this._oViewSettingsDialog.addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			}
-			this._oViewSettingsDialog.open();
-		},
-
-		/**
-		 * Event handler called when ViewSettingsDialog has been confirmed, i.e.
-		 * has been closed with 'OK'. In the case, the currently chosen filters
-		 * are applied to the master list, which can also mean that the currently
-		 * applied filters are removed from the master list, in case the filter
-		 * settings are removed in the ViewSettingsDialog.
-		 * @param {sap.ui.base.Event} oEvent the confirm event
-		 * @public
-		 */
-		onConfirmViewSettingsDialog: function(oEvent) {
-			var aFilterItems = oEvent.getParameters().filterItems,
-				aFilters = [],
-				aCaptions = [];
-
-			// update filter state:
-			// combine the filter array and the filter string
-			aFilterItems.forEach(function(oItem) {
-				switch (oItem.getKey()) {
-					case "Filter1":
-						aFilters.push(new Filter("Freight", FilterOperator.LE, 100));
-						break;
-					case "Filter2":
-						aFilters.push(new Filter("Freight", FilterOperator.GT, 100));
-						break;
-					default:
-						break;
+		// Find the next crumb that follows the given crumb
+		_nextCrumb: function (sCrumb) {
+			for (var i = 0, ii = this.aCrumbs.length; i < ii; i++) {
+				if (this.aCrumbs[i] === sCrumb) {
+					return this.aCrumbs[i + 1];
 				}
-				aCaptions.push(oItem.getText());
-			});
-
-			this._oListFilterState.aFilter = aFilters;
-			this._updateFilterBar(aCaptions.join(", "));
-			this._applyFilterSearch();
+			}
 		},
 
-		/**
-		 * Event handler for the list selection event
-		 * @param {sap.ui.base.Event} oEvent the list selectionChange event
-		 * @public
-		 */
-		onSelectionChange: function(oEvent) {
-			// get the list item, either from the listItem parameter or from the event's source itself (will depend on the device-dependent mode).
-			this._showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
+
+		// Remove the numeric item binding from a path
+		_stripItemBinding: function (sPath) {
+			var aParts = sPath.split("/");
+			return aParts.slice(0, aParts.length - 1).join("/");
 		},
 
-		/**
-		 * Event handler for the bypassed event, which is fired when no routing pattern matched.
-		 * If there was an object selected in the master list, that selection is removed.
-		 * @public
-		 */
-		onBypassed: function() {
-			this._oList.removeSelections(true);
-		},
 
-		/**
-		 * Used to create GroupHeaders with non-capitalized caption.
-		 * These headers are inserted into the master list to
-		 * group the master list's items.
-		 * @param {Object} oGroup group whose text is to be displayed
-		 * @public
-		 * @returns {sap.m.GroupHeaderListItem} group header with non-capitalized caption.
-		 */
-		createGroupHeader: function(oGroup) {
-			return new GroupHeaderListItem({
-				title: oGroup.text,
-				upperCase: false
-			});
-		},
+		// Build the crumb links for display in the toolbar
+		_maintainCrumbLinks: function (sPath) {
+			// Determine trail parts
+			var aPaths = [];
+			var aParts = sPath.split("/");
+			while (aParts.length > 1) {
+				aPaths.unshift(aParts.join("/"));
+				aParts = aParts.slice(0, aParts.length - 2);
+			}
 
-		/**
-		 * Navigates back in the browser history, if the entry was created by this app.
-		 * If not, it navigates to the Fiori Launchpad home page
-		 * @override
-		 * @public
-		 */
-		onNavBack: function() {
-			/*var oHistory = sap.ui.core.routing.History.getInstance(),
-				sPreviousHash = oHistory.getPreviousHash();
-				//oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
+			// Re-build crumb toolbar based on trail parts
+			var oCrumbToolbar = this.byId("idCrumbToolbar");
+			oCrumbToolbar.destroyContent();
 
-			if (sPreviousHash !== undefined) {
-				// The history contains a previous entry
-				history.go(-1);
-			} */
-			this.getOwnerComponent().oListSelector.clearMasterListSelection();
+			aPaths.forEach(jQuery.proxy(function (sPath, iPathIndex) {
 
-			this.getRouter().navTo("start", {
-			}, true);
+				var bIsFirst = iPathIndex === 0;
+				var bIsLast = iPathIndex === aPaths.length - 1;
 
-			/*else {
-				// Navigate back to FLP home
-				oCrossAppNavigator.toExternal({
-					target: {
-						shellHash: "#"
-					}
+				// Special case for 1st crumb: fixed text
+				var sText = bIsFirst ? this.aCrumbs[0] : "{Name}";
+
+				// Context is one level up in path
+				var sContext = this._stripItemBinding(sPath);
+
+				var oCrumb = bIsLast
+					? new Text({
+					text: sText
+				}).addStyleClass("crumbLast")
+					: new Link({
+					text: sText,
+					target: sPath,
+					press: [this.handleLinkPress, this]
 				});
-			}*/
+				oCrumb.bindElement(sContext);
+
+				oCrumbToolbar.addContent(oCrumb);
+				if (! bIsLast) {
+					var oArrow = new Label({
+						textAlign: "Center",
+						text: ">"
+					}).addStyleClass("crumbArrow");
+					oCrumbToolbar.addContent(oArrow);
+				}
+
+			}, this));
 		},
 
-		/* =========================================================== */
-		/* begin: internal methods                                     */
-		/* =========================================================== */
+
+		// Navigate through the product hierarchy by rebinding the
+		// table's items aggregation. Navigation is either through
+		// branches (Suppliers, Categories) or leaves (Products)
+		_setAggregation: function (sPath) {
+			// If we're at the leaf end, turn off navigation
+			var sPathEnd = sPath.split("/").reverse()[0];
+			if (sPathEnd === this.aCrumbs[this.aCrumbs.length - 1]) {
+				this._oTable.setMode("SingleSelectMaster");
+			}
+			else {
+				this._oTable.setMode("SingleSelectMaster");
+			}
+
+			// Set the new aggregation
+			this._oTable.bindAggregation("items", sPath, this.oTemplate);
+
+			this._maintainCrumbLinks(sPath);
+		},
+
+		/**
+		 * Shows the selected item on the detail page
+		 * On phones a additional history entry is created
+		 * @param {sap.m.ObjectListItem} oItem selected Item
+		 * @private
+		 */
+		_showDetail: function(oItem) {
+			var bReplace = !Device.system.phone;
+			var parts = oItem.split("/");//oItem.getBindingContext().toString().split("/");
+			var id = parts[7];
+
+			this.getRouter().navTo("object", {
+				objectId: id//oItem.getBindingContext().getProperty("ProductID")
+			}, bReplace);
+		},
 
 		/**
 		 * If the master route was hit (empty hash) we have to set
@@ -315,80 +235,107 @@ sap.ui.define([
 		},
 
 		/**
-		 * Shows the selected item on the detail page
-		 * On phones a additional history entry is created
-		 * @param {sap.m.ObjectListItem} oItem selected Item
-		 * @private
+		 * Event handler for the bypassed event, which is fired when no routing pattern matched.
+		 * If there was an object selected in the master list, that selection is removed.
+		 * @public
 		 */
-		_showDetail: function(oItem) {
-			var bReplace = !Device.system.phone;
-			var parts = oItem.getBindingContext().toString().split("/");
-			var id = parts[2];
-
-			this.getRouter().navTo("object", {
-				objectId: id//oItem.getBindingContext().getProperty("ProductID")
-			}, bReplace);
-		},
-
-		_initialDetail: function(id) {
-			var bReplace = !Device.system.phone;
-
-			/*this.getRouter().navTo("object", {
-				objectId: "0"
-			}, bReplace);
-			*/
+		onBypassed: function() {
+			//this._oList.removeSelections(true);
 		},
 
 		/**
-		 * Sets the item count on the master list header
-		 * @param {integer} iTotalItems the total number of items in the list
-		 * @private
+		 * Event handler for the master search field. Applies current
+		 * filter value and triggers a new search. If the search field's
+		 * 'refresh' button has been pressed, no new search is triggered
+		 * and the list binding is refresh instead.
+		 * @param {sap.ui.base.Event} oEvent the search event
+		 * @public
 		 */
-		_updateListItemCount: function(iTotalItems) {
-			var sTitle;
-			// only update the counter if the length is final
-			if (this._oList.getBinding("items").isLengthFinal()) {
-				sTitle = this.getResourceBundle().getText("masterTitleCount", [iTotalItems]);
-				this.getModel("masterView").setProperty("/title", sTitle);
+		onSearch: function(oEvent) {
+			if (oEvent.getParameters().refreshButtonPressed) {
+				// Search field's 'refresh' button has been pressed.
+				// This is visible if you select any master list item.
+				// In this case no new search is triggered, we only
+				// refresh the list binding.
+				this.onRefresh();
+				return;
+			}
+
+			var sQuery = oEvent.getParameter("query");
+
+			if (sQuery) {
+				this._oListFilterState.aSearch = [new sap.ui.model.Filter("Name", sap.ui.model.FilterOperator.Contains, sQuery)];
+			} else {
+				this._oListFilterState.aSearch = [];
+			}
+			this._applyFilterSearch();
+
+		},
+
+
+		// Add to the order based on the selection
+		_updateOrder: function (oSelectionInfo) {
+			var oOrderModel = this.getView().getModel("Order");
+			oOrderModel.setData({products: oSelectionInfo}, true);
+			var aProductsSelected = Formatter.listProductsSelected(this.getView());
+			oOrderModel.setData({
+				count: aProductsSelected.length,
+				hasCounts: aProductsSelected.length > 0
+			}, true);
+		},
+
+
+		// Navigation means a new aggregation to work our
+		// way through the ProductHierarchy
+		handleLinkPress: function (oEvent) {
+			this._setAggregation(oEvent.getSource().getTarget());
+		},
+
+
+		// Show a message toast only if there are products selected
+		handleOrderPress: function (oEvent) {
+			var aProductsSelected = Formatter.listProductsSelected(this.getView());
+			if (aProductsSelected) {
+				MessageToast.show("Ordering: " + aProductsSelected.map(function (mProduct) {
+						return mProduct.ProductName;
+					}));
 			}
 		},
 
-		/**
-		 * Internal helper method to apply both filter and search state together on the list binding
-		 * @private
-		 */
-		_applyFilterSearch: function() {
-			var aFilters = this._oListFilterState.aSearch.concat(this._oListFilterState.aFilter),
-				oViewModel = this.getModel("masterView");
-			this._oList.getBinding("items").filter(aFilters, "Application");
-			// changes the noDataText of the list in case there are no filter results
-			if (aFilters.length !== 0) {
-				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataWithFilterOrSearchText"));
-			} else if (this._oListFilterState.aSearch.length > 0) {
-				// only reset the no data text to default when no new search was triggered
-				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataText"));
+
+		// Take care of the navigation through the hierarchy when the
+		// user selects a table row
+		handleSelectionChange: function (oEvent) {
+			// Determine where we are right now
+			var sPath = oEvent.getParameter("listItem").getBindingContext().getPath();
+			var aPath = sPath.split("/");
+			var sCurrentCrumb = aPath[aPath.length - 2];
+
+			// If we're on a leaf, remember the selections;
+			// otherwise navigate
+			if (sCurrentCrumb === this.aCrumbs[this.aCrumbs.length - 1]) {
+				var oSelectionInfo = {};
+				var bSelected = oEvent.getParameter("selected");
+				oEvent.getParameter("listItems").forEach(function (oItem) {
+					oSelectionInfo[oItem.getBindingContext().getPath()] = bSelected;
+				});
+
+				//call Detail-view:
+				this._showDetail(oEvent.getParameter("listItem").getBindingContext().getPath());//(oEvent.getParameter("listItem") || oEvent.getSource());
+
+				this._updateOrder(oSelectionInfo);
+			} else {
+				var sNewPath = [sPath, this._nextCrumb(sCurrentCrumb)].join("/");
+				this._setAggregation(sNewPath);
 			}
-		},
 
-		/**
-		 * Internal helper method to apply both group and sort state together on the list binding
-		 * @private
-		 */
-		_applyGroupSort: function(aSorters) {
-			this._oList.getBinding("items").sort(aSorters);
-		},
-
-		/**
-		 * Internal helper method that sets the filter bar visibility property and the label's caption to be shown
-		 * @param {string} sFilterBarText the selected filter value
-		 * @private
-		 */
-		_updateFilterBar: function(sFilterBarText) {
-			var oViewModel = this.getModel("masterView");
-			oViewModel.setProperty("/isFilterBarVisible", (this._oListFilterState.aFilter.length > 0));
-			oViewModel.setProperty("/filterBarLabel", this.getResourceBundle().getText("masterFilterBarText", [sFilterBarText]));
+			//clear selection:
+			var item = oEvent.getParameter("listItem");
+			item.setSelected(false);
 		}
 
 	});
+
+	return PageController;
 
 });

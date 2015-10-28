@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.pr36.app.controller.DocMan" xmlns:pr="com.pr36.app.control" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout">
+<mvc:View controllerName="com.pr36.app.controller.DocMan" xmlns:pr="com.pr36.app.control" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:layout="sap.ui.layout" xmlns:c="sap.ui.core">
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="true" title="{i18n>docTitle}">
         <m:content>
@@ -150,27 +150,7 @@
                             <ObjectPageSubSection title="Classification">
                                 <blocks>
                                     <layout:VerticalLayout>
-                                        <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
-                                                 noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="50%">
-                                            <m:columns>
-                                                <m:Column>
-                                                    <m:Text text="Characteristic"/>
-                                                </m:Column>
-                                                <m:Column>
-                                                    <m:Text text="Value"/>
-                                                </m:Column>
-                                            </m:columns>
-                                            <m:items>
-                                                <m:ColumnListItem>
-                                                    <m:cells>
-                                                        <m:ObjectIdentifier text="{char}" />
-
-                                                        <m:Label text="{value}"/>
-
-                                                    </m:cells>
-                                                </m:ColumnListItem>
-                                            </m:items>
-                                        </m:Table>
+                                        <c:Fragment id="class_fragment" fragmentName="com.pr36.app.view.ClassManEdit" type="XML"/>
                                     </layout:VerticalLayout>
                                 </blocks>
                             </ObjectPageSubSection>

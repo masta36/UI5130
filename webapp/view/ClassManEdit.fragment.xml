@@ -16,7 +16,7 @@
                         <m:ColumnListItem>
                             <m:cells>
                                 <m:ObjectIdentifier text="{char}" id="char" />
-                                <m:Input editable="{classView>/editable}" value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
+                                <m:Input editable="true" value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
                             </m:cells>
                         </m:ColumnListItem>
                     </m:items>
@@ -39,7 +39,7 @@
                         <m:ColumnListItem>
                             <m:cells>
                                 <m:ObjectIdentifier text="{char}" />
-                                <m:Input editable="{classView>/editable}" value="{value}" id="publ1" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
+                                <m:Input editable="true" value="{value}" id="publ1" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
                             </m:cells>
                         </m:ColumnListItem>
                     </m:items>
