@@ -90,7 +90,33 @@ sap.ui.define([
 			var aFilters = this._oListFilterState.aSearch.concat(this._oListFilterState.aFilter),
 				oViewModel = this.getModel("masterView");
 
-			this._oList.getBinding("items").filter(aFilters, "Application");
+			//custom search for hierarchy:
+			var data = this.getModel().getData();
+			var tmp_model = new JSONModel({
+				tmp: true
+			});
+
+			var prods = new Array();
+			var prodItem = {"Name": "Prod 1", "ProductID": "1", "prod_short":"Short desc"};
+			prods[0] = prodItem;
+			prodItem = {"Name": "Prod 2", "ProductID": "2", "prod_short":"Short desc 2"};
+			prods[1] = prodItem;
+			var search = {"search": prods};
+			tmp_model.setData(search);
+			this._oList.setModel(tmp_model);
+
+			var oTemplate = new sap.m.ColumnListItem({
+				cells : [
+					new sap.m.ObjectIdentifier({
+						title : "{Name}",
+						text : "{prod_short}"
+					})
+				]
+			});
+
+			this._oList.bindItems("/search", oTemplate);
+
+			/*this._oList.getBinding("items").filter(aFilters, "Application");
 			// changes the noDataText of the list in case there are no filter results
 			if (aFilters.length !== 0) {
 				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataWithFilterOrSearchText"));
@@ -98,6 +124,7 @@ sap.ui.define([
 				// only reset the no data text to default when no new search was triggered
 				oViewModel.setProperty("/noDataText", this.getResourceBundle().getText("masterListNoDataText"));
 			}
+			*/
 		},
 
 
@@ -200,11 +227,9 @@ sap.ui.define([
 		 */
 		_showDetail: function(oItem) {
 			var bReplace = !Device.system.phone;
-			var parts = oItem.split("/");//oItem.getBindingContext().toString().split("/");
-			var id = parts[7];
 
 			this.getRouter().navTo("object", {
-				objectId: id//oItem.getBindingContext().getProperty("ProductID")
+				objectId: oItem//oItem.getBindingContext().getProperty("ProductID")
 			}, bReplace);
 		},
 
@@ -313,7 +338,7 @@ sap.ui.define([
 
 			// If we're on a leaf, remember the selections;
 			// otherwise navigate
-			if (sCurrentCrumb === this.aCrumbs[this.aCrumbs.length - 1]) {
+			if (sCurrentCrumb === this.aCrumbs[this.aCrumbs.length - 1] || sCurrentCrumb === "search") {
 				var oSelectionInfo = {};
 				var bSelected = oEvent.getParameter("selected");
 				oEvent.getParameter("listItems").forEach(function (oItem) {
@@ -321,7 +346,9 @@ sap.ui.define([
 				});
 
 				//call Detail-view:
-				this._showDetail(oEvent.getParameter("listItem").getBindingContext().getPath());//(oEvent.getParameter("listItem") || oEvent.getSource());
+
+				var pid = oEvent.getParameter("listItem").getBindingContext().getObject().ProductID;
+				this._showDetail(pid);//(oEvent.getParameter("listItem") || oEvent.getSource());
 
 				this._updateOrder(oSelectionInfo);
 			} else {

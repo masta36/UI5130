@@ -7,7 +7,7 @@
 			formatter: 'com.pr36.app.controller.Formatter.listItemType'
 		}"
             selected="{
-			path: 'ProductId',
+			path: '',
 			formatter: 'com.pr36.app.controller.Formatter.isProductSelected'
 		}">
         <cells>

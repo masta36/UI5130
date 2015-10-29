@@ -39,7 +39,12 @@ sap.ui.define(function() {
         // A formatter-helper that returns a list of
         // products that have been selected
         listProductsSelected : function (oContext) {
-            var mOrder = oContext.getModel("Order").getData();
+            if(oContext.getModel("Order")) {
+                var mOrder = oContext.getModel("Order").getData();
+            }else{
+                //for custom search pr36
+                var mOrder = oContext.getModel("tmp_model").getData();
+            }
             var oModel = oContext.getModel();
             return Object.keys(mOrder.products)
                 .filter(function(sKey) { return mOrder.products[sKey]; })
@@ -50,7 +55,7 @@ sap.ui.define(function() {
         isProductSelected : function (sProductId) {
             var aProductsSelected = Formatter.listProductsSelected(this);
             return aProductsSelected.map(function(mProduct) {
-                    return mProduct.ProductId;
+                    return mProduct.ProductID;
                 }).indexOf(sProductId) != -1;
         },
 

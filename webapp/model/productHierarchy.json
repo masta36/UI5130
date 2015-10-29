@@ -10,12 +10,12 @@
             "Price": 856.49,
             "Products":[
               {
-                "ProductID": "1",
+                "ProductID": "0",
                 "Name": "New Car",
                 "UnitPrice": 300,
                 "prod_short": "Enter Short description"
               },{
-                "ProductID": "2",
+                "ProductID": "1",
                 "Name": "Quite Fast Car",
                 "prod_short": "Nice"
               }
@@ -27,7 +27,7 @@
             "Price": 939,
             "Products": [
                   {
-                    "ProductID": "4",
+                    "ProductID": "2",
                     "Name": "Herby",
                     "UnitPrice": 300,
                     "prod_short": "The older the better"

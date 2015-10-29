@@ -150,7 +150,7 @@
                             <ObjectPageSubSection title="Classification">
                                 <blocks>
                                     <layout:VerticalLayout>
-                                        <c:Fragment id="class_fragment" fragmentName="com.pr36.app.view.ClassManEdit" type="XML"/>
+                                        <c:Fragment id="class_fragment" fragmentName="com.pr36.app.view.ClassMan" type="XML"/>
                                     </layout:VerticalLayout>
                                 </blocks>
                             </ObjectPageSubSection>

@@ -283,12 +283,14 @@ sap.ui.define([
             tab.bindItems(path, oTemplate);
 
             //classif table:
+
             tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList3");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Basic";
-            tab.bindItems(path, oTemplate);
+            tab.bindAggregation("items", path, oTemplate);
+            var c = tab.getColumns();//.getElementBinding().bindProperty("editable", "classView>/editable");
             tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList4");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Publication";
-            tab.bindItems(path, oTemplate);
+            tab.bindAggregation("items", path, oTemplate);
 
         }
 
