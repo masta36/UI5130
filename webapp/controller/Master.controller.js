@@ -90,6 +90,22 @@ sap.ui.define([
 			var aFilters = this._oListFilterState.aSearch.concat(this._oListFilterState.aFilter),
 				oViewModel = this.getModel("masterView");
 
+			if(aFilters.length == 0){
+				var oTemplate = new sap.m.ColumnListItem({
+					cells : [
+						new sap.m.ObjectIdentifier({
+							title : "{Name}",
+							text : "{prod_short}"
+						})
+					]
+				});
+
+				this._oList.setModel(this.getView().getModel());
+				//this._oList.bindItems("/ProductHierarchy/Catalog", oTemplate);
+				this._setAggregation("/ProductHierarchy/Catalog");
+				return;
+			}
+
 			//custom search for hierarchy:
 			var data = this.getModel().getData();
 			var tmp_model = new JSONModel({
@@ -97,13 +113,14 @@ sap.ui.define([
 			});
 
 			var prods = new Array();
-			var prodItem = {"Name": "Prod 1", "ProductID": "1", "prod_short":"Short desc"};
+			var prodItem = {"Name": "Prod 1", "ProductID": "10", "prod_short":"Short desc"};
 			prods[0] = prodItem;
-			prodItem = {"Name": "Prod 2", "ProductID": "2", "prod_short":"Short desc 2"};
+			prodItem = {"Name": "Prod 2", "ProductID": "20", "prod_short":"Short desc 2"};
 			prods[1] = prodItem;
 			var search = {"search": prods};
 			tmp_model.setData(search);
 			this._oList.setModel(tmp_model);
+			this.setModel(tmp_model, "tmp_model");
 
 			var oTemplate = new sap.m.ColumnListItem({
 				cells : [
@@ -114,7 +131,8 @@ sap.ui.define([
 				]
 			});
 
-			this._oList.bindItems("/search", oTemplate);
+			//this._oList.bindItems("/search", oTemplate);
+			this._setAggregation("/search");
 
 			/*this._oList.getBinding("items").filter(aFilters, "Application");
 			// changes the noDataText of the list in case there are no filter results
@@ -268,6 +286,8 @@ sap.ui.define([
 			//this._oList.removeSelections(true);
 		},
 
+
+
 		/**
 		 * Event handler for the master search field. Applies current
 		 * filter value and triggers a new search. If the search field's
@@ -282,7 +302,7 @@ sap.ui.define([
 				// This is visible if you select any master list item.
 				// In this case no new search is triggered, we only
 				// refresh the list binding.
-				this.onRefresh();
+				//this.onRefresh();
 				return;
 			}
 
@@ -297,16 +317,28 @@ sap.ui.define([
 
 		},
 
+		/**
+		 * Event handler for refresh event. Keeps filter, sort
+		 * and group settings and refreshes the list binding.
+		 * @public
+		 */
+		onRefresh: function() {
+			this._oList.getBinding("items").refresh();
+		},
+
+
+
 
 		// Add to the order based on the selection
 		_updateOrder: function (oSelectionInfo) {
-			var oOrderModel = this.getView().getModel("Order");
+			/*var oOrderModel = this.getView().getModel("Order");
 			oOrderModel.setData({products: oSelectionInfo}, true);
 			var aProductsSelected = Formatter.listProductsSelected(this.getView());
 			oOrderModel.setData({
 				count: aProductsSelected.length,
 				hasCounts: aProductsSelected.length > 0
 			}, true);
+			*/
 		},
 
 
@@ -319,12 +351,13 @@ sap.ui.define([
 
 		// Show a message toast only if there are products selected
 		handleOrderPress: function (oEvent) {
-			var aProductsSelected = Formatter.listProductsSelected(this.getView());
+			/*var aProductsSelected = Formatter.listProductsSelected(this.getView());
 			if (aProductsSelected) {
 				MessageToast.show("Ordering: " + aProductsSelected.map(function (mProduct) {
 						return mProduct.ProductName;
 					}));
 			}
+			*/
 		},
 
 

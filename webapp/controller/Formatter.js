@@ -39,12 +39,14 @@ sap.ui.define(function() {
         // A formatter-helper that returns a list of
         // products that have been selected
         listProductsSelected : function (oContext) {
-            if(oContext.getModel("Order")) {
-                var mOrder = oContext.getModel("Order").getData();
+           // var d = oContext.getModel("tmp_model").getData();
+            if(oContext.getModel("tmp_model")) {
+                var mOrder = oContext.getModel("tmp_model").getData();
             }else{
                 //for custom search pr36
-                var mOrder = oContext.getModel("tmp_model").getData();
+                var mOrder = oContext.getModel("Order").getData();
             }
+
             var oModel = oContext.getModel();
             return Object.keys(mOrder.products)
                 .filter(function(sKey) { return mOrder.products[sKey]; })
