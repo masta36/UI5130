@@ -164,6 +164,86 @@ sap.ui.define([
 
             var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
             this._bindView(sObjectPath);
+
+            //bind classif table to empty at start:
+            var oTemplate = new sap.m.ColumnListItem({
+                cells : [
+                    new sap.m.Text({
+                        text : "",
+                        wrapping : false
+                    })
+                ]
+            });
+            var path = "/";
+            var tab = this.byId("__component0---docman--class_fragment--lineItemsList3");
+            tab.bindAggregation("items", path, oTemplate);
+            tab = this.byId("__component0---docman--class_fragment--lineItemsList4");
+            tab.bindAggregation("items", path, oTemplate);
+        },
+
+        getF4: function(evt){
+            this.handleTableSelectDialogPress(evt);
+        },
+
+        handleTableSelectDialogPress: function(oEvent) {
+
+            //which value help is needed (which model to load)
+            var m = oEvent.getSource().data("value_model");
+            var combo_model  = "model/value_help_" + m + ".json";
+
+            if (this._oDialog) {
+                this._oDialog.destroy();
+            }
+            this._oDialog = sap.ui.xmlfragment("com.pr36.app.view.Dialog", this);
+            var value_model = new sap.ui.model.json.JSONModel();
+            // Load JSON in model
+            value_model.loadData(combo_model);
+            this._oDialog.setModel(value_model);
+
+
+
+
+            // Multi-select if required
+            var bMultiSelect = oEvent.getSource().data("multi");
+            this._oDialog.setMultiSelect(bMultiSelect);
+
+            // Remember selections if required
+            var s = oEvent.getSource();
+            this.inputID = oEvent.getSource().getId();
+            var val = oEvent.getSource().getValue();
+            var bRemember = !!oEvent.getSource().data("remember");
+            this._oDialog.setRememberSelections(bRemember);
+
+            this.getView().addDependent(this._oDialog);
+
+            // toggle compact style
+            jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
+            this._oDialog.open();
+        },
+
+        handleSearch: function(oEvent) {
+            var sValue = oEvent.getParameter("value");
+            var oFilter = new Filter("name", sap.ui.model.FilterOperator.Contains, sValue);
+            var oBinding = oEvent.getSource().getBinding("items");
+            oBinding.filter([oFilter]);
+        },
+
+        handleClose: function(oEvent) {
+            var aContexts = oEvent.getParameter("selectedContexts");
+            if (aContexts.length) {
+
+                var value = aContexts.map(function (oContext) {
+                    return oContext.getObject().name + " (" + oContext.getObject().ID + ")";
+                });
+
+
+                this.getView().byId(this.inputID).setValue(value);
+
+            }
+            oEvent.getSource().getBinding("items").filter([]);
+            if(this._oDialog){
+                this._oDialog.unbindItems();
+            }
         },
 
         /**
@@ -280,10 +360,25 @@ sap.ui.define([
             });
 
             path = path + "/meta";
-            tab.bindItems(path, oTemplate);
+            tab.bindAggregation("items", path, oTemplate);
 
             //classif table:
-
+            var frag = sap.ui.xmlfragment("com.pr36.app.view.ClassManRow");
+            oTemplate = frag;
+            /*oTemplate = new sap.m.ColumnListItem({
+                cells : [
+                    new sap.m.ObjectIdentifier({
+                        text : "{char}"
+                    }),
+                    new sap.m.Input({
+                        value : "{value}",
+                        editable : true,
+                        showValueHelp: true,
+                        valueHelpRequest:"getF4"
+                    })
+                ]
+            });
+*/
             tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList3");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Basic";
             tab.bindAggregation("items", path, oTemplate);
@@ -301,3 +396,4 @@ sap.ui.define([
 var trigger;
 var al;
 var prog;
+var inputID;

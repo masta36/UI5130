@@ -91,14 +91,7 @@ sap.ui.define([
 				oViewModel = this.getModel("masterView");
 
 			if(aFilters.length == 0){
-				var oTemplate = new sap.m.ColumnListItem({
-					cells : [
-						new sap.m.ObjectIdentifier({
-							title : "{Name}",
-							text : "{prod_short}"
-						})
-					]
-				});
+				var oTemplate = this.oTemplate = sap.ui.xmlfragment("com.pr36.app.view.Row");
 
 				this._oList.setModel(this.getView().getModel());
 				//this._oList.bindItems("/ProductHierarchy/Catalog", oTemplate);
@@ -112,11 +105,56 @@ sap.ui.define([
 				tmp: true
 			});
 
+			var search = aFilters[0].oValue1;
+
+			data = data["ProductHierarchy"];
+
+			var a = 0;
+			var n = 0;
+			var c = 0;
+			var products = new Array();
+			var catalog_coll = data.Catalog;
+			for(c = 0; c < catalog_coll.length; c++) {
+				var catalog = catalog_coll[c];
+					var cat = catalog.Categories;
+					for (n = 0; n < cat.length; n++) {
+						//products
+						var p = 0;
+						var pro = cat[n].Products;
+						for (p = 0; p < pro.length; p++) {
+							pro[p].Path = catalog.Name + "/" + cat[n].Name + "/";
+							products.push(pro[p]);
+						}
+					}
+			}
+
+			var FilteredData = _.filter(products, function(item) {
+				var fields = [
+					'Name',
+					'prod_short'
+				];
+				var concat = _.chain(fields)
+					.map(function (field) {
+						return _.property(field)(item);
+					})
+					.filter(function (result) {
+						return result !== undefined && result !== null
+					})
+					.value()
+					.join(' ');
+				return _.every(search.split(' '), function (searchTerm) {
+					return concat.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0;
+				});
+			});
+
+			var i = 0;
 			var prods = new Array();
-			var prodItem = {"Name": "Prod 1", "ProductID": "10", "prod_short":"Short desc"};
-			prods[0] = prodItem;
-			prodItem = {"Name": "Prod 2", "ProductID": "20", "prod_short":"Short desc 2"};
-			prods[1] = prodItem;
+			var prodItem;
+			for(i = 0; i < FilteredData.length; i++){
+				prodItem = {"Name": FilteredData[i].Name, "ProductID":FilteredData[i].ProductID, "prod_short": FilteredData[i].Path};
+				prods.push(prodItem);
+			}
+
 			var search = {"search": prods};
 			tmp_model.setData(search);
 			this._oList.setModel(tmp_model);
@@ -131,7 +169,6 @@ sap.ui.define([
 				]
 			});
 
-			//this._oList.bindItems("/search", oTemplate);
 			this._setAggregation("/search");
 
 			/*this._oList.getBinding("items").filter(aFilters, "Application");
@@ -144,7 +181,6 @@ sap.ui.define([
 			}
 			*/
 		},
-
 
 		// Initial path is the first crumb appended to the collection root
 		_getInitialPath: function () {

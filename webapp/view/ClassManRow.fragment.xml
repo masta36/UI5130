@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m"
+        xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+    <ColumnListItem>
+        <cells>
+            <ObjectIdentifier text="{char}" />
+            <Input editable="{classView>/editable}" value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
+        </cells>
+    </ColumnListItem>
+</core:FragmentDefinition>

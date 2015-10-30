@@ -3,7 +3,7 @@
         xmlns="sap.m">
     <ColumnListItem
             type="{
-			path: 'ProductID',
+			path: '',
 			formatter: 'com.pr36.app.controller.Formatter.listItemType'
 		}"
 

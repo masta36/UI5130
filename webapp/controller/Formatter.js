@@ -70,7 +70,12 @@ sap.ui.define(function() {
         // a branch or a leaf node of the hierarchy. We determine
         // that we're on a leaf if there's a ProductId
         listItemType : function (sProductId) {
-            return sProductId ? "Inactive" : "Navigation";
+            var p = sProductId;
+            if(p && p.ProductID){
+                return "Inactive";
+            }
+            return "Navigation";
+            //return sProductId ? "Inactive" : "Navigation";
         }
     };
 

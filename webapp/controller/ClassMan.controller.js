@@ -71,11 +71,6 @@ sap.ui.define([
             // Multi-select if required
             var bMultiSelect = oEvent.getSource().data("multi");
             this._oDialog.setMultiSelect(bMultiSelect);
-            /*if(bMultiSelect == "true") {
-                this._oDialog.setMultiSelect(true);
-            }else{
-                this._oDialog.setMultiSelect(false);
-            }*/
 
             // Remember selections if required
             var s = oEvent.getSource();
