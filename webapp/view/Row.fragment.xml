@@ -10,6 +10,7 @@
           >
         <cells>
             <ObjectIdentifier
+                    id = "classman_row"
                     title="{Name}"
                     text="{prod_short}" />
         </cells>

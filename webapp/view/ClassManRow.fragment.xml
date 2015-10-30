@@ -5,7 +5,7 @@
     <ColumnListItem>
         <cells>
             <ObjectIdentifier text="{char}" />
-            <Input editable="{classView>/editable}" value="{value}" id="val" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
+            <Input editable="{classView>/editable}" value="{value}" id="" app:multi="{multi}" app:value_model="{type}" showValueHelp="true" valueHelpRequest="getF4"/>
         </cells>
     </ColumnListItem>
 </core:FragmentDefinition>

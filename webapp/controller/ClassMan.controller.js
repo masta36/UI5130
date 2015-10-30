@@ -108,6 +108,7 @@ sap.ui.define([
             oEvent.getSource().getBinding("items").filter([]);
             if(this._oDialog){
                 this._oDialog.unbindItems();
+                this._oDialog.destroy();
             }
         },
 

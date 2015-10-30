@@ -91,7 +91,7 @@ sap.ui.define([
 				oViewModel = this.getModel("masterView");
 
 			if(aFilters.length == 0){
-				var oTemplate = this.oTemplate = sap.ui.xmlfragment("com.pr36.app.view.Row");
+				//var oTemplate = this.oTemplate = sap.ui.xmlfragment("com.pr36.app.view.Row");
 
 				this._oList.setModel(this.getView().getModel());
 				//this._oList.bindItems("/ProductHierarchy/Catalog", oTemplate);

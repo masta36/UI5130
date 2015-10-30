@@ -165,8 +165,30 @@ sap.ui.define([
             var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
             this._bindView(sObjectPath);
 
-            //bind classif table to empty at start:
+            //clear selections if present:
+            this.byId("lineItemsList2").removeSelections();
+
+            //bind meta-table to empty at start:
+            var tab = this.getView().byId("lineItemsList5");
             var oTemplate = new sap.m.ColumnListItem({
+                cells : [
+                    new sap.m.Text({
+                        text : "{char}",
+                        wrapping : false
+                    }),
+                    new sap.m.Text({
+                        text : "{value}",
+                        wrapping : false
+                    })
+                ]
+            });
+
+            var path = "/";
+            tab.bindAggregation("items", path, oTemplate);
+
+
+            //bind classif table to empty at start:
+            oTemplate = new sap.m.ColumnListItem({
                 cells : [
                     new sap.m.Text({
                         text : "",
@@ -174,8 +196,8 @@ sap.ui.define([
                     })
                 ]
             });
-            var path = "/";
-            var tab = this.byId("__component0---docman--class_fragment--lineItemsList3");
+            path = "/";
+            tab = this.byId("__component0---docman--class_fragment--lineItemsList3");
             tab.bindAggregation("items", path, oTemplate);
             tab = this.byId("__component0---docman--class_fragment--lineItemsList4");
             tab.bindAggregation("items", path, oTemplate);
@@ -237,12 +259,13 @@ sap.ui.define([
                 });
 
 
-                this.getView().byId(this.inputID).setValue(value);
+                sap.ui.getCore().byId(this.inputID).setValue(value);
 
             }
             oEvent.getSource().getBinding("items").filter([]);
             if(this._oDialog){
                 this._oDialog.unbindItems();
+                this._oDialog.destroy();
             }
         },
 
@@ -363,22 +386,9 @@ sap.ui.define([
             tab.bindAggregation("items", path, oTemplate);
 
             //classif table:
-            var frag = sap.ui.xmlfragment("com.pr36.app.view.ClassManRow");
+            var frag = sap.ui.xmlfragment("com.pr36.app.view.ClassManRow", this);
             oTemplate = frag;
-            /*oTemplate = new sap.m.ColumnListItem({
-                cells : [
-                    new sap.m.ObjectIdentifier({
-                        text : "{char}"
-                    }),
-                    new sap.m.Input({
-                        value : "{value}",
-                        editable : true,
-                        showValueHelp: true,
-                        valueHelpRequest:"getF4"
-                    })
-                ]
-            });
-*/
+
             tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList3");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Basic";
             tab.bindAggregation("items", path, oTemplate);
