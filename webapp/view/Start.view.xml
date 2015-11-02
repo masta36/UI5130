@@ -28,7 +28,7 @@
             <ux:blocks>
                 <l:VerticalLayout>
                     <m:Label design="Bold" text="Welcome" />
-                    <m:Text text="This is a demonstrator for visualization and editing of all kind of Product-relevant information.\r\nFeel free to play around with the features. We are happy to hear your feedback.\r\n\r\nPlease start by selecting a product on the right side.\r\n\r\nEnjoy" />
+                    <m:Text text="This is a demonstrator for visualization and editing of all kind of Product-relevant information by using SAP / OpenUI5.\r\nFeel free to play around with the features. We are happy to hear your feedback.\r\n\r\nEnjoy" />
                 </l:VerticalLayout>
         <DynamicContainer class="marginTopLeft" displayTime="2000">
             <tiles>
@@ -48,7 +48,23 @@
                     </TileContent>
                 </tileContent>
             </GenericTile>
-            <GenericTile header="Features"
+                <GenericTile header="Catalog-Navigation"
+                             size="M"
+                             frameType="TwoByOne"
+                             press="press"
+                             backgroundImage="images/products_trans.png">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <NewsContent
+                                        contentText="multi-level Product-Catalog-navigation"
+                                        >
+                                </NewsContent>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+            <GenericTile header="Text-Editing"
                          size="M"
                          frameType="TwoByOne"
                          press="press"
@@ -64,7 +80,7 @@
                     </TileContent>
                 </tileContent>
             </GenericTile>
-                <GenericTile header="Features"
+                <GenericTile header="Document-Management"
                              size="M"
                              frameType="TwoByOne"
                              press="press"
@@ -80,7 +96,7 @@
                         </TileContent>
                     </tileContent>
                 </GenericTile>
-                <GenericTile header="Features"
+                <GenericTile header="Classification-Management"
                              size="M"
                              frameType="TwoByOne"
                              press="press"
@@ -96,7 +112,7 @@
                         </TileContent>
                     </tileContent>
                 </GenericTile>
-                <GenericTile header="Features"
+                <GenericTile header="Responsive"
                              size="M"
                              frameType="TwoByOne"
                              press="press"
@@ -105,14 +121,14 @@
                         <TileContent>
                             <content>
                                 <NewsContent
-                                        contentText="Responsive.\r\n Supports Desktop, Smartphone and Tablet"
+                                        contentText="100% responsive Design.\r\n Supports Desktop, Smartphone and Tablet"
                                         >
                                 </NewsContent>
                             </content>
                         </TileContent>
                     </tileContent>
                 </GenericTile>
-                <GenericTile header="Features"
+                <GenericTile header="Run-Modes"
                              size="M"
                              frameType="TwoByOne"
                              press="press"
@@ -136,8 +152,14 @@
                 </ux:ObjectPageSection>
                 <ux:ObjectPageSection title="" >
                 <ux:subSections>
-                <ux:ObjectPageSubSection title="Information">
+                <ux:ObjectPageSubSection title="Demonstration">
                 <ux:blocks>
+                    <m:StandardTile
+                            icon="sap-icon://arrow-right"
+                            type="Monitor"
+                            title="Start Product Information Cockpit (PIC)"
+                            info="Go for it"
+                            infoState="Success" press="openPIC"/>
                 <GenericTile
                         header="Get in contact"
                         size="L"

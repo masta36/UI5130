@@ -13,7 +13,7 @@ sap.ui.define([
 
         metadata: {
             "version": "1.0.0",
-            "rootView": "com.pr36.app.view.App",
+            "rootView": "com.pr36.app.view.MasterApp",
             "dependencies": {
                 "libs": ["sap.ui.core", "sap.m", "sap.ui.layout"]
             },
@@ -32,31 +32,67 @@ sap.ui.define([
                     "routerClass": "sap.m.routing.Router",
                     "viewType": "XML",
                     "viewPath": "com.pr36.app.view",
-                    "controlId": "idAppControl",
+                    //"controlId": "idAppControl",
                     "controlAggregation": "detailPages",
                     "bypassed": {
                         "target": ["master", "notFound"]
                     }
                 },
 
-                "routes": [{
-                    "pattern": "",
-                    "name": "master",
-                    "target": ["start", "master"]
-                }, {
-                    "pattern": "Products/{objectId}",
-                    "name": "object",
-                    "target": ["master", "object"]
-                },
+                "routes": [
                     {
-                        "pattern": "Products/doc/{objectId}",
-                        "name": "doc",
-                        "target": ["master", "doc"]
+                        "pattern": "",
+                        "name": "_index",
+                        "view": "Start",
+                        "targetAggregation": "pages",
+                        "targetControl": "idAppControl"
                     },
                     {
-                        "pattern": "Products/class/{objectId}",
-                        "name": "class",
-                        "target": ["master", "class"]
+                      "pattern": "master",
+                        "name": "_master",
+                        "view": "App",
+                        "targetAggregation": "pages",
+                        "targetControl": "idAppControl",
+                        "subroutes":[
+                            {
+                                "pattern": "master",
+                                "name": "master",
+                                "view": "Master",
+                                "viewLevel": 1,
+                                "targetAggregation": "masterPages",
+                                "targetControl": "idSplitContainerControl",
+                                "subroutes":[
+                                    {
+                                        "pattern": "master",
+                                        "name": "master",
+                                        "view": "DetailOverview",
+                                        "viewLevel": 1,
+                                        "targetAggregation": "detailPages"
+                                    },
+                                    {
+                                        "pattern": "Product/{objectId}",
+                                        "view": "Detail1",
+                                        "name": "object",
+                                        "viewLevel": 2,
+                                        "targetAggregation": "detailPages"
+                                    },
+                                    {
+                                        "pattern": "Product/doc/{objectId}",
+                                        "view": "DocMan",
+                                        "name": "doc",
+                                        "viewLevel": 2,
+                                        "targetAggregation": "detailPages"
+                                    },
+                                    {
+                                        "pattern": "Product/class/{objectId}",
+                                        "view": "ClassMan",
+                                        "name": "class",
+                                        "viewLevel": 2,
+                                        "targetAggregation": "detailPages"
+                                    }
+                                ]
+                            }
+                        ]
                     }],
 
                 "targets": {
@@ -87,15 +123,21 @@ sap.ui.define([
                     },
                     "detailObjectNotFound": {
                         "viewName": "DetailObjectNotFound",
-                        "viewId": "detailObjectNotFound"
+                        "viewId": "detailObjectNotFound",
+                        "targetControl": "idSplitContainerControl",
+                        "targetAggregation": "detailPages"
                     },
                     "detailNoObjectsAvailable": {
                         "viewName": "DetailNoObjectsAvailable",
-                        "viewId": "detailNoObjectsAvailable"
+                        "viewId": "detailNoObjectsAvailable",
+                        "targetControl": "idSplitContainerControl",
+                        "targetAggregation": "detailPages"
                     },
                     "notFound": {
                         "viewName": "NotFound",
-                        "viewId": "notFound"
+                        "viewId": "notFound",
+                        "targetControl": "idSplitContainerControl",
+                        "targetAggregation": "detailPages"
                     }
                 }
             }

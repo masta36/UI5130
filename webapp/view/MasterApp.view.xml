@@ -1,4 +1,4 @@
 <mvc:View busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}" controllerName="com.pr36.app.controller.App" displayBlock="true"
           xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
-    <SplitApp id="idSplitContainerControl"/>
+    <App id="idAppControl" />
 </mvc:View>

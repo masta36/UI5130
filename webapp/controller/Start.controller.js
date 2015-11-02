@@ -1,7 +1,8 @@
 sap.ui.define([
     "com/pr36/app/controller/BaseController",
-    "sap/ui/model/json/JSONModel"
-], function(BaseController, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/Device"
+], function(BaseController, JSONModel, Device) {
     "use strict";
 
     return BaseController.extend("com.pr36.app.controller.Start", {
@@ -44,6 +45,13 @@ sap.ui.define([
             // Load JSON in model
             oModel.loadData("model/tiles.json");
             this.getView().setModel(oModel);
+        },
+
+        openPIC: function(evt){
+            var bReplace = !Device.system.phone;
+
+            this.getRouter().navTo("master", {
+            }, bReplace);
         }
 
     });

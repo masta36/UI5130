@@ -1,0 +1,83 @@
+<mvc:View controllerName="com.pr36.app.controller.Start" xmlns:pr="com.pr36.app.control" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.suite.ui.commons" xmlns:ux="sap.uxap" xmlns:m="sap.m" xmlns:l="sap.ui.layout">
+    <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+            showNavButton="{device>/system/phone}" title="Product Information Cockpit">
+    <m:content>
+
+        <ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" showAnchorBar="false">
+        <ux:headerTitle>
+            <ux:ObjectPageHeader objectImageURI=""
+                              objectImageShape="Square"
+                              objectTitle="Product Information Cockpit"
+                              id="ObjectPageLayoutHeaderTitle"
+                              isObjectIconAlwaysVisible="false"
+                              isObjectTitleAlwaysVisible="false"
+                              isObjectSubtitleAlwaysVisible="false"
+                              isActionAreaAlwaysVisible="true"
+                              showPlaceholder = "false">
+            </ux:ObjectPageHeader>
+        </ux:headerTitle>
+        <ux:headerContent>
+            <l:VerticalLayout>
+               <m:Label text="projektraum36 GmbH &amp; Co. KG" />
+            </l:VerticalLayout>
+        </ux:headerContent>
+            <ux:sections>
+            <ux:ObjectPageSection title="" >
+            <ux:subSections>
+            <ux:ObjectPageSubSection title="Navigation">
+            <ux:blocks>
+                <l:VerticalLayout>
+                    <m:Label design="Bold" text="Usage" />
+                    <m:Text text="Navigate through Product catalogs by using the left-hand menu" />
+                </l:VerticalLayout>
+                </ux:blocks>
+                </ux:ObjectPageSubSection>
+
+                <ux:ObjectPageSubSection title="Search">
+                    <ux:blocks>
+                        <l:VerticalLayout>
+                            <m:Label design="Bold" text="Usage" />
+                            <m:Text text="The search-function is searching for Product Names and short texts" />
+                        </l:VerticalLayout>
+                    </ux:blocks>
+                </ux:ObjectPageSubSection>
+                <ux:ObjectPageSubSection title="Text Editing">
+                    <ux:blocks>
+                        <l:VerticalLayout>
+                            <m:Label design="Bold" text="Usage" />
+                            <m:Text text="By clicking the Pencil-icon you can start the Inline-Texteditor.\r\nIn this example no approval-workflow is demonstrated, but is also available" />
+                        </l:VerticalLayout>
+                    </ux:blocks>
+                </ux:ObjectPageSubSection>
+
+                <ux:ObjectPageSubSection title="Document-Management">
+                    <ux:blocks>
+                        <l:VerticalLayout>
+                            <m:Label design="Bold" text="Usage" />
+                            <m:Text text="Lorem ipsum" />
+                        </l:VerticalLayout>
+                    </ux:blocks>
+                </ux:ObjectPageSubSection>
+                <ux:ObjectPageSubSection title="Classification-Management">
+                    <ux:blocks>
+                        <l:VerticalLayout>
+                            <m:Label design="Bold" text="Usage" />
+                            <m:Text text="Lorem ipsum" />
+                        </l:VerticalLayout>
+                    </ux:blocks>
+                </ux:ObjectPageSubSection>
+
+
+                </ux:subSections>
+                </ux:ObjectPageSection>
+                </ux:sections>
+        </ux:ObjectPageLayout>
+        </m:content>
+        <m:footer>
+            <m:OverflowToolbar id="footerToolbar">
+                <m:ToolbarSpacer/>
+
+            </m:OverflowToolbar>
+        </m:footer>
+    </m:Page>
+</mvc:View>

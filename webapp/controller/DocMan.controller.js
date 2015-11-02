@@ -197,10 +197,13 @@ sap.ui.define([
                 ]
             });
             path = "/";
-            tab = this.byId("__component0---docman--class_fragment--lineItemsList3");
-            tab.bindAggregation("items", path, oTemplate);
-            tab = this.byId("__component0---docman--class_fragment--lineItemsList4");
-            tab.bindAggregation("items", path, oTemplate);
+            //tab = this.byId("__component0---docman--class_fragment--lineItemsList3");
+            tab = sap.ui.getCore().byId("---docman--class_fragment--lineItemsList3");
+            //tab = this.byId("__xmlview3--class_fragment--lineItemsList3");
+            //tab.bindAggregation("items", path, oTemplate);
+            //tab = this.byId("__xmlview3--class_fragment--lineItemsList4");
+            tab = sap.ui.getCore().byId("---docman--class_fragment--lineItemsList4");
+            //tab.bindAggregation("items", path, oTemplate);
         },
 
         getF4: function(evt){
@@ -389,11 +392,11 @@ sap.ui.define([
             var frag = sap.ui.xmlfragment("com.pr36.app.view.ClassManRow", this);
             oTemplate = frag;
 
-            tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList3");
+            tab = this.getView().byId("__xmlview3--class_fragment--lineItemsList3");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Basic";
             tab.bindAggregation("items", path, oTemplate);
             var c = tab.getColumns();//.getElementBinding().bindProperty("editable", "classView>/editable");
-            tab = this.getView().byId("__component0---docman--class_fragment--lineItemsList4");
+            tab = this.getView().byId("__xmlview3--class_fragment--lineItemsList4");
             path = evt.getParameter("listItem").getBindingContext()  + "/Doc_Class/Publication";
             tab.bindAggregation("items", path, oTemplate);
 

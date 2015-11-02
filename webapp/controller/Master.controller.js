@@ -82,6 +82,13 @@ sap.ui.define([
 
 		},
 
+		onNavBack: function(){
+			var bReplace = !Device.system.phone;
+
+			this.getRouter().navTo("", {
+			}, bReplace);
+		},
+
 		/**
 		 * Internal helper method to apply both filter and search state together on the list binding
 		 * @private
@@ -319,7 +326,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onBypassed: function() {
-			//this._oList.removeSelections(true);
+			this._oList.removeSelections(true);
 		},
 
 

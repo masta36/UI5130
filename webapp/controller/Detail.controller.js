@@ -337,6 +337,15 @@ sap.ui.define([
 
 			var m = oView.getModel().getObject(p);
 
+			if(typeof m === "undefined"){
+				/*this.getRouter().getTargets().display("detailObjectNotFound");
+				// if object could not be found, the selection in the master list
+				// does not make sense anymore.
+				this.getOwnerComponent().oListSelector.clearMasterListSelection();
+				return;
+				*/
+			}
+
 			var sPath = oElementBinding.getPath(),
 				oResourceBundle = this.getResourceBundle(),
 				oObject = oView.getModel().getObject(sPath),
