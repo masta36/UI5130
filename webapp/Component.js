@@ -32,11 +32,10 @@ sap.ui.define([
                     "routerClass": "sap.m.routing.Router",
                     "viewType": "XML",
                     "viewPath": "com.pr36.app.view",
-                    //"controlId": "idAppControl",
                     "controlAggregation": "detailPages",
-                    "bypassed": {
+                    /*"bypassed": {
                         "target": ["master", "notFound"]
-                    }
+                    }*/
                 },
 
                 "routes": [
@@ -66,7 +65,7 @@ sap.ui.define([
                                         "pattern": "master",
                                         "name": "master",
                                         "view": "DetailOverview",
-                                        "viewLevel": 1,
+                                        "viewLevel": 2,
                                         "targetAggregation": "detailPages"
                                     },
                                     {
@@ -90,7 +89,17 @@ sap.ui.define([
                                         "viewLevel": 2,
                                         "targetAggregation": "detailPages"
                                     }
-                                ]
+                                ],
+                                "targets":{
+                                    "notFound": {
+                                        "viewName": "DetailOverview",
+                                        "viewId": "DetailOverview",
+                                        //"controlId": "idAppControl",
+                                        //"targetControl": "idAppControl",
+                                        //"targetAggregation": "pages",
+                                        //"controlAggregation": "pages"
+                                    }
+                                }
                             }
                         ]
                     }],
@@ -130,12 +139,6 @@ sap.ui.define([
                     "detailNoObjectsAvailable": {
                         "viewName": "DetailNoObjectsAvailable",
                         "viewId": "detailNoObjectsAvailable",
-                        "targetControl": "idSplitContainerControl",
-                        "targetAggregation": "detailPages"
-                    },
-                    "notFound": {
-                        "viewName": "NotFound",
-                        "viewId": "notFound",
                         "targetControl": "idSplitContainerControl",
                         "targetAggregation": "detailPages"
                     }

@@ -33,6 +33,7 @@ sap.ui.define([
 			});
 
 			this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
+			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
 
 			this.setModel(oViewModel, "detailView");
 
@@ -207,7 +208,13 @@ sap.ui.define([
 				oViewModel = this.getModel("detailView");
 
 			var oElementBinding = this.getView().getElementBinding();
-			var sPath = oElementBinding.getPath()
+			if(typeof oElementBinding === "undefined"){
+
+//				this.getRouter().getTargets().display("notFound");
+				return;
+			}
+
+			var sPath = oElementBinding.getPath();
 			var oModel = this.getView().getModel();
 			var oObject = oModel.getProperty(sPath + "/prod_images");
 			var c = this.getView().byId("carousel");
@@ -288,6 +295,18 @@ sap.ui.define([
 		 * @private
 		 */
 		_onObjectMatched: function(oEvent) {
+
+			var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
+			this._bindView(sObjectPath);
+		},
+
+		/**
+		 * Binds the view to the object path and expands the aggregated line items.
+		 * @function
+		 * @param {sap.ui.base.Event} oEvent pattern match event in route 'object'
+		 * @private
+		 */
+		_onMasterMatched: function(oEvent) {
 
 			var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
 			this._bindView(sObjectPath);

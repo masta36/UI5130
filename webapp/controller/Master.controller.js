@@ -72,13 +72,15 @@ sap.ui.define([
 			this._setAggregation(sPath);
 
 			//Routing:
-			this.getRouter().getRoute("master").attachPatternMatched(this._onMasterMatched, this);
+			this.getRouter().getRoute("_master").attachPatternMatched(this._onMasterMatched, this);
 			this.getRouter().attachBypassed(this.onBypassed, this);
 
 			this._oListFilterState = {
 				aFilter: [],
 				aSearch: []
 			};
+
+			//this._showStart();
 
 		},
 
@@ -291,6 +293,19 @@ sap.ui.define([
 
 			this.getRouter().navTo("object", {
 				objectId: oItem//oItem.getBindingContext().getProperty("ProductID")
+			}, bReplace);
+		},
+
+		/**
+		 * Shows the selected item on the detail page
+		 * On phones a additional history entry is created
+		 * @param {sap.m.ObjectListItem} oItem selected Item
+		 * @private
+		 */
+		_showStart: function() {
+			var bReplace = !Device.system.phone;
+
+			this.getRouter().navTo("masterO", {
 			}, bReplace);
 		},
 
