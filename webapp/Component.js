@@ -61,13 +61,13 @@ sap.ui.define([
                                 "targetAggregation": "masterPages",
                                 "targetControl": "idSplitContainerControl",
                                 "subroutes":[
-                                    {
+                                    /*{
                                         "pattern": "master",
                                         "name": "master",
                                         "view": "Detail1",
                                         "viewLevel": 2,
                                         "targetAggregation": "detailPages"
-                                    },
+                                    },*/
                                     {
                                         "pattern": "Product/{objectId}",
                                         "view": "Detail1",

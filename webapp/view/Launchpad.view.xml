@@ -1,0 +1,4 @@
+<mvc:View busy="{appView>/busy}" busyIndicatorDelay="{appView>/delay}" controllerName="com.pr36.app.controller.Launchpad" displayBlock="true"
+          xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+<Label text="kjlk" value="kjdf" />
+</mvc:View>

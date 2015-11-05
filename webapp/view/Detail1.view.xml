@@ -35,17 +35,17 @@
                     </ObjectPageSection>
             <ObjectPageSection id="sec_txt" title="Product Texts" icon="sap-icon://document">
                 <subSections>
-                    <ObjectPageSubSection title="Description" id="sub_desc">
+                    <ObjectPageSubSection title="Origin" id="sub_desc">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_desc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{prod_origin}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
-                    <ObjectPageSubSection title="Usage">
+                    <ObjectPageSubSection title="Incredients">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_usage}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{prod_inc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
@@ -82,6 +82,18 @@
                                                 <m:Column>
                                                     <m:Text text="Article Detail"/>
                                                 </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Calories"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Fat"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Carbs"/>
+                                                </m:Column>
+                                                <m:Column>
+                                                    <m:Text text="Protein"/>
+                                                </m:Column>
                                                 <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
                                                     <m:Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
                                                 </m:Column>
@@ -92,6 +104,10 @@
                                                         <m:ObjectIdentifier text="{ProductName}" />
                                                         <m:ObjectIdentifier text="{ArtNo}" />
                                                         <m:ObjectIdentifier text="{ArtDetails}" />
+                                                        <m:ObjectIdentifier text="{calories}" />
+                                                        <m:ObjectIdentifier text="{fat}" />
+                                                        <m:ObjectIdentifier text="{carbs}" />
+                                                        <m:ObjectIdentifier text="{protein}" />
                                                         <m:ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
                                                     </m:cells>
                                                 </m:ColumnListItem>

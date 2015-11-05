@@ -4,16 +4,30 @@
             "ProductID": "1",
             "ProductName": "Pizza Napoli",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "Pizza made with tomatoes and Mozzarella cheese",
+            "prod_origin": "<STRONG>Neapolitan pizza (Italian: pizza napoletana)</STRONG> is made with tomatoes and Mozzarella cheese. It can be made with ingredients like San Marzano tomatoes, which grow on the volcanic plains to the south of Mount Vesuvius, and mozzarella di bufala Campana, made with the milk from water buffalo raised in the marshlands of Campania and Lazio in a semi-wild state (this mozzarella is protected with its own European protected designation of origin).",
+            "prod_inc": "<UL><LI>1 1/2 cups warm water, about 70 deg F<LI>1 (1/4-ounce) envelope active dry yeast<LI>1/4 cup extra-virgin olive oil, plus more for greasing as needed<LI>4 1/2 cups all-purpose or \"00\" flour, plus more as needed<LI>1 teaspoon kosher salt<LI>1 pound fresh buffalo mozzarella, slice<LI>1 (15-ounce) can crushed San Marzano tomatoes<LI>10 to 12 fresh basil leaves, torn<LI>1 teaspoon dried Sicilian oregano, crumbled<LI>Freshly ground black pepper (optional)</LI></UL>",
+            "prod_info": "additional Information about the product",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
+                    "ProductName": "Classic",
                     "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ArtDetails": "Classic variant",
+                    "calories": "180 kcal",
+                    "fat": "8.0g",
+                    "carbs": "18.0g",
+                    "protein": "9.0g",
+                    "UnitPrice": "4.50€"
+                },
+                {
+                    "ProductName": "Extra Cheese",
+                    "ArtNo": 12346,
+                    "ArtDetails": "double cheese variant",
+                    "calories": "314 kcal",
+                    "fat": "21.0g",
+                    "carbs": "20.0g",
+                    "protein": "13.0g",
+                    "UnitPrice": "6.50€"
                 }
             ],
             "prod_images": [
@@ -23,9 +37,9 @@
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Nutrition Facts / Guide for a healthy lifestyle",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
+                    "Owner": "J. Average",
                     "size": 5678,
                     "meta": [
                         {
@@ -38,37 +52,70 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "NONE"
+                            },
+                            {
+                                "type": "SALESSTATUS",
+                                "multi": false,
+                                "char": "Sales Status",
+                                "value": "not saleable"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Print"
+                            }
+                        ]
+                    }
                 }
             ],
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            }
+
+                "Product_Class": {
+                    "Basic": [
+                        {
+                            "type": "COUNTRY",
+                            "multi": true,
+                            "char": "Country Release",
+                            "value": "DE, US"
+                        },
+                        {
+                            "type": "PRODSTATUS",
+                            "multi": false,
+                            "char": "Production Status",
+                            "value": "Released"
+                        },
+                        {
+                            "type": "SALESSTATUS",
+                            "multi": false,
+                            "char": "Sales Status",
+                            "value": "Saleable"
+                        }
+                    ],
+                    "Publication": [
+                        {
+                            "type": "PUBL",
+                            "multi": true,
+                            "char": "Publication Channels",
+                            "value": "Print, Extranet, Internet, Intranet"
+                        }
+                    ]
+                }
         },
         {
             "ProductID": "2",
