@@ -64,7 +64,7 @@ sap.ui.define([
                                     {
                                         "pattern": "master",
                                         "name": "master",
-                                        "view": "DetailOverview",
+                                        "view": "Detail1",
                                         "viewLevel": 2,
                                         "targetAggregation": "detailPages"
                                     },

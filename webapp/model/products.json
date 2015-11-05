@@ -2,7 +2,7 @@
     "Products": [
         {
             "ProductID": "1",
-            "ProductName": "New Car",
+            "ProductName": "Pizza Napoli",
             "UnitPrice": 300,
             "prod_short": "Enter Short description",
             "prod_desc": "Ich bin eine Beschreibung",
@@ -15,6 +15,11 @@
                     "ArtDetails": "2.0 TDI Version",
                     "UnitPrice": 1234
                 }
+            ],
+            "prod_images": [
+                "images/napoli1.jpg",
+                "images/napoli2.jpg",
+                "images/napoli3.jpg"
             ],
             "Product_Docs": [
                 {
@@ -39,7 +44,6 @@
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-
                     ]
                 }
             ],
@@ -68,14 +72,15 @@
         },
         {
             "ProductID": "2",
-            "ProductName": "Quite Fast Car",
+            "ProductName": "Pizza Cheese & Pepperoni",
             "UnitPrice": 9999,
             "prod_short": "Nice",
             "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
             "prod_usage": "Handle with care",
             "prod_info": "Please note that this is a prototype only",
             "prod_images": [
-                "images/a53.jpg", "images/a52.jpg", "images/a54.jpg"
+                "images/pepp1.jpg",
+                "images/pepp3jpg.jpg"
             ],
             "Product_Details": [
                 {
@@ -104,10 +109,10 @@
                     "Owner": "J. Average",
                     "size": 123456789,
                     "meta": [
-                    {
-                        "char": "Filesize",
-                        "value": 123456789
-                    },
+                        {
+                            "char": "Filesize",
+                            "value": 123456789
+                        },
                         {
                             "char": "Version",
                             "value": "1.0"
@@ -120,7 +125,6 @@
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-
                     ],
                     "Doc_Class": {
                         "Basic": [
@@ -198,23 +202,25 @@
             }
         },
         {
-            "ProductID": "4",
-            "ProductName": "Herby",
-            "UnitPrice": 9999,
-            "prod_short": "The older the better",
-            "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-            "prod_usage": "Handle with care",
-            "prod_info": "Please note that this is a prototype only",
-            "prod_images": [
-                "images/kaefer.jpg", "images/kaefer2.jpg"
-            ],
+            "ProductID": "3",
+            "ProductName": "Pizza Salami",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
             "Product_Details": [
                 {
-                    "ProductName": "New Beetle",
-                    "ArtNo": 34567,
-                    "ArtDetails": "Facelift 2015",
-                    "UnitPrice": 28453
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
                 }
+            ],
+            "prod_images": [
+                "images/salami1.jpg",
+                "images/pepp2.jpg",
+                "images/salami2.jpg"
             ],
             "Product_Docs": [
                 {
@@ -239,10 +245,214 @@
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-
                     ]
                 }
             ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
+        },
+                {
+                    "ProductID": "4",
+                    "ProductName": "Fusilli alla Roma",
+                    "UnitPrice": 300,
+                    "prod_short": "Enter Short description",
+                    "prod_desc": "Ich bin eine Beschreibung",
+                    "prod_usage": "Usage info",
+                    "prod_info": "additional Information",
+                    "Product_Details": [
+                        {
+                            "ProductName": "2.0 TDI",
+                            "ArtNo": 12345,
+                            "ArtDetails": "2.0 TDI Version",
+                            "UnitPrice": 1234
+                        }
+                    ],
+                    "prod_images": [
+                        "images/fus1.jpg",
+                        "images/fus2.jpg"
+                    ],
+                    "Product_Docs": [
+                        {
+                            "DocName": "User Manual",
+                            "Version": "1.0",
+                            "Owner": "J. Doe",
+                            "size": 5678,
+                            "meta": [
+                                {
+                                    "char": "Filesize",
+                                    "value": 5678
+                                },
+                                {
+                                    "char": "Version",
+                                    "value": "1.0"
+                                },
+                                {
+                                    "char": "Owner",
+                                    "value": "J. Doe"
+                                },
+                                {
+                                    "char": "Created At",
+                                    "value": "2015-10-25"
+                                }
+                            ]
+                        }
+                    ],
+                    "Product_Class": {
+                        "Basic": [
+                            {
+                                "char": "Country Release",
+                                "value": "NONE"
+                            },
+                            {
+                                "char": "Production Status",
+                                "value": "Production started"
+                            },
+                            {
+                                "char": "Sales Status",
+                                "value": "not saleable"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "char": "Publication Channels",
+                                "value": "Print"
+                            }
+                        ]
+                    },
+                    "Product_Class": {
+                        "Basic": [
+                            {
+                                "char": "Country Release",
+                                "value": "NONE"
+                            },
+                            {
+                                "char": "Production Status",
+                                "value": "Production started"
+                            },
+                            {
+                                "char": "Sales Status",
+                                "value": "not saleable"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "char": "Publication Channels",
+                                "value": "Print"
+                            }
+                        ]
+                    }
+                },
+        {
+            "ProductID": "5",
+            "ProductName": "Linguini Pesto Rollo",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
+            "Product_Details": [
+                {
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
+                }
+            ],
+            "prod_images": [
+                "images/pesto1.jpg",
+                "images/pesto2.jpg",
+                "images/pesto3.jpg"
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+                    ]
+                }
+            ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
             "Product_Class": {
                 "Basic": [
                     {
@@ -267,23 +477,25 @@
             }
         },
         {
-            "ProductID": "3",
-            "ProductName": "Very fast car",
-            "UnitPrice": 21890,
-            "prod_short": "I believe I can fly",
-            "prod_desc": "I believe I can fly",
-            "prod_usage": "Handle with care",
-            "prod_info": "Please note that this is a prototype only",
-            "prod_images": [
-                "images/ferrari.jpg", "images/ferrari2.jpg", "images/ferrari3.jpg"
-            ],
+            "ProductID": "6",
+            "ProductName": "Double Chocolate Fudge Cake",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
             "Product_Details": [
                 {
-                    "ProductName": "Very, very fast car",
-                    "ArtNo": 666666,
-                    "ArtDetails": "V8 BiTurbo, 614PS",
-                    "UnitPrice": 112654
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
                 }
+            ],
+            "prod_images": [
+                "images/choc1.jpg",
+                "images/choc2.jpg",
+                "images/choc3.jpg"
             ],
             "Product_Docs": [
                 {
@@ -308,7 +520,6 @@
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-
                     ]
                 }
             ],
@@ -329,12 +540,305 @@
                 ],
                 "Publication": [
                     {
-                        "id": "publ1",
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
+        },
+        {
+            "ProductID": "6",
+            "ProductName": "Fruit Cobbler with Ice Cream",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
+            "Product_Details": [
+                {
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
+                }
+            ],
+            "prod_images": [
+                "images/cob1.jpg",
+                "images/cob2.jpg"
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+                    ]
+                }
+            ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
+        },
+        {
+            "ProductID": "7",
+            "ProductName": "Peach Cobbler",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
+            "Product_Details": [
+                {
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
+                }
+            ],
+            "prod_images": [
+                "images/peach1.jpg",
+                "images/peach2.jpg"
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+                    ]
+                }
+            ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            }
+        },{
+            "ProductID": "8",
+            "ProductName": "Classic Chcocolate Cake",
+            "UnitPrice": 300,
+            "prod_short": "Enter Short description",
+            "prod_desc": "Ich bin eine Beschreibung",
+            "prod_usage": "Usage info",
+            "prod_info": "additional Information",
+            "Product_Details": [
+                {
+                    "ProductName": "2.0 TDI",
+                    "ArtNo": 12345,
+                    "ArtDetails": "2.0 TDI Version",
+                    "UnitPrice": 1234
+                }
+            ],
+            "prod_images": [
+                "images/ccake1.jpg",
+                "images/ccake2.jpg"
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "User Manual",
+                    "Version": "1.0",
+                    "Owner": "J. Doe",
+                    "size": 5678,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 5678
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Doe"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+                    ]
+                }
+            ],
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "char": "Publication Channels",
+                        "value": "Print"
+                    }
+                ]
+            },
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "char": "Country Release",
+                        "value": "NONE"
+                    },
+                    {
+                        "char": "Production Status",
+                        "value": "Production started"
+                    },
+                    {
+                        "char": "Sales Status",
+                        "value": "not saleable"
+                    }
+                ],
+                "Publication": [
+                    {
                         "char": "Publication Channels",
                         "value": "Print"
                     }
                 ]
             }
         }
-    ]
+            ]
 }

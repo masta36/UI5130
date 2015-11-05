@@ -2,112 +2,95 @@
   "ProductHierarchy": {
     "Catalog": [
       {
-        "Name": "Main Products",
+        "Name": "Main Meals",
         "Price": 1884.49,
         "Categories": [
           {
-            "Name": "Category 1",
+            "Name": "Pizza",
             "Price": 856.49,
             "Products":[
               {
                 "ProductID": "0",
-                "Name": "New Car",
+                "Name": "Pizza Napoli",
                 "UnitPrice": 300,
                 "prod_short": "Enter Short description"
               },{
                 "ProductID": "1",
-                "Name": "Quite Fast Car",
+                "Name": "Pizza Cheese & Pepperoni",
+                "prod_short": "Nice"
+              },
+              {
+                "ProductID": "2",
+                "Name": "Pizza Salami",
                 "prod_short": "Nice"
               }
             ],
             "CurrencyCode": "EUR"
           },
           {
-            "Name": "Category 2",
+            "Name": "Pasta",
             "Price": 939,
             "Products": [
                   {
-                    "ProductID": "2",
-                    "Name": "Herby",
+                    "ProductID": "3",
+                    "Name": "Fussilli alla Roma",
                     "UnitPrice": 300,
-                    "prod_short": "The older the better"
-                  }
+                    "prod_short": "Corkscrew pasta"
+                  },
+              {
+                "ProductID": "4",
+                "Name": "Linguini Pesto Pollo",
+                "UnitPrice": 300,
+                "prod_short": "Tender chicken in pesto cream sauce"
+              }
             ],
             "CurrencyCode": "EUR"
           }
         ]
       },
       {
-        "Name": "Spare Parts",
+        "Name": "Desserts",
         "Price": 154.19,
         "Categories": [
           {
-            "Name": "Graphics Card",
+            "Name": "Chcocolate",
             "Price": 81.7,
             "Products": [
               {
-                "ProductId": "2212-121-828",
-                "Name": "Gladiator MX",
-                "Category": "Graphics Card",
-                "SupplierName": "Technocom",
-                "Description": "Gladiator MX: DDR2 RoHS 128MB Supporting 512MB Clock rate: 350 MHz Memory Clock: 533 MHz, Bus Type: PCI-Express, Memory Type: DDR2 Memory Bus: 32-bit Highlighted Features: DVI Out, TV Out , HDTV",
-                "WeightMeasure": 321,
-                "WeightUnit": "g",
-                "Price": 81.7,
-                "CurrencyCode": "EUR",
-                "Quantity": 10,
-                "UoM": "PC",
-                "Width": 34,
-                "Depth": 14,
-                "Height": 2,
-                "DimUnit": "cm"
+                "ProductID": "5",
+                "Name": "Double Chocolate Fudge Cake",
+                "UnitPrice": 300,
+                "prod_short": "Your chocoloate heaven"
+              },
+              {
+                "ProductID": "8",
+                "Name": "Classic Chcocolate Cake",
+                "UnitPrice": 300,
+                "prod_short": "Still good"
               }
             ],
             "CurrencyCode": "EUR"
           },
           {
-            "Name": "Accessory",
+            "Name": "Cobbler",
             "Price": 72.49,
             "Products": [
               {
-                "ProductId": "22134T",
-                "Name": "Webcam",
-                "Category": "Accessory",
-                "SupplierName": "Technocom",
-                "Description": "Web camera, color, High-Speed USB",
-                "WeightMeasure": 700,
-                "WeightUnit": "g",
-                "Price": 59,
-                "CurrencyCode": "EUR",
-                "Quantity": 22,
-                "UoM": "PC",
-                "Width": 18,
-                "Depth": 19,
-                "Height": 21,
-                "DimUnit": "cm"
+                "ProductID": "6",
+                "Name": "Fruit Cobbler with Ice Cream",
+                "UnitPrice": 300,
+                "prod_short": "Yummi"
               },
               {
-                "ProductId": "P1239823",
-                "Name": "Monitor Locking Cable",
-                "Category": "Accessory",
-                "SupplierName": "Technocom",
-                "Description": "Lock for Monitor",
-                "WeightMeasure": 40,
-                "WeightUnit": "g",
-                "Price": 13.49,
-                "CurrencyCode": "EUR",
-                "Quantity": 30,
-                "UoM": "PC",
-                "Width": 11,
-                "Depth": 11,
-                "Height": 3,
-                "DimUnit": "cm"
+                "ProductID": "7",
+                "Name": "Peach Cobbler",
+                "UnitPrice": 300,
+                "prod_short": "Yummi"
               }
             ],
             "CurrencyCode": "EUR"
           }
-        ],
-        "CurrencyCode": "EUR"
+        ]
       }
     ]
   }

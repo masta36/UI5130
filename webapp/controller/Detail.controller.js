@@ -46,6 +46,8 @@ sap.ui.define([
 
 			this.setModel(classModel, "classView");
 
+
+
 		},
 
 		onBeforeRendering: function() {
