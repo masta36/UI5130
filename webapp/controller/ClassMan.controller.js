@@ -58,6 +58,7 @@ sap.ui.define([
 
             if (this._oDialog) {
                 this._oDialog.destroy();
+                this._oDialog = null;
             }
                 this._oDialog = sap.ui.xmlfragment("com.pr36.app.view.Dialog", this);
                 var value_model = new sap.ui.model.json.JSONModel();
