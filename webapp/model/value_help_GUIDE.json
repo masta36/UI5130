@@ -1,0 +1,20 @@
+{
+"values": [
+  {
+    "ID": "DE",
+    "name": "German"
+  },
+  {
+    "ID": "EN",
+    "name": "English"
+  },
+  {
+    "ID": "ES",
+    "name": "Spanish"
+  },
+  {
+    "ID": "FR",
+    "name": "French"
+  }
+  ]
+}

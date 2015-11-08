@@ -35,17 +35,17 @@
                     </ObjectPageSection>
             <ObjectPageSection id="sec_txt" title="Product Texts" icon="sap-icon://document">
                 <subSections>
-                    <ObjectPageSubSection title="Origin" id="sub_desc">
+                    <ObjectPageSubSection title="Introduction" id="sub_desc">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_origin}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Introduction}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
-                    <ObjectPageSubSection title="Incredients">
+                    <ObjectPageSubSection title="Itinerary">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_inc}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Itinerary}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
@@ -80,34 +80,30 @@
                                                     <m:Text text="Article No"/>
                                                 </m:Column>
                                                 <m:Column>
-                                                    <m:Text text="Article Detail"/>
+                                                    <m:Text text="Nights"/>
                                                 </m:Column>
                                                 <m:Column>
-                                                    <m:Text text="Calories"/>
+                                                    <m:Text text="Room Category"/>
+                                                </m:Column>
+                                                <m:Column vAlign="center" hAlign="center">
+                                                    <m:Text text="Flight incl."/>
                                                 </m:Column>
                                                 <m:Column>
-                                                    <m:Text text="Fat"/>
-                                                </m:Column>
-                                                <m:Column>
-                                                    <m:Text text="Carbs"/>
-                                                </m:Column>
-                                                <m:Column>
-                                                    <m:Text text="Protein"/>
+                                                    <m:Text text="Rating"/>
                                                 </m:Column>
                                                 <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
-                                                    <m:Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+                                                    <m:Text text="Price from"/>
                                                 </m:Column>
                                             </m:columns>
                                             <m:items>
-                                                <m:ColumnListItem>
-                                                    <m:cells>
+                                                <m:ColumnListItem vAlign="center" hAlign="center">
+                                                    <m:cells hAlign="center">
                                                         <m:ObjectIdentifier text="{ProductName}" />
                                                         <m:ObjectIdentifier text="{ArtNo}" />
-                                                        <m:ObjectIdentifier text="{ArtDetails}" />
-                                                        <m:ObjectIdentifier text="{calories}" />
-                                                        <m:ObjectIdentifier text="{fat}" />
-                                                        <m:ObjectIdentifier text="{carbs}" />
-                                                        <m:ObjectIdentifier text="{protein}" />
+                                                        <m:ObjectIdentifier text="{nights}" />
+                                                        <m:ObjectIdentifier text="{Room-Type}" />
+                                                        <m:CheckBox selected="{flight}" editable="false"/>
+                                                        <m:RatingIndicator value="{rating}" enabled="false"/>
                                                         <m:ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
                                                     </m:cells>
                                                 </m:ColumnListItem>

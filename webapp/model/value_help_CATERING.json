@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "ID": "ALLIN",
+      "name": "All-Inclusive"
+    },
+    {
+      "ID": "DIN",
+      "name": "Free Dinner, free Softdrinks"
+    },
+    {
+      "ID": "DFL",
+      "name": "Softdrink Flatrate"
+    }
+  ]
+}

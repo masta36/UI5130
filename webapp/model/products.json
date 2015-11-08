@@ -2,49 +2,49 @@
     "Products": [
         {
             "ProductID": "1",
-            "ProductName": "Pizza Napoli",
+            "ProductName": "Eastern Caribbean",
             "UnitPrice": 300,
-            "prod_short": "Pizza made with tomatoes and Mozzarella cheese",
-            "prod_origin": "<STRONG>Neapolitan pizza (Italian: pizza napoletana)</STRONG> is made with tomatoes and Mozzarella cheese. It can be made with ingredients like San Marzano tomatoes, which grow on the volcanic plains to the south of Mount Vesuvius, and mozzarella di bufala Campana, made with the milk from water buffalo raised in the marshlands of Campania and Lazio in a semi-wild state (this mozzarella is protected with its own European protected designation of origin).",
-            "prod_inc": "<UL><LI>1 1/2 cups warm water, about 70 deg F<LI>1 (1/4-ounce) envelope active dry yeast<LI>1/4 cup extra-virgin olive oil, plus more for greasing as needed<LI>4 1/2 cups all-purpose or \"00\" flour, plus more as needed<LI>1 teaspoon kosher salt<LI>1 pound fresh buffalo mozzarella, slice<LI>1 (15-ounce) can crushed San Marzano tomatoes<LI>10 to 12 fresh basil leaves, torn<LI>1 teaspoon dried Sicilian oregano, crumbled<LI>Freshly ground black pepper (optional)</LI></UL>",
-            "prod_info": "additional Information about the product",
+            "prod_short": "Beauty of the ocean",
+            "Introduction": "The Caribbean is the ultimate outdoor playground that boasts an idyllic combination of white, sandy beaches, turquoise waters and lush green mountains, along with cloudless blue skies and swaying palms. These stunning surroundings put this paradise in a league of its own. <BR><BR>From swimming with dolphins to going on a jungle safari, the Caribbean islands are home to some of the best shore excursions in the world. Go snorkelling to see an array of beautiful marine life, take a city tour to get a taste for local Caribbean life or be adventurous and board a helicopter to observe breath-taking, panoramic views of these stunning islands.\nThe Caribbean is famous for its traditional, local cuisine and when exploring these islands you must try some of the local food. From fresh fish, to jerk chicken, your tastes buds will burst with excitement at the local Caribbean flavours.",
+            "Itinerary": "<UL><LI>Orlando (Port Canaveral) Fl<LI>Cococay - Bahamas<LI> Charlotte Amalie - St. Thomas<LI>Philipsburg - St. Maarten</UL>",
+            "prod_info": "The High Commission of the Organisation of Eastern Caribbean States in Ottawa (OECS) was a regional High Commission office for multiple island-nations of the Eastern Caribbean located on Albert Street in Ottawa, Canada. The office was closed permanently in 2011 for financial reasons. It has been replaced by an Eastern Caribbean Liaison Service which works with the Canada/Caribbean Seasonal Agricultural Workers Programme.",
             "Product_Details": [
                 {
-                    "ProductName": "Classic",
+                    "ProductName": "7 Day Cruise",
                     "ArtNo": 12345,
-                    "ArtDetails": "Classic variant",
-                    "calories": "180 kcal",
-                    "fat": "8.0g",
-                    "carbs": "18.0g",
-                    "protein": "9.0g",
-                    "UnitPrice": "4.50€"
+                    "ArtDetails": "Complete",
+                    "nights": 7,
+                    "Room-Type": "Junior Suite",
+                    "flight": true,
+                    "rating": 4.5,
+                    "UnitPrice": 1499
                 },
                 {
-                    "ProductName": "Extra Cheese",
-                    "ArtNo": 12346,
-                    "ArtDetails": "double cheese variant",
-                    "calories": "314 kcal",
-                    "fat": "21.0g",
-                    "carbs": "20.0g",
-                    "protein": "13.0g",
-                    "UnitPrice": "6.50€"
+                    "ProductName": "7 Day Cruise",
+                    "ArtNo": 12345,
+                    "ArtDetails": "own arrival",
+                    "nights": 7,
+                    "Room-Type": "Inside booth",
+                    "flight": false,
+                    "rating": 4,
+                    "UnitPrice": 1149
                 }
             ],
             "prod_images": [
-                "images/napoli1.jpg",
-                "images/napoli2.jpg",
-                "images/napoli3.jpg"
+                "images/carib1.jpg",
+                "images/carib2.jpg",
+                "images/carib3.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "Nutrition Facts / Guide for a healthy lifestyle",
+                    "DocName": "Destination Information",
                     "Version": "1.0",
                     "Owner": "J. Average",
-                    "size": 5678,
+                    "size": 99755,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 99755
                         },
                         {
                             "char": "Version",
@@ -68,10 +68,10 @@
                                 "value": "NONE"
                             },
                             {
-                                "type": "SALESSTATUS",
+                                "type": "DOKSTATUS",
                                 "multi": false,
-                                "char": "Sales Status",
-                                "value": "not saleable"
+                                "char": "Document Status",
+                                "value": "Released (RE)"
                             }
                         ],
                         "Publication": [
@@ -85,80 +85,82 @@
                     }
                 }
             ],
-
-                "Product_Class": {
-                    "Basic": [
-                        {
-                            "type": "COUNTRY",
-                            "multi": true,
-                            "char": "Country Release",
-                            "value": "DE, US"
-                        },
-                        {
-                            "type": "PRODSTATUS",
-                            "multi": false,
-                            "char": "Production Status",
-                            "value": "Released"
-                        },
-                        {
-                            "type": "SALESSTATUS",
-                            "multi": false,
-                            "char": "Sales Status",
-                            "value": "Saleable"
-                        }
-                    ],
-                    "Publication": [
-                        {
-                            "type": "PUBL",
-                            "multi": true,
-                            "char": "Publication Channels",
-                            "value": "Print, Extranet, Internet, Intranet"
-                        }
-                    ]
-                }
+            "Product_Class": {
+                "Basic": [
+                    {
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "German (DE)"
+                    },
+                    {
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "All-Inclusive (ALLIN)"
+                    },
+                    {
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "Cruise (CR)"
+                    }
+                ],
+                "Publication": [
+                    {
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
+                    }
+                ]
+            }
         },
         {
-            "ProductID": "2",
-            "ProductName": "Pizza Cheese & Pepperoni",
-            "UnitPrice": 9999,
-            "prod_short": "Nice",
-            "prod_desc": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-            "prod_usage": "Handle with care",
-            "prod_info": "Please note that this is a prototype only",
-            "prod_images": [
-                "images/pepp1.jpg",
-                "images/pepp3jpg.jpg"
-            ],
+            "ProductID": 2,
+            "ProductName": "Caribbean / Lesser Antilles",
+            "UnitPrice": 300,
+            "prod_short": "Magic of the South Sea",
+            "Introduction": "The <STRONG>Lesser Antilles</STRONG> (also known as the Caribbees) is the name given to a group of islands in the Caribbean Sea. Most form a long, partly volcanic island arc between the Greater Antilles to the north-west and the continent of South America.[1] The islands form the eastern boundary of the Caribbean Sea with the Atlantic Ocean. Together, the Lesser Antilles and the Greater Antilles compose the Antilles (or the Caribbean in its narrowest definition). When combined with the Lucayan Archipelago, all three are known as the West Indies.",
+            "Itinerary": "<UL><LI>San Juan<LI>Bridgetown<LI>Kingstown<LI>St. George`s<LI>Castries<LI>Roseau<LI>Philipsburg<LI>Tortola</UL>",
+            "prod_info": "The Lesser Antilles more or less coincide with the outer edge of the Caribbean Plate. Many of the islands were formed as a result of the subduction of oceanic crust of the South American Plate under the Caribbean Plate in the Lesser Antilles subduction zone. This process is ongoing and is responsible not only for many of the islands, but also for volcanic and earthquake activity in the region. The islands along the South American coast are largely the result of the interaction of the South American Plate and the Caribbean Plate which is mainly strike-slip, but includes a component of compression.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 35675
+                    "ProductName": "10 Day Cruise",
+                    "ArtNo": 22345,
+                    "ArtDetails": "Complete",
+                    "nights": 10,
+                    "Room-Type": "Suite",
+                    "flight": false,
+                    "rating": 5,
+                    "UnitPrice": 2799
                 },
                 {
-                    "ProductName": "1.8 TFSI",
-                    "ArtNo": 23456,
-                    "ArtDetails": "Eco-Version, V4 1.8 TFSI",
-                    "UnitPrice": 32654
-                },
-                {
-                    "ProductName": "3.0 TDI 4x4",
-                    "ArtNo": 34567,
-                    "ArtDetails": "Power-Version, V6 3.0 TDI",
-                    "UnitPrice": 52345
+                    "ProductName": "14 Day Cruise",
+                    "ArtNo": 22346,
+                    "ArtDetails": "own arrival",
+                    "nights": 14,
+                    "Room-Type": "Balcony booth",
+                    "flight": true,
+                    "rating": 4,
+                    "UnitPrice": 2149
                 }
+            ],
+            "prod_images": [
+                "images/carib4.jpg",
+                "images/carib5.jpg",
+                "images/carib6.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information Lesser Antilles",
                     "Version": "1.0",
                     "Owner": "J. Average",
-                    "size": 123456789,
+                    "size": 21873,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 123456789
+                            "value": 21873
                         },
                         {
                             "char": "Version",
@@ -178,290 +180,104 @@
                             {
                                 "type": "COUNTRY",
                                 "multi": true,
-                                "char": "Document Country Release",
-                                "value": "DE, US"
+                                "char": "Country Release",
+                                "value": "Germany (DE)"
                             },
                             {
-                                "type": "PRODSTATUS",
+                                "type": "DOKSTATUS",
                                 "multi": false,
-                                "char": "XYZ",
-                                "value": "Released"
-                            },
-                            {
-                                "type": "SALESSTATUS",
-                                "multi": false,
-                                "char": "Sales Status",
-                                "value": "Saleable"
+                                "char": "Document Status",
+                                "value": "Locked (LOCK)"
                             }
                         ],
                         "Publication": [
                             {
                                 "type": "PUBL",
                                 "multi": true,
-                                "char": "Publication Channels",
-                                "value": "Print, Extranet, Internet, Intranet"
+                                "char": "Marketing / Publication Channels",
+                                "value": "Intenet (INTERNET)"
                             }
                         ]
                     }
-                },
-                {
-                    "DocName": "Flyer",
-                    "Version": "1.2",
-                    "Owner": "J. Doe",
-                    "size": 5678
-                },
-                {
-                    "DocName": "Supplement-Sheet",
-                    "Version": "0.2",
-                    "Owner": "J. Doe",
-                    "size": 5678
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "type": "COUNTRY",
+                        "type": "GUIDE",
                         "multi": true,
-                        "char": "Country Release",
-                        "value": "DE, US"
+                        "char": "Tour guide language",
+                        "value": "German (DE)"
                     },
                     {
-                        "type": "PRODSTATUS",
+                        "type": "CATERING",
                         "multi": false,
-                        "char": "Production Status",
-                        "value": "Released"
+                        "char": "Catering Type",
+                        "value": "All-Inclusive (ALLIN)"
                     },
                     {
-                        "type": "SALESSTATUS",
+                        "type": "TRIP",
                         "multi": false,
-                        "char": "Sales Status",
-                        "value": "Saleable"
+                        "char": "Trip Type",
+                        "value": "Cruise (CR)"
                     }
                 ],
                 "Publication": [
                     {
                         "type": "PUBL",
                         "multi": true,
-                        "char": "Publication Channels",
-                        "value": "Print, Extranet, Internet, Intranet"
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
                     }
                 ]
             }
         },
         {
-            "ProductID": "3",
-            "ProductName": "Pizza Salami",
+            "ProductID": 3,
+            "ProductName": "Northern Cape",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "Could not go higher",
+            "Introduction": "<STRONG>North Cape</STRONG> is a cape on the northern coast of the island of Mageroya in Northern Norway. The cape is in Nordkapp Municipality in Finnmark county, Norway. The European route E69 highway has its northern terminus at North Cape, since it is a popular tourist attraction.<BR> The cape includes a 307-metre (1,007 ft) high cliff with a large flat plateau on top where visitors can stand and watch the midnight sun or the views of the Barents Sea to the north. A new visitor centre was built in 1988 on the plateau with panoramic views, a cafe, restaurant, post office, souvenir shop, and a so-called super video cinema.",
+            "Itinerary": "<UL><LI>Bremerhaven<LI>Bergen<LI>Geiranger<LI>Hellesylt<LI>Tromso<LI>Honningsvag<LI>Trondheim<LI>Alesund</UL>",
+            "prod_info": "<STRONG>Admission fee controversy</STRONG><BR><BR>\nNorway's Government demanded in 2011 that the admission fee to the plateau be reduced. At the time, an adult ticket cost between NOK 160 and 235. The fee has not been lowered, instead slightly increased. Often there is fog, which obscures the beautiful view. There is no discount for this situation, but the full price ticket is valid for multiple entry for 24 hours.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
-                }
-            ],
-            "prod_images": [
-                "images/salami1.jpg",
-                "images/pepp2.jpg",
-                "images/salami2.jpg"
-            ],
-            "Product_Docs": [
-                {
-                    "DocName": "User Manual",
-                    "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
-                    "meta": [
-                        {
-                            "char": "Filesize",
-                            "value": 5678
-                        },
-                        {
-                            "char": "Version",
-                            "value": "1.0"
-                        },
-                        {
-                            "char": "Owner",
-                            "value": "J. Doe"
-                        },
-                        {
-                            "char": "Created At",
-                            "value": "2015-10-25"
-                        }
-                    ]
-                }
-            ],
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            },
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            }
-        },
-                {
-                    "ProductID": "4",
-                    "ProductName": "Fusilli alla Roma",
-                    "UnitPrice": 300,
-                    "prod_short": "Enter Short description",
-                    "prod_desc": "Ich bin eine Beschreibung",
-                    "prod_usage": "Usage info",
-                    "prod_info": "additional Information",
-                    "Product_Details": [
-                        {
-                            "ProductName": "2.0 TDI",
-                            "ArtNo": 12345,
-                            "ArtDetails": "2.0 TDI Version",
-                            "UnitPrice": 1234
-                        }
-                    ],
-                    "prod_images": [
-                        "images/fus1.jpg",
-                        "images/fus2.jpg"
-                    ],
-                    "Product_Docs": [
-                        {
-                            "DocName": "User Manual",
-                            "Version": "1.0",
-                            "Owner": "J. Doe",
-                            "size": 5678,
-                            "meta": [
-                                {
-                                    "char": "Filesize",
-                                    "value": 5678
-                                },
-                                {
-                                    "char": "Version",
-                                    "value": "1.0"
-                                },
-                                {
-                                    "char": "Owner",
-                                    "value": "J. Doe"
-                                },
-                                {
-                                    "char": "Created At",
-                                    "value": "2015-10-25"
-                                }
-                            ]
-                        }
-                    ],
-                    "Product_Class": {
-                        "Basic": [
-                            {
-                                "char": "Country Release",
-                                "value": "NONE"
-                            },
-                            {
-                                "char": "Production Status",
-                                "value": "Production started"
-                            },
-                            {
-                                "char": "Sales Status",
-                                "value": "not saleable"
-                            }
-                        ],
-                        "Publication": [
-                            {
-                                "char": "Publication Channels",
-                                "value": "Print"
-                            }
-                        ]
-                    },
-                    "Product_Class": {
-                        "Basic": [
-                            {
-                                "char": "Country Release",
-                                "value": "NONE"
-                            },
-                            {
-                                "char": "Production Status",
-                                "value": "Production started"
-                            },
-                            {
-                                "char": "Sales Status",
-                                "value": "not saleable"
-                            }
-                        ],
-                        "Publication": [
-                            {
-                                "char": "Publication Channels",
-                                "value": "Print"
-                            }
-                        ]
-                    }
+                    "ProductName": "14 Day Cruise",
+                    "ArtNo": 22345,
+                    "ArtDetails": "Complete",
+                    "nights": 14,
+                    "Room-Type": "Suite",
+                    "flight": false,
+                    "rating": 4.5,
+                    "UnitPrice": 3299
                 },
-        {
-            "ProductID": "5",
-            "ProductName": "Linguini Pesto Rollo",
-            "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
-            "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ProductName": "14 Day Cruise",
+                    "ArtNo": 22346,
+                    "ArtDetails": "own arrival",
+                    "nights": 14,
+                    "Room-Type": "Balcony booth",
+                    "flight": false,
+                    "rating": 3.5,
+                    "UnitPrice": 2689
                 }
             ],
             "prod_images": [
-                "images/pesto1.jpg",
-                "images/pesto2.jpg",
-                "images/pesto3.jpg"
+                "images/nord1.jpg",
+                "images/nord2.jpg",
+                "images/nord3.jpg",
+                "images/nord4.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information Northern Cape",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
+                    "Owner": "J. Average",
+                    "size": 12456,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 12456
                         },
                         {
                             "char": "Version",
@@ -469,91 +285,115 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "Germany (DE)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "Released (RE)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Intenet (INTERNET)"
+                            }
+                        ]
+                    }
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "German (DE), English (EN)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "All-Inclusive (ALLIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "Cruise (CR)"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            },
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
                     }
                 ]
             }
         },
         {
-            "ProductID": "6",
-            "ProductName": "Double Chocolate Fudge Cake",
+            "ProductID": 4,
+            "ProductName": "Baltic Sea Short-trip",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "For cruise-newcomer",
+            "Introduction": "Once sailed by explorers of the Viking Age, the Baltic is home to a myriad of cultures, languages and storied pasts.<br><br> The northernmost region of Europe encompasses the Scandinavian countries such as Sweden, Denmark, Norway and Finland. Most Baltic cruises overnight in glorious St. Petersburg, Russia; stops in historic Tallinn, Estonia, and Warenmude, Germany - gateway to Berlin - are also possible. The breathtaking Norwegian fjords represent a world all in its own.",
+            "Itinerary": "<UL><LI>Kiel<LI>Oslo<LI>Copenhagen</UL>",
+            "prod_info": "<STRONG>Oslo</STRONG><BR>\nFounded in the year 1040, and established as a \"kaupstad\" or trading place in 1048 by King Harald III, the city was elevated to a bishopric in 1070 and a capital under Haakon V around 1300. Personal unions with Denmark from 1397 to 1523 and again from 1536 to 1814 and with Sweden from 1814 to 1905 reduced its influence. After being destroyed by a fire in 1624, the city was moved closer to Akershus Fortress during the reign of King Christian IV and renamed Christiania in his honour. It was established as a municipality (formannskapsdistrikt) on 1 January 1838. Following a spelling reform, it was known as Kristiania from 1877 to 1925, when its original Norwegian name was restored.\n<br><br>\n<STRONG>Copenhagen</STRONG><BR>\nCopenhagen is the capital and most populated city of Denmark, with an urban population of 1,263,698 (as of 1 January 2015) and a metropolitan population of 1,992,114 (as of 1 January 2015). It is situated on the eastern coast of Zealand, 164 km (102 mi) east of Odense and 28 km (17 mi) northwest of Malm&ouml;, Sweden. The city stretches across parts of the island of Amager and contains the enclave of Frederiksberg, a municipality in its own right.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ProductName": "4 Day Cruise",
+                    "ArtNo": 5551,
+                    "ArtDetails": "Complete",
+                    "nights": 4,
+                    "Room-Type": "Inside cabin",
+                    "flight": false,
+                    "rating": 2.5,
+                    "UnitPrice": 789
+                },
+                {
+                    "ProductName": "4 Day Cruise",
+                    "ArtNo": 5552,
+                    "ArtDetails": "own arrival",
+                    "nights": 14,
+                    "Room-Type": "Balcony booth",
+                    "flight": true,
+                    "rating": 4,
+                    "UnitPrice": 1199
                 }
             ],
             "prod_images": [
-                "images/choc1.jpg",
-                "images/choc2.jpg",
-                "images/choc3.jpg"
+                "images/nord5.jpg",
+                "images/nord6.jpg",
+                "images/nord7.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information Baltic Sea",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
+                    "Owner": "J. Average",
+                    "size": 32654,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 32654
                         },
                         {
                             "char": "Version",
@@ -561,90 +401,115 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "Germany (DE)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "Released (RE)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Intenet (INTERNET)"
+                            }
+                        ]
+                    }
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "German (DE)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "All-Inclusive (ALLIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "Cruise (CR)"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            },
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
                     }
                 ]
             }
         },
         {
-            "ProductID": "6",
-            "ProductName": "Fruit Cobbler with Ice Cream",
+            "ProductID": 5,
+            "ProductName": "New York",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "The City that never sleeps",
+            "Introduction": "<STRONG>New York is</STRONG> a state in the Northeastern and Mid-Atlantic regions of the United States. New York is the 27th-most extensive, the fourth-most populous, and the seventh-most densely populated of the 50 United States. New York is bordered by New Jersey and Pennsylvania to the south and Connecticut, Massachusetts, and Vermont to the east. The state has a maritime border with Rhode Island east of Long Island, as well as an international border with the Canadian provinces of Quebec to the north and Ontario to the west and north. The state of New York is often referred to as New York State or the State of New York to distinguish it from New York City, the state's most populous city and its economic hub.",
+            "Itinerary": "Manhattan, New York City",
+            "prod_info": "New York has one of the most extensive and one of the oldest transportation infrastructures in the country. Engineering challenges posed by the complex terrain of the state and the unique infrastructural issues of New York City brought on by urban crowding have had to be overcome perennially. Population expansion of the state has followed the path of the early waterways, first the Hudson River and Mohawk River, then the Erie Canal. In the 19th century, railroads were constructed along the river valleys, followed by the New York State Thruway in the 20th century.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ProductName": "1 Week, 1 City",
+                    "ArtNo": 5551,
+                    "ArtDetails": "Complete",
+                    "nights": 7,
+                    "Room-Type": "Superior",
+                    "flight": true,
+                    "rating": 4,
+                    "UnitPrice": 1799
+                },
+                {
+                    "ProductName": "New York and the East Coast",
+                    "ArtNo": 5552,
+                    "ArtDetails": "own arrival",
+                    "nights": 14,
+                    "Room-Type": "Junior Suite",
+                    "flight": true,
+                    "rating": 5,
+                    "UnitPrice": 2499
                 }
             ],
             "prod_images": [
-                "images/cob1.jpg",
-                "images/cob2.jpg"
+                "images/new1.jpg",
+                "images/new2.jpg",
+                "images/new3.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information New York City",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
+                    "Owner": "J. Average",
+                    "size": 98722,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 98722
                         },
                         {
                             "char": "Version",
@@ -652,90 +517,115 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "USA (US)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "Released (RE)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Intenet (INTERNET)"
+                            }
+                        ]
+                    }
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "English (EN)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "Free Dinner, free Softdrinks (DIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "City Break"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            },
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
                     }
                 ]
             }
         },
         {
-            "ProductID": "7",
-            "ProductName": "Peach Cobbler",
+            "ProductID": 6,
+            "ProductName": "Los Angeles",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "Extravagant & extraordinary",
+            "Introduction": "<STRONG>Los Angeles</STRONG>, officially the City of Los Angeles and often known by its initials L.A., is the second-largest city in the United States, the most populous city in the U.S. state of California, and the county seat of Los Angeles County. Situated in Southern California, Los Angeles is known for its mediterranean climate, ethnic diversity, sprawling metropolis, and as a major center of the American entertainment industry. Los Angeles lies in a large coastal basin surrounded on three sides by mountains reaching up to and over 10,000 feet (3,000 m).",
+            "Itinerary": "Beverly Hills, Los Angeles",
+            "prod_info": "<STRONG>Airports</STRONG><BR>\nThe main international and domestic airport serving Los Angeles is Los Angeles International Airport (IATA: LAX, ICAO: KLAX), commonly referred to by its airport code, LAX. The sixth busiest commercial airport in the world and the third busiest in the United States, LAX handled over 66 million passengers and close to 2 million tons of cargo in 2013.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ProductName": "The rich and the famous",
+                    "ArtNo": 55517,
+                    "ArtDetails": "Complete",
+                    "nights": 10,
+                    "Room-Type": "King Suite",
+                    "flight": true,
+                    "rating": 5,
+                    "UnitPrice": 4299
+                },
+                {
+                    "ProductName": "West-Coast incl. L.A.",
+                    "ArtNo": 55518,
+                    "ArtDetails": "own arrival",
+                    "nights": 14,
+                    "Room-Type": "Standard",
+                    "flight": true,
+                    "rating": 3.5,
+                    "UnitPrice": 2799
                 }
             ],
             "prod_images": [
-                "images/peach1.jpg",
-                "images/peach2.jpg"
+                "images/la1.jpg",
+                "images/la2.jpg",
+                "images/la3.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information Los Angeles",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
+                    "Owner": "J. Average",
+                    "size": 4325,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 4325
                         },
                         {
                             "char": "Version",
@@ -743,89 +633,115 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "USA (US)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "in Work (IW)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Intenet (INTERNET)"
+                            }
+                        ]
+                    }
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "English (EN)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "Free Dinner, free Softdrinks (DIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "City Break"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
-                    }
-                ]
-            },
-            "Product_Class": {
-                "Basic": [
-                    {
-                        "char": "Country Release",
-                        "value": "NONE"
-                    },
-                    {
-                        "char": "Production Status",
-                        "value": "Production started"
-                    },
-                    {
-                        "char": "Sales Status",
-                        "value": "not saleable"
-                    }
-                ],
-                "Publication": [
-                    {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Internet (INTERNET)"
                     }
                 ]
             }
-        },{
-            "ProductID": "8",
-            "ProductName": "Classic Chcocolate Cake",
+        },
+        {
+            "ProductID": 7,
+            "ProductName": "Berlin",
             "UnitPrice": 300,
-            "prod_short": "Enter Short description",
-            "prod_desc": "Ich bin eine Beschreibung",
-            "prod_usage": "Usage info",
-            "prod_info": "additional Information",
+            "prod_short": "Germany's capital, live and let live",
+            "Introduction": "<STRONG>Berlin</STRONG> is the capital of Germany and one of the 16 states of Germany. With a population of 3.5 million people, it is the second most populous city proper and the seventh most populous urban area in the European Union. Located in northeastern Germany on the banks of Rivers Spree and Havel, it is the centre of the Berlin-Brandenburg Metropolitan Region, which has about six million residents from over 180 nations.Due to its location in the European Plain, Berlin is influenced by a temperate seasonal climate. Around one-third of the city's area is composed of forests, parks, gardens, rivers and lakes.",
+            "Itinerary": "Kreuzberg, Berlin City",
+            "prod_info": "Berlin's transport infrastructure is highly complex, providing a diverse range of urban mobility. A total of 979 bridges cross 197 km (122 mi) of inner-city waterways. 5,422 km (3,369 mi) of roads run through Berlin, of which 77 km (48 mi) are motorways (\"Autobahn\").In 2013, 1.344 million motor vehicles were registered in the city. With 377 cars per 1000 residents in 2013 (570/1000 in Germany), Berlin as a Western global city has one of the lowest numbers of cars per capita.\n<BR><BR>\nLong-distance rail lines connect Berlin with all of the major cities of Germany and with many cities in neighboring European countries. Regional rail lines provide access to the surrounding regions of Brandenburg and to the Baltic Sea. The Berlin Hauptbahnhof is the largest grade-separated railway station in Europe. Deutsche Bahn runs trains to domestic destinations like Hamburg, Munich, Cologne and others. It also runs an airport express rail service, as well as trains to several international destinations, e.g., Vienna, Prague, Z&uuml;rich, Warsaw and Amsterdam.",
             "Product_Details": [
                 {
-                    "ProductName": "2.0 TDI",
-                    "ArtNo": 12345,
-                    "ArtDetails": "2.0 TDI Version",
-                    "UnitPrice": 1234
+                    "ProductName": "Hippster Trip",
+                    "ArtNo": 55532,
+                    "ArtDetails": "Complete",
+                    "nights": 4,
+                    "Room-Type": "Standard+",
+                    "flight": false,
+                    "rating": 3,
+                    "UnitPrice": 499
+                },
+                {
+                    "ProductName": "Berlin Day and night",
+                    "ArtNo": 55533,
+                    "ArtDetails": "own arrival",
+                    "nights": 7,
+                    "Room-Type": "Standard",
+                    "flight": false,
+                    "rating": 4,
+                    "UnitPrice": 649
                 }
             ],
             "prod_images": [
-                "images/ccake1.jpg",
-                "images/ccake2.jpg"
+                "images/ber1.jpg",
+                "images/ber2.jpg",
+                "images/ber3.jpg"
             ],
             "Product_Docs": [
                 {
-                    "DocName": "User Manual",
+                    "DocName": "Destination Information Berlin",
                     "Version": "1.0",
-                    "Owner": "J. Doe",
-                    "size": 5678,
+                    "Owner": "J. Average",
+                    "size": 4325,
                     "meta": [
                         {
                             "char": "Filesize",
-                            "value": 5678
+                            "value": 4325
                         },
                         {
                             "char": "Version",
@@ -833,59 +749,185 @@
                         },
                         {
                             "char": "Owner",
-                            "value": "J. Doe"
+                            "value": "J. Average"
                         },
                         {
                             "char": "Created At",
                             "value": "2015-10-25"
                         }
-                    ]
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "Germany (DE)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "Locked (LOCK)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Print (Print)"
+                            }
+                        ]
+                    }
                 }
             ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "German (DE)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "Free Dinner, free Softdrinks (DIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "City Break"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Print (PRINT)"
                     }
                 ]
-            },
+            }
+        },
+        {
+            "ProductID": 8,
+            "ProductName": "Budapest",
+            "UnitPrice": 300,
+            "prod_short": "Hungarian pearl",
+            "Introduction": "<STRONG>Budapest</STRONG> is the capital and the largest city of Hungary, and one of the largest cities in the European Union. It is the country's principal political, cultural, commercial, industrial, and transportation centre, sometimes described as the primate city of Hungary. According to the census, in 2011 Budapest had 1.74 million inhabitants, down from its 1989 peak of 2.1 million due to suburbanisation. The Budapest Metropolitan Area is home to 3.3 million people. The city covers an area of 525 square kilometres (202.7 sq mi). Budapest became a single city occupying both banks of the river Danube with the unification of Buda and Obuda on the west bank, with Pest on the east bank on 17 November 1873.\n",
+            "Itinerary": "Budapest City",
+            "prod_info": "<STRONG>Airport</STRONG><BR>\nBudapest is served by Budapest Ferenc Liszt International Airport (BUD) (named after Franz Liszt, the notable Hungarian composer), one of the busiest airports in Central and Eastern Europe, located 16 kilometres (9.9 mi) east-southeast of the centre of Budapest, in the District XVIII. The airport offers international connections among all major European cities, and also to North America, Africa and the Middle East. As Hungary's busiest airport, handles nearly all of the country's air passenger traffic. Budapest Liszt Ferenc handled around 250 scheduled flights daily in 2013, and an ever rising number of charters. London, Brussels, Frankfurt, Munich, Paris, and Amsterdam are the busiest international connections respectively, while Toronto, Montreal, Dubai, Doha and Alicante are the most unique in the region. Today the airport serves as a base for Ryanair, Wizz Air, Budapest Aircraft Service, CityLine Hungary, Farnair Hungary and Travel Service Hungary among others. The airport is accessible via public transportation from the city centre by the Metro line 3 and then the airport bus No. 200E.\n<br><br>\nAs part of a strategic development plan, EUR 561 million have spent to expanding and modernising the airport infrastructure until December 2012. Most of these improvements are already completed, the postponed ones are the new cargo area and new piers for terminal 2A and 2B, but these development are on standby also, and will start immediately, when the airport traffic will reach the appropriate level. SkyCourt, the newest, state-of-the-art building between the 2A and 2B terminals with 5 levels. Passenger safety checks were moved here along with new baggage classifiers and the new Malev and SkyTeam business lounges, as well as the first MasterCard lounge in Europe.",
+            "Product_Details": [
+                {
+                    "ProductName": "Romantic Weekend",
+                    "ArtNo": 55572,
+                    "ArtDetails": "Complete",
+                    "nights": 3,
+                    "Room-Type": "Superior",
+                    "flight": true,
+                    "rating": 4,
+                    "UnitPrice": 559
+                },
+                {
+                    "ProductName": "Work and travel",
+                    "ArtNo": 55573,
+                    "ArtDetails": "own arrival",
+                    "nights": 28,
+                    "Room-Type": "Standard",
+                    "flight": true,
+                    "rating": 3.5,
+                    "UnitPrice": 1799
+                }
+            ],
+            "prod_images": [
+                "images/bud1.jpg",
+                "images/bud2.jpg",
+                "images/bud3.jpg"
+            ],
+            "Product_Docs": [
+                {
+                    "DocName": "Destination Information Budapest",
+                    "Version": "1.0",
+                    "Owner": "J. Average",
+                    "size": 43257,
+                    "meta": [
+                        {
+                            "char": "Filesize",
+                            "value": 43257
+                        },
+                        {
+                            "char": "Version",
+                            "value": "1.0"
+                        },
+                        {
+                            "char": "Owner",
+                            "value": "J. Average"
+                        },
+                        {
+                            "char": "Created At",
+                            "value": "2015-10-25"
+                        }
+                    ],
+                    "Doc_Class": {
+                        "Basic": [
+                            {
+                                "type": "COUNTRY",
+                                "multi": true,
+                                "char": "Country Release",
+                                "value": "Germany (DE)"
+                            },
+                            {
+                                "type": "DOKSTATUS",
+                                "multi": false,
+                                "char": "Document Status",
+                                "value": "Released (RE)"
+                            }
+                        ],
+                        "Publication": [
+                            {
+                                "type": "PUBL",
+                                "multi": true,
+                                "char": "Marketing / Publication Channels",
+                                "value": "Print (Print)"
+                            }
+                        ]
+                    }
+                }
+            ],
             "Product_Class": {
                 "Basic": [
                     {
-                        "char": "Country Release",
-                        "value": "NONE"
+                        "type": "GUIDE",
+                        "multi": true,
+                        "char": "Tour guide language",
+                        "value": "German (DE)"
                     },
                     {
-                        "char": "Production Status",
-                        "value": "Production started"
+                        "type": "CATERING",
+                        "multi": false,
+                        "char": "Catering Type",
+                        "value": "Free Dinner, free Softdrinks (DIN)"
                     },
                     {
-                        "char": "Sales Status",
-                        "value": "not saleable"
+                        "type": "TRIP",
+                        "multi": false,
+                        "char": "Trip Type",
+                        "value": "City Break"
                     }
                 ],
                 "Publication": [
                     {
-                        "char": "Publication Channels",
-                        "value": "Print"
+                        "type": "PUBL",
+                        "multi": true,
+                        "char": "Sales Channels",
+                        "value": "Print (PRINT)"
                     }
                 ]
             }
         }
-            ]
+    ]
 }

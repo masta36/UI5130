@@ -1,0 +1,16 @@
+{
+"values": [
+  {
+    "ID": "RE",
+    "name": "Released"
+  },
+  {
+    "ID": "LOCK",
+    "name": "Locked"
+  },
+  {
+    "ID": "IW",
+    "name": "in Work"
+  }
+  ]
+}

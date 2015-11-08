@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "ID": "CR",
+      "name": "Cruise"
+    },
+    {
+      "ID": "CB",
+      "name": "City Break"
+    },
+    {
+      "ID": "CA",
+      "name": "Camping"
+    }
+  ]
+}

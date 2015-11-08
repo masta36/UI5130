@@ -2,46 +2,41 @@
   "ProductHierarchy": {
     "Catalog": [
       {
-        "Name": "Main Meals",
+        "Name": "Cruises",
         "Price": 1884.49,
         "Categories": [
           {
-            "Name": "Pizza",
+            "Name": "Caribbean Cruises",
             "Price": 856.49,
             "Products":[
               {
                 "ProductID": "0",
-                "Name": "Pizza Napoli",
+                "Name": "Eastern Caribbean",
                 "UnitPrice": 300,
-                "prod_short": "Enter Short description"
+                "prod_short": "Beauty of the ocean"
               },{
                 "ProductID": "1",
-                "Name": "Pizza Cheese & Pepperoni",
-                "prod_short": "Nice"
-              },
-              {
-                "ProductID": "2",
-                "Name": "Pizza Salami",
-                "prod_short": "Nice"
+                "Name": "Caribbean / Lesser Antilles",
+                "prod_short": "Magic of the south sea"
               }
             ],
             "CurrencyCode": "EUR"
           },
           {
-            "Name": "Pasta",
+            "Name": "North-european Cruises",
             "Price": 939,
             "Products": [
                   {
                     "ProductID": "3",
-                    "Name": "Fussilli alla Roma",
+                    "Name": "Baltic Sea Short-trip",
                     "UnitPrice": 300,
-                    "prod_short": "Corkscrew pasta"
+                    "prod_short": "For Cruise-newcomer"
                   },
               {
-                "ProductID": "4",
-                "Name": "Linguini Pesto Pollo",
+                "ProductID": "2",
+                "Name": "Northern Cape",
                 "UnitPrice": 300,
-                "prod_short": "Tender chicken in pesto cream sauce"
+                "prod_short": "Could not go higher"
               }
             ],
             "CurrencyCode": "EUR"
@@ -49,43 +44,43 @@
         ]
       },
       {
-        "Name": "Desserts",
+        "Name": "City Breaks",
         "Price": 154.19,
         "Categories": [
           {
-            "Name": "Chcocolate",
+            "Name": "Europe",
             "Price": 81.7,
             "Products": [
               {
-                "ProductID": "5",
-                "Name": "Double Chocolate Fudge Cake",
+                "ProductID": "6",
+                "Name": "Berlin",
                 "UnitPrice": 300,
-                "prod_short": "Your chocoloate heaven"
+                "prod_short": "Germany's capital, live and let live"
               },
               {
-                "ProductID": "8",
-                "Name": "Classic Chcocolate Cake",
+                "ProductID": "7",
+                "Name": "Budapest",
                 "UnitPrice": 300,
-                "prod_short": "Still good"
+                "prod_short": "Hungarian pearl"
               }
             ],
             "CurrencyCode": "EUR"
           },
           {
-            "Name": "Cobbler",
+            "Name": "America",
             "Price": 72.49,
             "Products": [
               {
-                "ProductID": "6",
-                "Name": "Fruit Cobbler with Ice Cream",
+                "ProductID": "4",
+                "Name": "New York",
                 "UnitPrice": 300,
-                "prod_short": "Yummi"
+                "prod_short": "The city that never sleeps"
               },
               {
-                "ProductID": "7",
-                "Name": "Peach Cobbler",
+                "ProductID": "5",
+                "Name": "Los Angeles",
                 "UnitPrice": 300,
-                "prod_short": "Yummi"
+                "prod_short": "Extravagant & extraordinary"
               }
             ],
             "CurrencyCode": "EUR"
