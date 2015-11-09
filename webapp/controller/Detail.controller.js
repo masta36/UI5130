@@ -210,13 +210,20 @@ sap.ui.define([
 				oViewModel = this.getModel("detailView");
 
 			var oElementBinding = this.getView().getElementBinding();
-			if(typeof oElementBinding === "undefined"){
+			var pid = oElementBinding.getPath().toString().split("/");
+			var sPath = "";
+			if(typeof oElementBinding === "undefined" || pid[2] === "undefined"){
+				var oViewModel = this.getModel("detailView");
 
-//				this.getRouter().getTargets().display("notFound");
-				return;
+				// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
+				var p = oViewModel.getProperty("/pid");
+				sPath = "/Products/" + p;
+				this._bindView(sPath);
+			}else{
+				sPath = oElementBinding.getPath();
 			}
 
-			var sPath = oElementBinding.getPath();
+
 			var oModel = this.getView().getModel();
 			var oObject = oModel.getProperty(sPath + "/prod_images");
 			var c = this.getView().byId("carousel");
@@ -300,6 +307,13 @@ sap.ui.define([
 
 			var sObjectPath = "/Products/" + oEvent.getParameter("arguments").objectId;
 			this._bindView(sObjectPath);
+
+			//set internal model (detailView) to latest product ID for reload problems with Multiflow:
+			var oViewModel = this.getModel("detailView");
+
+			// If the view was not bound yet its not busy, only if the binding requests data it is set to busy again
+			oViewModel.setProperty("/pid", oEvent.getParameter("arguments").objectId);
+
 		},
 
 		/**
