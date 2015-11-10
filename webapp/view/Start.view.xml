@@ -154,6 +154,7 @@
                 <ux:subSections>
                 <ux:ObjectPageSubSection title="Demonstration">
                 <ux:blocks>
+
                     <m:StandardTile
                             icon="sap-icon://arrow-right"
                             type="Monitor"

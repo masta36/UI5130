@@ -76,24 +76,25 @@
                                                 <m:Column>
                                                     <m:Text text="Article Name"/>
                                                 </m:Column>
-                                                <m:Column>
+                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                     <m:Text text="Article No"/>
                                                 </m:Column>
-                                                <m:Column>
+                                                <m:Column minScreenWidth="Tablet">
                                                     <m:Text text="Nights"/>
                                                 </m:Column>
-                                                <m:Column>
+                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                     <m:Text text="Room Category"/>
                                                 </m:Column>
-                                                <m:Column vAlign="center" hAlign="center">
+                                                <m:Column vAlign="center" hAlign="center" minScreenWidth="Tablet">
                                                     <m:Text text="Flight incl."/>
                                                 </m:Column>
-                                                <m:Column>
-                                                    <m:Text text="Rating"/>
-                                                </m:Column>
-                                                <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+                                                <m:Column hAlign="Right">
                                                     <m:Text text="Price from"/>
                                                 </m:Column>
+                                                <m:Column minScreenWidth="Tablet">
+                                                    <m:Text text="Rating"/>
+                                                </m:Column>
+
                                             </m:columns>
                                             <m:items>
                                                 <m:ColumnListItem vAlign="center" hAlign="center">
@@ -103,8 +104,8 @@
                                                         <m:ObjectIdentifier text="{nights}" />
                                                         <m:ObjectIdentifier text="{Room-Type}" />
                                                         <m:CheckBox selected="{flight}" editable="false"/>
-                                                        <m:RatingIndicator value="{rating}" enabled="false"/>
                                                         <m:ObjectNumber number="{ path: 'UnitPrice', formatter: '.formatter.currencyValue' }"/>
+                                                        <m:RatingIndicator value="{rating}" enabled="false" iconSize="1rem"/>
                                                     </m:cells>
                                                 </m:ColumnListItem>
                                             </m:items>
@@ -113,7 +114,7 @@
                                     <m:IconTabFilter icon="sap-icon://documents" id="iconTabBarFilter2" tooltip="{i18n>detailIconTabBarAttachments}">
                                         <m:Button text="Open Document-Manager" icon="sap-icon://edit" press="onOpenDocMan"/>
                                         <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
-                                               noDataText="{i18n>detailLineItemTableNoDataText}" width="auto">
+                                               noDataText="{i18n>detailLineItemTableNoDataText}">
                                             <m:headerToolbar>
                                                 <m:Toolbar id="lineItemsToolbar2">
                                                     <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
@@ -123,15 +124,15 @@
                                                 <m:Column>
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
                                                 </m:Column>
-                                                <m:Column>
+                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
                                                 </m:Column>
-                                                <m:Column>
+                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
                                                 </m:Column>
                                                 <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
                                                     <m:Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
-                                                </m:Column>
+                                                </m:Column >
                                                 <m:Column hAlign="Right">
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnDownloadDocuments}"/>
                                                 </m:Column>

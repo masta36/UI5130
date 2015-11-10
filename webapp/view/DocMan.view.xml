@@ -24,7 +24,7 @@
                         <subSections>
                             <ObjectPageSubSection title="Upload">
                                 <blocks>
-                                    <l:VerticalLayout class="sapUiSmallMargin" width="50%">
+                                    <l:VerticalLayout class="sapUiSmallMargin" width="75%">
                                         <l:VerticalLayout id="container" >
                                             <m:UploadCollection
                                                     id="upload"
@@ -90,20 +90,20 @@
                             <ObjectPageSubSection title="Documents">
                                 <blocks>
                                     <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList2" items="{Product_Docs}"
-                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments" width="60%" mode="SingleSelectMaster" selectionChange="doSelect">
+                                             noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinishedDocuments"  mode="SingleSelectMaster" selectionChange="doSelect">
                                         <m:headerToolbar>
                                             <m:Toolbar id="lineItemsToolbar2">
                                                 <m:Title id="lineItemsHeader2" text="{detailView>/documentItemTitle}"/>
                                             </m:Toolbar>
                                         </m:headerToolbar>
                                         <m:columns>
-                                            <m:Column>
+                                            <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                 <m:Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
                                             </m:Column>
-                                            <m:Column>
+                                            <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                 <m:Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
                                             </m:Column>
-                                            <m:Column>
+                                            <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                 <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
                                             </m:Column>
                                         </m:columns>
@@ -127,7 +127,7 @@
                             <ObjectPageSubSection title="Document Metadata">
                                 <blocks>
                                     <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList5" items="{fake}"
-                                             noDataText="no Document Details" updateFinished="onListUpdateFinishedDocuments" width="50%">
+                                             noDataText="no Document Details" updateFinished="onListUpdateFinishedDocuments">
                                         <m:columns>
                                             <m:Column>
                                                 <m:Text text="Metadata"/>

@@ -3,9 +3,9 @@
         <m:items>
             <m:IconTabFilter icon="sap-icon://database" text="Basic" id="iconTabBarFilter1" tooltip="Basic">
                 <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
-                         noDataText="no Data found" updateFinished="onListUpdateFinishedDocuments" width="60%">
+                         noDataText="no Data found" updateFinished="onListUpdateFinishedDocuments">
                     <m:columns>
-                        <m:Column width="30%">
+                        <m:Column width="50%">
                             <m:Text text="Characteristic"/>
                         </m:Column>
                         <m:Column>
