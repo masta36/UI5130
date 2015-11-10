@@ -27,7 +27,7 @@
             <ux:ObjectPageSubSection title="Welcome">
             <ux:blocks>
                 <l:VerticalLayout>
-                    <m:Label design="Bold" text="Welcome" />
+                    <m:Label design="Bold" text="" />
                     <m:Text text="This is a demonstrator for visualization and editing of all kind of Product-relevant information by using SAP / OpenUI5.\r\nFeel free to play around with the features. We are happy to hear your feedback.\r\n\r\nEnjoy" />
                 </l:VerticalLayout>
         <DynamicContainer class="marginTopLeft" displayTime="2000">
@@ -155,31 +155,13 @@
                 <ux:ObjectPageSubSection title="Demonstration">
                 <ux:blocks>
 
+
                     <m:StandardTile
                             icon="sap-icon://arrow-right"
                             type="Monitor"
                             title="Start Product Information Cockpit (PIC)"
-                            info="Go for it"
+                            info="Start"
                             infoState="Success" press="openPIC"/>
-                <GenericTile
-                        header="Get in contact"
-                        size="L"
-                        frameType="TwoByOne"
-                        press="press"
-                        headerImage="sap-icon://email">
-                    <tileContent>
-                        <TileContent footer="(c) 2015 / projektraum36 GmbH &amp; Co. KG" size="M">
-                            <content>
-                                <JamContent
-                                        size="M"
-                                        contentText="Interested in getting in touch with our products?\r\nWe are happy to provide you with information about our portfolio. Just write an e-mail to: info@projektraum36.de"
-                                        subheader=""
-                                        value="">
-                                </JamContent>
-                            </content>
-                        </TileContent>
-                    </tileContent>
-                </GenericTile>
 
                 </ux:blocks>
                 </ux:ObjectPageSubSection>

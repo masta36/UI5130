@@ -5,7 +5,7 @@
                 <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList3" items="{Product_Class/Basic}"
                          noDataText="no Data found" updateFinished="onListUpdateFinishedDocuments">
                     <m:columns>
-                        <m:Column width="50%">
+                        <m:Column width="38%">
                             <m:Text text="Characteristic"/>
                         </m:Column>
                         <m:Column>
@@ -26,9 +26,9 @@
             <m:IconTabFilter icon="sap-icon://bus-public-transport" text="Publication" id="iconTabBarFilter2" tooltip="Publication">
 
                 <m:Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList4" items="{Product_Class/Publication}"
-                         noDataText="no Data found" updateFinished="onListUpdateFinishedDocuments" width="60%">
+                         noDataText="no Data found" updateFinished="onListUpdateFinishedDocuments">
                     <m:columns>
-                        <m:Column width="30%">
+                        <m:Column width="38%">
                             <m:Text text="Characteristic"/>
                         </m:Column>
                         <m:Column>

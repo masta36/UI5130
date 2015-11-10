@@ -17,7 +17,7 @@
     </headerTitle>
         <headerContent>
             <layout:VerticalLayout>
-                <pr:PR_InlineEditor value="{prod_short}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                <pr:PR_InlineEditor value="{prod_short}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
             </layout:VerticalLayout>
         </headerContent>
 
@@ -38,21 +38,21 @@
                     <ObjectPageSubSection title="Introduction" id="sub_desc">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{Introduction}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Introduction}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
                     <ObjectPageSubSection title="Itinerary">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{Itinerary}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Itinerary}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
                     <ObjectPageSubSection title="Additional Information">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_info}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{prod_info}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
@@ -79,13 +79,13 @@
                                                 <m:Column minScreenWidth="Tablet" demandPopin="true">
                                                     <m:Text text="Article No"/>
                                                 </m:Column>
-                                                <m:Column minScreenWidth="Tablet">
+                                                <m:Column minScreenWidth="1280px" demandPopin="true">
                                                     <m:Text text="Nights"/>
                                                 </m:Column>
-                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                <m:Column minScreenWidth="1280px" demandPopin="true">
                                                     <m:Text text="Room Category"/>
                                                 </m:Column>
-                                                <m:Column vAlign="center" hAlign="center" minScreenWidth="Tablet">
+                                                <m:Column vAlign="center" hAlign="center" minScreenWidth="Desktop">
                                                     <m:Text text="Flight incl."/>
                                                 </m:Column>
                                                 <m:Column hAlign="Right">
@@ -124,13 +124,13 @@
                                                 <m:Column>
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnDocuments}"/>
                                                 </m:Column>
-                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                <m:Column minScreenWidth="700px" demandPopin="true">
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnVersionDocuments}"/>
                                                 </m:Column>
-                                                <m:Column minScreenWidth="Tablet" demandPopin="true">
+                                                <m:Column minScreenWidth="700px" demandPopin="true">
                                                     <m:Text text="{i18n>detailLineItemTableIDColumnOwnerDocuments}"/>
                                                 </m:Column>
-                                                <m:Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+                                                <m:Column demandPopin="true" hAlign="Right" minScreenWidth="700px">
                                                     <m:Text text="{i18n>detailLineItemTableUnitNumberColumnDocuments}"/>
                                                 </m:Column >
                                                 <m:Column hAlign="Right">

@@ -13,7 +13,8 @@ sap.ui.define([
         metadata : {
             properties : {
                 value: {type : "string", defaultValue : "Working"},
-                icon: {type : "string", defaultValue : "Working"}
+                icon: {type : "string", defaultValue : "Working"},
+                enabled: {type: "boolean", defaultValue : true}
             },
             aggregations : {
                 _formatted : {type : "sap.ui.commons.FormattedTextView", multiple: false, visibility : "visible"},
@@ -102,6 +103,10 @@ sap.ui.define([
             this.getAggregation("_icon").setSrc(iValue);
         },
 
+        setEnabled: function (iValue) {
+            this.setProperty("enabled", iValue, true);
+        },
+
 
         renderer : function (oRM, oControl) {
             oRM.write("<div>");
@@ -111,7 +116,9 @@ sap.ui.define([
             oRM.addClass("compr36appcontrolPR_InlineEditorFade");
             oRM.writeClasses();
             oRM.write(">");
-            oRM.renderControl(oControl.getAggregation("_icon"));
+
+                oRM.renderControl(oControl.getAggregation("_icon"));
+
             oRM.write("</div>");
             oRM.write("<div style='display:inline'");
             oRM.renderControl(oControl.getAggregation("_formatted"));
