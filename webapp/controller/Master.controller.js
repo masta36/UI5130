@@ -441,6 +441,9 @@ sap.ui.define([
 				var pid = oEvent.getParameter("listItem").getBindingContext().getObject().ProductID;
 				this._showDetail(pid);//(oEvent.getParameter("listItem") || oEvent.getSource());
 
+				//hide master:
+				//var owner = this.getParent();//.hideMaster();
+
 				this._updateOrder(oSelectionInfo);
 			} else {
 				var sNewPath = [sPath, this._nextCrumb(sCurrentCrumb)].join("/");
