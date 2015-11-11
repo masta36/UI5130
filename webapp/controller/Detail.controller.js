@@ -105,6 +105,22 @@ sap.ui.define([
 			//this.getRouter().getTargets().display("doc");
 		},
 
+		/**
+		 * Navigates back in the browser history, if the entry was created by this app.
+		 * If not, it navigates to the Fiori Launchpad home page
+		 * @override
+		 * @public
+		 */
+		onNavBack: function(evt) {
+			var bReplace = !Device.system.phone;
+			var parts = evt.getSource().getBindingContext().toString().split("/");
+			var id = parts[2];
+
+			this.getRouter().navTo("master", {
+
+			}, bReplace);
+		},
+
 		//simulate document download:
 		doDownload: function(evt){
 			var model = this.getModel();

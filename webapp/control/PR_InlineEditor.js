@@ -12,9 +12,10 @@ sap.ui.define([
     return Control.extend("com.pr36.app.control.PR_InlineEditor", {
         metadata : {
             properties : {
-                value: {type : "string", defaultValue : "Working"},
-                icon: {type : "string", defaultValue : "Working"},
-                enabled: {type: "boolean", defaultValue : true}
+                value: {type : "string", defaultValue : ""},
+                icon: {type : "string", defaultValue : ""},
+                phone: {type: "boolean", defaultValue : true},
+                tablet: {type: "boolean", defaultValue : true}
             },
             aggregations : {
                 _formatted : {type : "sap.ui.commons.FormattedTextView", multiple: false, visibility : "visible"},
@@ -26,7 +27,8 @@ sap.ui.define([
             events : {
                 change : {
                     parameters : {
-                        value : {type : "string"}
+                        value : {type : "string"},
+                        enabled : {type : "boolean"}
                     }
                 },
 
@@ -38,6 +40,7 @@ sap.ui.define([
             }
         },
         init : function () {
+
             this.setAggregation("_formatted", new FormattedTextView({
                 htmlText : this.value, width : "600px", height : "300px"
             }));
@@ -56,6 +59,7 @@ sap.ui.define([
                 ariaDescribedBy:"acceptButtonDescription genericButtonDescription",
                 text: "Accept",
                 type: "Accept",
+                enabled: true,
                 icon: "sap-icon://accept",
                 visible: false,
                 press : this._toggleEditor.bind(this)
@@ -65,6 +69,7 @@ sap.ui.define([
                 ariaDescribedBy:"acceptButtonDescription genericButtonDescription",
                 text: "Discard",
                 type: "Reject",
+                enabled: true,
                 icon: "sap-icon://sys-cancel",
                 visible: false,
                 press : this._discard.bind(this)
@@ -117,8 +122,9 @@ sap.ui.define([
             oRM.writeClasses();
             oRM.write(">");
 
+            if(!oControl.getPhone() && !oControl.getTablet()) {
                 oRM.renderControl(oControl.getAggregation("_icon"));
-
+            }
             oRM.write("</div>");
             oRM.write("<div style='display:inline'");
             oRM.renderControl(oControl.getAggregation("_formatted"));

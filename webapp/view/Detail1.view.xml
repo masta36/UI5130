@@ -11,13 +11,13 @@
                           isObjectIconAlwaysVisible="false"
                           isObjectTitleAlwaysVisible="false"
                           isObjectSubtitleAlwaysVisible="false"
-                          isActionAreaAlwaysVisible="true"
+                          isActionAreaAlwaysVisible="false"
                           showPlaceholder = "true">
         </ObjectPageHeader>
     </headerTitle>
         <headerContent>
             <layout:VerticalLayout>
-                <pr:PR_InlineEditor value="{prod_short}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                <pr:PR_InlineEditor value="{prod_short}" phone="{device>/system/phone}" tablet="{device>/system/tablet}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
             </layout:VerticalLayout>
         </headerContent>
 
@@ -38,21 +38,21 @@
                     <ObjectPageSubSection title="Introduction" id="sub_desc">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{Introduction}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Introduction}" phone="{device>/system/phone}" tablet="{device>/system/tablet}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
                     <ObjectPageSubSection title="Itinerary">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{Itinerary}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{Itinerary}" phone="{device>/system/phone}" tablet="{device>/system/tablet}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
                     <ObjectPageSubSection title="Additional Information">
                         <blocks>
                             <layout:VerticalLayout>
-                                <pr:PR_InlineEditor value="{prod_info}" enabled="{device>/system/phone}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
+                                <pr:PR_InlineEditor value="{prod_info}" phone="{device>/system/phone}" tablet="{device>/system/tablet}" icon="sap-icon://edit" toggleEditor="toggleEdit" />
                             </layout:VerticalLayout>
                         </blocks>
                     </ObjectPageSubSection>
