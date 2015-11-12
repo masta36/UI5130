@@ -45,6 +45,12 @@ sap.ui.define([
             // Load JSON in model
             oModel.loadData("model/tiles.json");
             this.getView().setModel(oModel);
+
+            //no footer on phone:
+            var d = Device.system.phone;
+            if(d){
+                this.byId("page").setShowFooter(false);
+            }
         },
 
         openPIC: function(evt){

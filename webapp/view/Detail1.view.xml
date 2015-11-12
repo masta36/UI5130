@@ -2,7 +2,7 @@
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
           showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
     <m:content>
-    <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
+    <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
     <headerTitle>
         <ObjectPageHeader objectImageURI="{prod_images/0/}"
                           objectImageShape="Square"

@@ -2,7 +2,7 @@
     <m:Page busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
             showNavButton="true" title="{i18n>classTitle}" xmlns:t="sap.ui.table">
         <m:content>
-            <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
+            <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" subSectionLayout="TitleOnLeft" showTitleInHeaderContent = "true" showHeaderContent = "true" >
                 <headerTitle>
                     <ObjectPageHeader
 

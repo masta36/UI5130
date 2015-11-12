@@ -67,3 +67,5 @@ sap.ui.define([
     });
 
 });
+
+var split;

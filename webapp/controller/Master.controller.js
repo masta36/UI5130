@@ -80,7 +80,11 @@ sap.ui.define([
 				aSearch: []
 			};
 
-			//this._showStart();
+			//no footer on phone:
+			var d = Device.system.phone;
+			if(d){
+				this.byId("page").setShowFooter(false);
+			}
 
 		},
 
@@ -443,6 +447,8 @@ sap.ui.define([
 
 				//hide master:
 				//var owner = this.getParent();//.hideMaster();
+				var obus = sap.ui.getCore().getEventBus();
+				obus.publish("Master", "setMode", {});
 
 				this._updateOrder(oSelectionInfo);
 			} else {

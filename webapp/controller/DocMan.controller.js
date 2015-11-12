@@ -47,11 +47,11 @@ sap.ui.define([
 
             this.setModel(oModel, "classView");
 
-            // Load JSON in model
-           /* oModel.loadData("model/docs.json");
-            oModel.setProperty("templateShareable", true);
-            this.getView().setModel(oModel);
-            */
+            //no footer on phone:
+            var d = Device.system.phone;
+            if(d){
+                this.byId("page").setShowFooter(false);
+            }
         },
 
         onBeforeUploadStarts: function(evt){

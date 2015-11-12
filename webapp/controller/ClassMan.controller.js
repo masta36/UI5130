@@ -40,6 +40,12 @@ sap.ui.define([
 
             this.getRouter().getRoute("class").attachPatternMatched(this._onObjectMatched, this);
 
+            //no footer on phone:
+            var d = Device.system.phone;
+            if(d){
+                this.byId("page").setShowFooter(false);
+            }
+
         },
 
         onAfterRendering: function(){

@@ -46,7 +46,11 @@ sap.ui.define([
 
 			this.setModel(classModel, "classView");
 
-
+			//no footer on phone:
+			var d = Device.system.phone;
+			if(d){
+				this.byId("page").setShowFooter(false);
+			}
 
 		},
 
