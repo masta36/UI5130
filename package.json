@@ -1,0 +1,12 @@
+{
+  "name": "PIC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "author": "projektraum36",
+  "license": "Subject to pr36",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-openui5": "^0.8.0"
+  }
+}
