@@ -52,6 +52,11 @@ sap.ui.define([
 				this.byId("page").setShowFooter(false);
 			}
 
+			//eventbus:
+			var obus = sap.ui.getCore().getEventBus();
+			obus.subscribe("DocMan", "showMasterdata", this.showMasterdata, this);
+			obus.subscribe("ClassMan", "showMasterData", this.showMasterdata, this);
+
 		},
 
 		onBeforeRendering: function() {
@@ -81,6 +86,14 @@ sap.ui.define([
 			var oShareSheet = this.byId("shareSheet");
 			oShareSheet.addStyleClass(this.getOwnerComponent().getContentDensityClass());
 			oShareSheet.openBy(this.byId("shareButton"));
+		},
+
+		showMasterdata: function(){
+			if(typeof this.dialog != "undefined") this.dialog.close();
+
+			this.oObjectPageLayout = this.getView().byId("ObjectPageLayout");
+			this.oTargetSubSection = this.getView().byId("masterdata");
+			jQuery.sap.delayedCall(500, this.oObjectPageLayout, this.oObjectPageLayout.scrollToSection, [this.oTargetSubSection.getId()]);
 		},
 
 		onOpenDocMan: function(evt){
@@ -137,38 +150,47 @@ sap.ui.define([
 			this.showProgress(obj.DocName, obj.size);
 
 			this.al = 0;
-			if(this.trigger != null && typeof this.trigger != 'undefined') this.trigger.destroy();
+			if(this.trigger != null || typeof this.trigger != 'undefined') this.trigger.destroy();
 			this.trigger = new IntervalTrigger();
 			this.trigger.addListener($.proxy(this.updateBar, this)); //WICHTIG: SCOPE FÜR FUNKTION AUF CONTROLLER SETZEN!!!!
 			this.trigger.setInterval(50);
+
 		},
 
 		showProgress: function(docname, docsize){
-			prog = new ProgressIndicator({
-				percentValue: 0,
-				displayValue: "0%",
-				showValue: true
+
+			if(prog != null || typeof prog != "undefined") {
+				prog.destroy();
+			}
+
+			if(this.dialog != null || typeof this.dialog != "undefined") {
+				this.dialog.destroy();
+			}
+				prog = new ProgressIndicator({
+					percentValue: 0,
+					displayValue: "0%",
+					showValue: true
+				});
+
+			var b = new Button({
+				text: 'Close'
 			});
 
-			var dialog = new Dialog({
+			this.dialog = new Dialog({
 				title: 'Simulate Document Download: ' + docname + ' (' + docsize + ' kb)',
 				id: 'prog',
 				content: prog,
-				beginButton: new Button({
-					text: 'Close',
-					press:
-					function () {
-						dialog.close();
-					}
-				}),
+				beginButton: b,
 				afterClose: function() {
-					dialog.destroy();
+					if(typeof this.dialog != "undefined") this.dialog.destroy();
 				}
 			});
+			b.attachPress(this.showMasterdata, this);
 
 			//to get access to the global model
-			this.getView().addDependent(dialog);
-			dialog.open();
+			//this.getView().addDependent(this.dialog);
+			this.dialog.open();
+
 		},
 
 		/**
@@ -181,7 +203,7 @@ sap.ui.define([
 			prog.setDisplayValue( "downloading: "+this.al+"%" );
 			if(this.al >= 100){
 				this.al = 0;
-				this.trigger.setInterval(-1);
+			//	this.trigger.setInterval(-1);
 			}
 		},
 
@@ -476,3 +498,4 @@ var prog;
 var sim;
 var al = 0;
 var trigger;
+var dialog;

@@ -86,7 +86,7 @@ sap.ui.define([
             var bRemember = !!oEvent.getSource().data("remember");
             this._oDialog.setRememberSelections(bRemember);
 
-            this.getView().addDependent(this._oDialog);
+           // this.getView().addDependent(this._oDialog);
 
             // toggle compact style
             jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -194,6 +194,9 @@ sap.ui.define([
             var bReplace = !Device.system.phone;
             var parts = evt.getSource().getBindingContext().toString().split("/");
             var id = parts[2];
+
+            var obus = sap.ui.getCore().getEventBus();
+            obus.publish("ClassMan", "showMasterdata", {});
 
             this.getRouter().navTo("object", {
                 objectId: id //oItem.getBindingContext().getProperty("ProductID")

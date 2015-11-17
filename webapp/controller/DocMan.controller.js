@@ -111,11 +111,19 @@ sap.ui.define([
         },
 
         showProgress: function(docname, docsize){
+            if(prog != null || typeof prog != "undefined") {
+                prog.destroy();
+            }
+
             prog = new ProgressIndicator({
                 percentValue: 0,
                 displayValue: "0%",
                 showValue: true
             });
+
+            if(dialog != null || typeof dialog != "undefined") {
+                dialog.destroy();
+            }
 
             var dialog = new Dialog({
                 title: 'Simulate Document Upload',
@@ -126,6 +134,7 @@ sap.ui.define([
                     press:
                         function () {
                             dialog.close();
+                            dialog.destroy();
                         }
                 }),
                 afterClose: function() {
@@ -134,7 +143,7 @@ sap.ui.define([
             });
 
             //to get access to the global model
-            this.getView().addDependent(dialog);
+           // this.getView().addDependent(dialog);
             dialog.open();
         },
 
@@ -237,7 +246,7 @@ sap.ui.define([
             var bRemember = !!oEvent.getSource().data("remember");
             this._oDialog.setRememberSelections(bRemember);
 
-            this.getView().addDependent(this._oDialog);
+           // this.getView().addDependent(this._oDialog);
 
             // toggle compact style
             jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialog);
@@ -359,6 +368,9 @@ sap.ui.define([
             var bReplace = !Device.system.phone;
             var parts = evt.getSource().getBindingContext().toString().split("/");
             var id = parts[2];
+
+            var obus = sap.ui.getCore().getEventBus();
+            obus.publish("DocMan", "showMasterdata", {});
 
             this.getRouter().navTo("object", {
                 objectId: id //oItem.getBindingContext().getProperty("ProductID")

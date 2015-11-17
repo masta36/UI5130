@@ -24,7 +24,7 @@
         <sections>
                     <ObjectPageSection title="Product Pictures" id="sec_pic" icon="sap-icon://document">
                         <subSections>
-                            <ObjectPageSubSection>
+                            <ObjectPageSubSection id="pics">
                                 <blocks>
                                         <m:Carousel id="carousel">
 
@@ -60,7 +60,7 @@
             </ObjectPageSection>
             <ObjectPageSection title="Masterdata" icon="sap-icon://document">
                 <subSections>
-                    <ObjectPageSubSection>
+                    <ObjectPageSubSection id="masterdata">
                         <blocks>
                             <m:IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
                                 <m:items>
