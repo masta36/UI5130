@@ -52,6 +52,9 @@ sap.ui.define([
             if(d){
                 this.byId("page").setShowFooter(false);
             }
+
+            var obus = sap.ui.getCore().getEventBus();
+            obus.subscribe("Dia", "clearInt", this.clearInt, this);
         },
 
         onBeforeUploadStarts: function(evt){
@@ -110,9 +113,16 @@ sap.ui.define([
             */
         },
 
+        clearInt: function(){
+            this.trigger.setInterval(-1);
+        },
+
         showProgress: function(docname, docsize){
-            if(prog != null || typeof prog != "undefined") {
-                prog.destroy();
+
+            if(this.byId("prog1") || this.byId("prog1") != null || typeof this.byId("prog1") != "undefined") {
+                var p = this.byId("prog1");
+                //$.(p).remove();
+                //prog.destroy();
             }
 
             prog = new ProgressIndicator({
@@ -127,12 +137,15 @@ sap.ui.define([
 
             var dialog = new Dialog({
                 title: 'Simulate Document Upload',
-                id: 'prog',
+                id: 'prog1',
                 content: prog,
                 beginButton: new Button({
                     text: 'Close',
                     press:
                         function () {
+                            //eventbus:
+                            var obus = sap.ui.getCore().getEventBus();
+                            obus.publish("Dia", "clearInt", {});
                             dialog.close();
                             dialog.destroy();
                         }

@@ -90,6 +90,7 @@ sap.ui.define([
 
 		showMasterdata: function(){
 			if(typeof this.dialog != "undefined") this.dialog.close();
+			this.trigger.setInterval(-1);
 
 			this.oObjectPageLayout = this.getView().byId("ObjectPageLayout");
 			this.oTargetSubSection = this.getView().byId("masterdata");
@@ -169,7 +170,8 @@ sap.ui.define([
 				prog = new ProgressIndicator({
 					percentValue: 0,
 					displayValue: "0%",
-					showValue: true
+					showValue: true,
+					id:"progInd"
 				});
 
 			var b = new Button({
@@ -182,7 +184,12 @@ sap.ui.define([
 				content: prog,
 				beginButton: b,
 				afterClose: function() {
-					if(typeof this.dialog != "undefined") this.dialog.destroy();
+					if(typeof this.dialog != "undefined"){
+						//$.(this.byId("progInd")).remove();
+						this.trigger.destroy();
+						this.dialog.byId("progInd").destroy();
+						this.dialog.destroy();
+					}
 				}
 			});
 			b.attachPress(this.showMasterdata, this);
