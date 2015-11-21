@@ -90,7 +90,7 @@ sap.ui.define([
 
 		showMasterdata: function(){
 			if(typeof this.dialog != "undefined") this.dialog.close();
-			this.trigger.setInterval(-1);
+			if(typeof this.trigger != "undefined" && this.trigger != null) this.trigger.setInterval(-1);
 
 			this.oObjectPageLayout = this.getView().byId("ObjectPageLayout");
 			this.oTargetSubSection = this.getView().byId("masterdata");
@@ -210,7 +210,7 @@ sap.ui.define([
 			prog.setDisplayValue( "downloading: "+this.al+"%" );
 			if(this.al >= 100){
 				this.al = 0;
-			//	this.trigger.setInterval(-1);
+			    this.trigger.setInterval(-1);
 			}
 		},
 
@@ -259,7 +259,10 @@ sap.ui.define([
 				oViewModel = this.getModel("detailView");
 
 			var oElementBinding = this.getView().getElementBinding();
-			var pid = oElementBinding.getPath().toString().split("/");
+			var pid = new Array();
+			if(typeof oElementBinding != "undefined") {
+				pid = oElementBinding.getPath().toString().split("/");
+			}
 			var sPath = "";
 			if(typeof oElementBinding === "undefined" || pid[2] === "undefined"){
 				var oViewModel = this.getModel("detailView");
